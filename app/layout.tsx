@@ -1,12 +1,12 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Josefin_Sans } from 'next/font/google'
+import { Space_Grotesk } from 'next/font/google'
 import "./globals.css"
 
-const josefinSans = Josefin_Sans({
+const monumentExtended = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
-  variable: "--font-josefin",
+  weight: ["400", "700"],
+  variable: "--font-monument",
   display: "swap",
 })
 
@@ -84,7 +84,7 @@ export const metadata: Metadata = {
   publisher: "Projxty",
   category: "Technology",
   classification: "Business",
-  generator: 'v0.app'
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -232,7 +232,7 @@ export default function RootLayout({
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
-      <body className={`${josefinSans.variable} font-sans antialiased`}>
+      <body className={`${monumentExtended.variable} font-sans antialiased`}>
         <main>{children}</main>
       </body>
     </html>
