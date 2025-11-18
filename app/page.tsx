@@ -2015,8 +2015,8 @@ export default function Home() {
   <div className="relative w-full max-w-xl flex items-center justify-center">
 
     {/* Cross (responsive) */}
-    <div className="absolute w-px h-full bg-foreground/70"></div>
-    <div className="absolute h-px w-full bg-foreground/70"></div>
+    
+    
 
     {/* Responsive Grid Instead of Absolute */}
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full text-center">
