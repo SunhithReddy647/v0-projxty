@@ -39,6 +39,43 @@ const NON_IT_DOMAINS = [
 export default function WorkWithPage() {
   return (
     <main className="relative w-full bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "EducationalOccupationalProgram",
+            name: "Projxty AICTE Approved Internship Program",
+            description: "Comprehensive internship program in web development, UI/UX design, and digital marketing with AICTE certification",
+            provider: {
+              "@type": "EducationalOrganization",
+              name: "Projxty",
+              url: "https://projxty.com",
+            },
+            educationalCredentialAwarded: {
+              "@type": "EducationalOccupationalCredential",
+              name: "AICTE Approved Internship Certificate",
+              credentialCategory: "Certificate",
+              recognizedBy: {
+                "@type": "Organization",
+                name: "AICTE - All India Council for Technical Education",
+              },
+            },
+            occupationalCategory: [
+              "Web Developer",
+              "UI/UX Designer",
+              "Digital Marketer",
+              "Full Stack Developer",
+            ],
+            areaServed: [
+              { "@type": "City", name: "Hyderabad" },
+              { "@type": "City", name: "Bengaluru" },
+              { "@type": "City", name: "Chennai" },
+              { "@type": "Country", name: "India" },
+            ],
+          }),
+        }}
+      />
       <CustomCursor />
       <GrainOverlay />
 

@@ -81,6 +81,23 @@ export default function StartProjectPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "Start Your Project - Projxty",
+            description: "Get your capstone project, final year project, or custom website developed under ₹40,000",
+            url: "https://projxty.com/start-project",
+            provider: {
+              "@type": "Organization",
+              name: "Projxty",
+              areaServed: ["Hyderabad", "Bengaluru", "Chennai", "Pune", "Delhi", "India"],
+            },
+          }),
+        }}
+      />
       {/* Header */}
       <header className="border-b border-border/40 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
         <div className="container mx-auto px-4 py-4">

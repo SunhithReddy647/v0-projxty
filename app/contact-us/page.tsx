@@ -7,6 +7,28 @@ import Link from "next/link"
 export default function ContactUsPage() {
   return (
     <main className="relative min-h-screen w-full bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            name: "Contact Projxty",
+            description: "Get in touch with Projxty for web development and internship inquiries",
+            mainEntity: {
+              "@type": "Organization",
+              name: "Projxty",
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "Customer Service",
+                email: "projxty@gmail.com",
+                availableLanguage: ["English", "Hindi", "Telugu"],
+                areaServed: "IN",
+              },
+            },
+          }),
+        }}
+      />
       <CustomCursor />
       <GrainOverlay />
 

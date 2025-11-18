@@ -7,6 +7,36 @@ import Link from "next/link"
 export default function AboutUsPage() {
   return (
     <main className="relative min-h-screen w-full bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            name: "About Projxty",
+            description: "Learn about Projxty's mission, values, and services in web development and internships",
+            mainEntity: {
+              "@type": "Organization",
+              name: "Projxty",
+              foundingDate: "2024",
+              founder: {
+                "@type": "Person",
+                name: "Sunhith Reddy",
+              },
+              knowsAbout: [
+                "Web Development",
+                "UI/UX Design",
+                "Capstone Projects",
+                "AICTE Internships",
+              ],
+              areaServed: {
+                "@type": "Country",
+                name: "India",
+              },
+            },
+          }),
+        }}
+      />
       <CustomCursor />
       <GrainOverlay />
 

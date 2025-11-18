@@ -7,6 +7,24 @@ import Link from "next/link"
 export default function OurPricingPage() {
   return (
     <main className="relative min-h-screen w-full bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "PriceSpecification",
+            name: "Projxty Web Development Pricing",
+            description: "Affordable web development and project development services under ₹40,000",
+            priceCurrency: "INR",
+            price: "40000",
+            maxPrice: "40000",
+            eligibleRegion: {
+              "@type": "Country",
+              name: "India",
+            },
+          }),
+        }}
+      />
       <CustomCursor />
       <GrainOverlay />
 

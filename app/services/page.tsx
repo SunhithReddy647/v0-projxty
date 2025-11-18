@@ -7,6 +7,60 @@ import Link from "next/link"
 export default function ServicesPage() {
   return (
     <main className="relative min-h-screen w-full bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Projxty Web Development Services",
+            description: "Professional web development, UI/UX design, e-commerce, and digital marketing services across India",
+            provider: {
+              "@type": "Organization",
+              name: "Projxty",
+              url: "https://projxty.com",
+            },
+            areaServed: [
+              { "@type": "City", name: "Hyderabad" },
+              { "@type": "City", name: "Bengaluru" },
+              { "@type": "City", name: "Chennai" },
+              { "@type": "City", name: "Pune" },
+              { "@type": "City", name: "Delhi" },
+              { "@type": "Country", name: "India" },
+            ],
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "Web Development Services",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Web Design & Development",
+                    description: "Custom website development using React, Next.js, and modern frameworks",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "UI/UX Design",
+                    description: "User-centric design with smooth, intuitive experiences",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "E-Commerce Solutions",
+                    description: "Secure online stores with payment integration",
+                  },
+                },
+              ],
+            },
+          }),
+        }}
+      />
       <CustomCursor />
       <GrainOverlay />
 

@@ -7,6 +7,22 @@ import Link from "next/link"
 export default function BlogPage() {
   return (
     <main className="relative min-h-screen w-full bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            name: "Projxty Blog",
+            description: "Expert insights on web development, projects, and internships from India",
+            publisher: {
+              "@type": "Organization",
+              name: "Projxty",
+              url: "https://projxty.com",
+            },
+          }),
+        }}
+      />
       <CustomCursor />
       <GrainOverlay />
 

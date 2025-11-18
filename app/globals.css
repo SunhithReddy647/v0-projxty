@@ -73,7 +73,8 @@
 }
 
 @theme inline {
-  --font-sans: "Geist", "Geist Fallback";
+  /* Updated font family to use Josefin Sans variable */
+  --font-sans: var(--font-josefin), "Geist", "Geist Fallback";
   --font-mono: "Geist Mono", "Geist Mono Fallback";
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -120,6 +121,10 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Set base font size to 18px for better desktop readability */
+    font-size: 18px;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
   }
 
   /* Hide all scrollbars globally */

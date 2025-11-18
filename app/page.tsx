@@ -1563,15 +1563,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="rounded-lg bg-gradient-to-r from-foreground/5 via-foreground/8 to-foreground/5 border border-foreground/10 p-5 sm:p-6 text-center backdrop-blur-sm">
-              <h3 className="font-sans text-lg sm:text-xl font-bold text-foreground mb-2">Need a custom plan?</h3>
-              <p className="text-sm text-foreground/60 mb-4">
-                Tell us your goals — we'll craft the perfect package for you.
-              </p>
-              <button className="rounded-lg bg-foreground px-6 py-2.5 font-sans text-sm font-semibold text-background hover:bg-foreground/90 transition-all">
-                Let's Talk
-              </button>
-            </div>
+            
           </div>
         </section>
 
@@ -2015,8 +2007,8 @@ export default function Home() {
   <div className="relative w-full max-w-xl flex items-center justify-center">
 
     {/* Cross (responsive) */}
-    <div className="absolute w-px h-full bg-foreground/70"></div>
-    <div className="absolute h-px w-full bg-foreground/70"></div>
+    
+    
 
     {/* Responsive Grid Instead of Absolute */}
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full text-center">
