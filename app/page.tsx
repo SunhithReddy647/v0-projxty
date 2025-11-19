@@ -378,7 +378,7 @@ export default function Home() {
               </span>
             </div>
 
-            <div className="space-y-4 text-sm text-foreground/80 leading-relaxed mb-8">
+            <div className="space-y-3 text-sm text-foreground/80 leading-relaxed">
               <p>
                 <span className="font-semibold text-foreground">Projxty</span> is a modern web development and design
                 company built on one simple belief — great ideas deserve great execution.
@@ -389,40 +389,13 @@ export default function Home() {
                 and brand platforms.
               </p>
 
-              <div className="pt-4 border-t border-foreground/10">
+              <div className="pt-3 border-t border-foreground/10">
                 <p className="text-base font-semibold text-foreground leading-tight">
                   We don't just build websites.
                   <br />
                   <span className={gradientText}>We create digital identities that last.</span>
                 </p>
               </div>
-            </div>
-
-            <div className="mb-6 p-4 rounded-lg bg-foreground/5">
-              <h2 className="font-monument text-xl font-bold text-foreground mb-2">
-                Founded by
-                <br />
-                <span className={gradientText}>Sunhith Reddy</span>
-              </h2>
-              <p className="text-xs text-foreground/60 uppercase tracking-widest">Founder & CEO</p>
-            </div>
-
-            <div className="space-y-3">
-              {[
-                { num: "1", title: "Innovation", desc: "Push boundaries with cutting-edge solutions" },
-                { num: "2", title: "Learning", desc: "Comprehensive internship programs" },
-                { num: "3", title: "Purpose", desc: "Design meets purpose, innovation never stops" },
-              ].map((item) => (
-                <div key={item.num} className="flex items-start gap-3">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-primary to-accent">
-                    <span className="text-sm font-bold text-background">{item.num}</span>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-0.5 text-sm">{item.title}</h3>
-                    <p className="text-xs text-foreground/70">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
             </div>
           </section>
 
@@ -463,7 +436,7 @@ export default function Home() {
                   desc: "Data-driven optimization for reach",
                 },
                 {
-                  icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z",
+                  icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37.996.608 2.296.07 2.572-1.065z",
                   title: "Maintenance & Support",
                   desc: "24/7 website care and updates",
                 },
@@ -920,7 +893,7 @@ export default function Home() {
             alt="Projxty Logo"
             className="h-6 w-6 sm:h-7 sm:w-7"
           />
-          <span className="font-monument text-lg sm:text-xl font-bold tracking-tight text-foreground hidden sm:inline">
+          <span className="font-monument text-lg font-bold tracking-tight text-foreground hidden sm:inline sm:text-2xl">
             Projxty
           </span>
         </Link>
@@ -930,7 +903,7 @@ export default function Home() {
             <button
               key={item}
               onClick={() => scrollToSection(index)}
-              className={`group relative font-sans text-xs sm:text-sm font-medium transition-colors duration-300 whitespace-nowrap cursor-pointer ${
+              className={`group relative font-sans text-xs font-medium transition-colors duration-300 whitespace-nowrap cursor-pointer sm:text-base ${
                 index === currentSection ? "text-foreground" : "text-foreground/60 hover:text-foreground"
               }`}
               style={{ pointerEvents: "auto" }}
@@ -1089,7 +1062,7 @@ export default function Home() {
                   </p>
                 </div>
 
-                <p className="text-xs sm:text-sm lg:text-base pt-2">
+                <p className="text-xs sm:text-sm lg:text-base">
                   Our focus is simple: create websites that are{" "}
                   <span className="font-semibold text-foreground">fast, flawless, and future-ready</span>. Every project
                   is a partnership — your vision, our expertise, and a shared goal of making something that truly works.
@@ -1358,7 +1331,7 @@ export default function Home() {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           strokeWidth={2}
-                          d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                          d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37.996.608 2.296.07 2.572-1.065z"
                         />
                         <path
                           strokeLinecap="round"
@@ -1563,7 +1536,13 @@ export default function Home() {
               </div>
             </div>
 
-            
+            <div className="rounded-lg bg-gradient-to-r from-foreground/5 via-foreground/8 to-foreground/5 border border-foreground/10 p-6 text-center">
+              <h3 className="font-sans text-lg font-bold text-foreground mb-2">Need a custom plan?</h3>
+              <p className="text-sm text-foreground/60 mb-4">Tell us your goals — we'll craft the perfect package.</p>
+              <button className="rounded-lg bg-foreground px-6 py-2.5 text-sm font-semibold text-background">
+                Let's Talk
+              </button>
+            </div>
           </div>
         </section>
 
@@ -1997,192 +1976,113 @@ export default function Home() {
           </div>
 
           {/* Right Section - Contact Links Only */}
-<div className="flex w-full md:w-1/2 flex-col justify-center items-center px-6 sm:px-10 lg:px-16">
-  <div className="text-center mb-10">
-    <h2 className="font-monument text-3xl font-bold text-foreground">
-      Get in Touch
-    </h2>
-  </div>
+          <div className="flex w-full md:w-1/2 flex-col justify-center items-center px-6 sm:px-10 lg:px-16">
+            <div className="text-center mb-10 flex items-center gap-4">
+              <svg className="w-12 h-12" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#FF6600" d="M256,0C114.608,0,0,114.608,0,256s114.608,256,256,256s256-114.608,256-256S397.392,0,256,0z M179.664,202.064l-125.04,62.672v0.672l125.04,62.672v22.064l-148.4-76.432v-17.264l148.4-76.432V202.064z M221.872,362.928h-21.44 l89.232-231.872h21.728L221.872,362.928z M331.568,350.128v-22.064l126-62.672v-0.672l-126-62.672V180l148.4,76.096v17.936 L331.568,350.128z"/>
+              </svg>
+              <h2 className="font-monument text-3xl font-bold text-foreground">
+                Get in Touch
+              </h2>
+            </div>
 
-  <div className="relative w-full max-w-xl flex items-center justify-center">
-
-    {/* Cross (responsive) */}
-    
-    
-
-    {/* Responsive Grid Instead of Absolute */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full text-center">
-      
-      {/* Internship */}
-      <div className="border border-foreground/30 rounded-xl px-6 py-5">
-        <h3 className="font-semibold text-foreground mb-3">
-          Internship Queries
-        </h3>
-        <a
-          href="https://wa.me/916361064550?text=Hi%2C%20I%27m%20interested%20in%20internship%20opportunities"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block text-sm px-4 py-2 rounded-lg bg-primary text-background hover:shadow-lg hover:scale-105 transition"
-        >
-          WhatsApp Us
-        </a>
-      </div>
-
-      {/* Web Dev */}
-      <div className="border border-foreground/30 rounded-xl px-6 py-5">
-        <h3 className="font-semibold text-foreground mb-3">
-          Web Development Inquiries
-        </h3>
-        <a
-          href="https://wa.me/916361064550?text=Hi%2C%20I%27m%20interested%20in%20web%20development%20services"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block text-sm px-4 py-2 rounded-lg bg-primary text-background hover:shadow-lg hover:scale-105 transition"
-        >
-          WhatsApp Us
-        </a>
-      </div>
-
-      {/* Capstone View */}
-      <div className="border border-foreground/30 rounded-xl px-6 py-5">
-        <h3 className="font-semibold text-foreground mb-3">
-          View Capstone Projects
-        </h3>
-        <a
-          href="https://projxty.netlify.app/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block text-sm px-4 py-2 rounded-lg bg-accent text-background hover:shadow-lg hover:scale-105 transition"
-        >
-          View Now
-        </a>
-      </div>
-
-      {/* Capstone Help */}
-      <div className="border border-foreground/30 rounded-xl px-6 py-5">
-        <h3 className="font-semibold text-foreground mb-3">
-          Capstone Project Help
-        </h3>
-        <a
-          href="https://wa.me/916361064550?text=Hi%2C%20I%27m%20interested%20in%20capstone%20project%20services"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block text-sm px-4 py-2 rounded-lg bg-primary text-background hover:shadow-lg hover:scale-105 transition"
-        >
-          WhatsApp Us
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-          {/* Mobile Form - Stacked vertically */}
-          <div className="md:hidden absolute inset-0 flex flex-col pt-16 sm:pt-20">
-            <div className="flex-1 flex flex-col justify-center items-center px-6 bg-foreground/5 py-8 overflow-y-auto">
-              <div className="max-w-md w-full space-y-4 animate-in fade-in slide-in-from-left duration-700">
-                <div>
-                  <h1 className="font-monument text-2xl sm:text-3xl font-bold text-foreground mb-2 leading-tight">
-                    Let's Build Something
-                    <br />
-                    <span className={gradientText}>Great Together.</span>
-                  </h1>
-                  <p className="text-xs sm:text-sm text-foreground/70 leading-relaxed">
-                    Reach out to collaborate, discuss projects, or just say hello.
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full">
+              
+              {/* Internship */}
+              <div className="group relative border border-foreground/20 rounded-2xl p-6 bg-background/50 backdrop-blur-sm hover:border-foreground/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative z-10 flex flex-col h-full">
+                  
+                  <h3 className="font-semibold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
+                    Internship Opportunities
+                  </h3>
+                  <p className="text-sm text-foreground/60 mb-4 leading-relaxed flex-1">
+                    Join our team and gain real-world experience in web development.
                   </p>
-                </div>
-
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-r from-primary to-accent">
-                      <svg className="h-4 w-4 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="text-[10px] text-foreground/50 uppercase tracking-wide">Email</p>
-                      <a href="mailto:projxty@gmail.com" className="text-xs font-medium text-foreground">
-                        projxty@gmail.com
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-r from-primary to-accent">
-                      <svg className="h-4 w-4 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="text-[10px] text-foreground/50 uppercase tracking-wide">Phone</p>
-                      <a href="tel:+919876543210" className="text-xs font-medium text-foreground">
-                        +91 98765 43210
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-r from-primary to-accent">
-                      <svg className="h-4 w-4 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                        />
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="text-[10px] text-foreground/50 uppercase tracking-wide">Location</p>
-                      <p className="text-xs font-medium text-foreground">Hyderabad, India</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex gap-2 pt-2">
                   <a
-                    href="https://www.linkedin.com/company/projxty"
-                    className="flex h-8 w-8 items-center justify-center rounded-lg bg-foreground/10"
-                  >
-                    <svg className="h-4 w-4 text-foreground" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                  </a>
-                  <a
-                    href="https://www.instagram.com/projxty"
-                    className="flex h-8 w-8 items-center justify-center rounded-lg bg-foreground/10"
-                  >
-                    <svg className="h-4 w-4 text-foreground" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z" />
-                    </svg>
-                  </a>
-
-                  {/* Facebook */}
-                  <a
-                    href="https://www.facebook.com/projxty"
+                    href="https://wa.me/916361064550?text=Hi%2C%20I%27m%20interested%20in%20internship%20opportunities"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-8 w-8 items-center justify-center rounded-lg bg-foreground/10"
+                    className="inline-flex items-center justify-center gap-2 text-sm px-5 py-2.5 rounded-xl bg-primary text-background font-semibold hover:shadow-lg hover:shadow-primary/30 hover:scale-105 transition-all duration-300 w-full"
                   >
-                    <svg className="h-4 w-4 text-foreground" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    <span>Apply Now</span>
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              {/* Web Development */}
+              <div className="group relative border border-foreground/20 rounded-2xl p-6 bg-background/50 backdrop-blur-sm hover:border-foreground/40 hover:shadow-2xl hover:shadow-foreground/10 transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-foreground/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative z-10 flex flex-col h-full">
+                  
+                  <h3 className="font-semibold text-lg text-foreground mb-2 group-hover:text-foreground/80 transition-colors">
+                    Web Development
+                  </h3>
+                  <p className="text-sm text-foreground/60 mb-4 leading-relaxed flex-1">
+                    Professional websites that drive results for your business
+                  </p>
+                  <a
+                    href="https://wa.me/916361064550?text=Hi%2C%20I%27m%20interested%20in%20web%20development%20services"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 text-sm px-5 py-2.5 rounded-xl bg-accent text-background font-semibold hover:shadow-lg hover:shadow-accent/30 hover:scale-105 transition-all duration-300 w-full"
+                  >
+                    <span>Get Started</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              {/* Capstone Projects Portfolio */}
+              <div className="group relative border border-foreground/20 rounded-2xl p-6 bg-background/50 backdrop-blur-sm hover:border-foreground/40 hover:shadow-2xl hover:shadow-foreground/10 transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-foreground/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative z-10 flex flex-col h-full">
+                  
+                  <h3 className="font-semibold text-lg text-foreground mb-2 group-hover:text-foreground/80 transition-colors">
+                    Capstone Projects
+                  </h3>
+                  <p className="text-sm text-foreground/60 mb-4 leading-relaxed flex-1">
+                    Browse our portfolio of successful capstone projects
+                  </p>
+                  <a
+                    href="https://projxty.netlify.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 text-sm px-5 py-2.5 rounded-xl bg-foreground text-background font-semibold hover:shadow-lg hover:shadow-foreground/30 hover:scale-105 transition-all duration-300 w-full"
+                  >
+                    <span>View Portfolio</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              {/* Capstone Project Help */}
+              <div className="group relative border border-foreground/20 rounded-2xl p-6 bg-background/50 backdrop-blur-sm hover:border-foreground/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative z-10 flex flex-col h-full">
+                  
+                  <h3 className="font-semibold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
+                    Capstone Project Help
+                  </h3>
+                  <p className="text-sm text-foreground/60 mb-4 leading-relaxed flex-1">
+                    Get expert guidance for your final year capstone project
+                  </p>
+                  <a
+                    href="https://wa.me/916361064550?text=Hi%2C%20I%27m%20interested%20in%20capstone%20project%20services"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 text-sm px-5 py-2.5 rounded-xl bg-primary text-background font-semibold hover:shadow-lg hover:shadow-primary/30 hover:scale-105 transition-all duration-300 w-full"
+                  >
+                    <span>WhatsApp Us</span>
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                     </svg>
                   </a>
                 </div>
