@@ -9,7 +9,7 @@ import Image from "next/image"
 
 export default function Home() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
-  const sectionRefsRef = useRef<(HTMLDivElement | null)[]>([])
+  const sectionRefsRef = useRef<(HTMLElement | null)[]>([])
   const [currentSection, setCurrentSection] = useState(0)
   const [isLoaded, setIsLoaded] = useState(false)
   const shaderContainerRef = useRef<HTMLDivElement>(null)
@@ -64,18 +64,18 @@ export default function Home() {
     }
   }, [])
 
-  const canSectionScroll = useCallback((sectionElement: HTMLDivElement | null): boolean => {
+  const canSectionScroll = useCallback((sectionElement: HTMLElement | null): boolean => {
     if (!sectionElement) return false
     return sectionElement.scrollHeight > sectionElement.clientHeight + 10
   }, [])
 
-  const isAtSectionBottom = useCallback((sectionElement: HTMLDivElement | null): boolean => {
+  const isAtSectionBottom = useCallback((sectionElement: HTMLElement | null): boolean => {
     if (!sectionElement) return true
     const threshold = 10
     return sectionElement.scrollHeight - sectionElement.clientHeight - sectionElement.scrollTop < threshold
   }, [])
 
-  const isAtSectionTop = useCallback((sectionElement: HTMLDivElement | null): boolean => {
+  const isAtSectionTop = useCallback((sectionElement: HTMLElement | null): boolean => {
     if (!sectionElement) return true
     return sectionElement.scrollTop < 10
   }, [])
@@ -2272,6 +2272,7 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </section>
       </section>
     </main>
   )
