@@ -1,0 +1,17 @@
+# robots.txt for Projxty
+
+User-agent: *
+Allow: /
+
+Disallow: /api/
+Disallow: /_next/
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+Sitemap: https://projxty.com/sitemap.xml
