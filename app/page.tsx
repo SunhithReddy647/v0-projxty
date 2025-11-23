@@ -823,12 +823,7 @@ export default function Home() {
               >
                 Apply Now
               </a>
-              <button
-                onClick={() => window.open("/sample-certificate.pdf", "_blank")}
-                className="block w-full text-center rounded-full border-2 border-primary px-10 py-4 font-sans text-base font-semibold text-primary hover:bg-primary/10 transition-all duration-300"
-              >
-                View Sample Certificate
-              </button>
+              
             </div>
           </section>
 
