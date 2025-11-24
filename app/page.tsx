@@ -823,7 +823,12 @@ export default function Home() {
               >
                 Apply Now
               </a>
-              
+              <button
+                onClick={() => window.open("/sample-certificate.pdf", "_blank")}
+                className="block w-full text-center rounded-full border-2 border-primary px-10 py-4 font-sans text-base font-semibold text-primary hover:bg-primary/10 transition-all duration-300"
+              >
+                View Sample Certificate
+              </button>
             </div>
           </section>
 
@@ -1507,7 +1512,7 @@ export default function Home() {
         >
           <div className="flex-1 flex flex-col h-full max-w-7xl mx-auto w-full">
             <div className="mb-6 sm:mb-8 text-center">
-              <h1 className="font-monument text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-2 sm:mb-3">
+              <h1 className="font-monument text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-2 sm:mb-3 mt-1">
                 Our Pricing
               </h1>
               <p className="text-sm sm:text-base text-foreground/60">Choose the perfect plan for your needs.</p>
