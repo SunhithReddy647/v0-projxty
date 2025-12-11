@@ -7,185 +7,30 @@ import { useRef, useEffect, useState, useCallback } from "react"
 import Link from "next/link"
 import Image from "next/image"
 
-const GRADIENT_TEXT = "bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-300 bg-clip-text text-transparent"
-
-const SECTIONS = ["Home", "About Us", "Services", "Our Pricing", "Clients Brands", "Internships", "Blog", "Contact Us"]
-
-const SERVICES = [
-  {
-    title: "Web Design & Development",
-    desc: "Fast, functional, and visually dynamic websites built for scalability.",
-    icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
-    span: "sm:col-span-2",
-  },
-  {
-    title: "Branding & Visual Identity",
-    desc: "Build recognition through storytelling and visual systems.",
-    icon: "M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01",
-  },
-  {
-    title: "UI/UX Design",
-    desc: "Smooth, intuitive experiences that feel effortless.",
-    icon: "M4 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-3zM14 13a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1h-4a1 1 0 01-1-1v-7z",
-  },
-  {
-    title: "E-Commerce Solutions",
-    desc: "Secure platforms with smart integrations.",
-    icon: "M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z",
-  },
-  {
-    title: "Digital Marketing",
-    desc: "SEO, social media, and performance tracking.",
-    icon: "M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z",
-  },
-  {
-    title: "Digital Strategy & SEO",
-    desc: "Data-driven optimization for reach and ranking.",
-    icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
-  },
-  {
-    title: "Maintenance & Support",
-    desc: "Keep your website fast, secure, and updated 24/7.",
-    icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z",
-  },
-]
-
-const PRICING_PLANS = [
-  {
-    name: "Starter",
-    price: "₹5,999",
-    desc: "For individuals and small businesses starting online.",
-    features: [
-      "Up to 5 web pages",
-      "Responsive design",
-      "Basic SEO setup",
-      "Contact form integration",
-      "Delivery in 1 week",
-    ],
-  },
-  {
-    name: "Professional",
-    price: "₹9,999",
-    desc: "For brands ready to grow their digital presence.",
-    recommended: true,
-    features: [
-      "Up to 10 web pages",
-      "Advanced UI/UX",
-      "CMS Integration",
-      "SEO Optimization",
-      "E-commerce ready",
-      "Priority Support",
-    ],
-  },
-  {
-    name: "Enterprise",
-    price: "₹19,999+",
-    desc: "For scalable, high-performance web solutions.",
-    features: [
-      "Unlimited pages",
-      "Custom features",
-      "API Integrations",
-      "Advanced analytics",
-      "Dedicated manager",
-      "24/7 Support",
-    ],
-  },
-]
-
-const IT_DOMAINS = [
-  "Web Development",
-  "Mobile App Development",
-  "Data Science & Analytics",
-  "Machine Learning & AI",
-  "Generative AI",
-  "Prompt Engineering",
-  "Cloud Computing",
-  "Cybersecurity",
-  "DevOps",
-  "UI/UX Design",
-  "Database Management",
-  "Blockchain",
-].map((name) => ({ name }))
-
-const NON_IT_DOMAINS = [
-  "Digital Marketing",
-  "Content Writing & Copywriting",
-  "Graphic Design",
-  "Human Resources (HR)",
-  "Business Development & Sales",
-  "Finance & Accounting",
-  "Operations Management",
-  "Market Research & Analytics",
-  "Public Relations (PR)",
-  "Video Editing & Production",
-].map((name) => ({ name }))
-
-const GET_IN_TOUCH_LINKS = [
-  {
-    title: "Internship Opportunities",
-    desc: "Join our team and gain real-world experience in web development.",
-    link: "https://wa.me/916361064550?text=Hi%2C%20I'm%20interested%20in%20internship%20opportunities",
-    icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
-  },
-  {
-    title: "Web Development",
-    desc: "Professional websites that drive results for your business.",
-    link: "https://wa.me/916361064550?text=Hi%2C%20I'd%20like%20to%20discuss%20web%20development",
-    icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
-  },
-  {
-    title: "Capstone Projects",
-    desc: "Browse our portfolio of successful capstone projects",
-    link: "https://projxty.netlify.app",
-    icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10",
-  },
-  {
-    title: "Capstone Project Help",
-    desc: "Get expert guidance for your final year capstone project",
-    link: "https://wa.me/916361064550?text=Hi%2C%20I'm%20interested%20in%20capstone%20project%20help",
-    icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
-  },
-]
-
-const SOCIAL_LINKS = [
-  {
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/company/projxty",
-    icon: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z",
-  },
-  {
-    name: "Instagram",
-    url: "https://www.instagram.com/projxty",
-    icon: "M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.275-.045-1.65-.06-4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z",
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com/projxty",
-    icon: "M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z",
-  },
-]
-
 export default function Home() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const sectionRefsRef = useRef<(HTMLElement | null)[]>([])
   const [currentSection, setCurrentSection] = useState(0)
   const [isLoaded, setIsLoaded] = useState(false)
   const shaderContainerRef = useRef<HTMLDivElement>(null)
+  const [careersTab, setCareersTab] = useState<"fulltime" | "internships" | null>(null)
+  const [hoveredPlan, setHoveredPlan] = useState<string | null>(null)
   const [isMobile, setIsMobile] = useState(false)
-  const [hoveredPlan, setHoveredPlan] = useState<string | null>(null) // Add hoveredPlan state for pricing
 
-  const scrollState = useRef({
-    isTransitioning: false,
-    lastScrollTime: 0,
-    accumulator: 0,
-    touchStartY: 0,
-    touchStartX: 0,
-  })
+  const isTransitioningRef = useRef(false)
+  const lastScrollTimeRef = useRef(0)
+  const touchStartY = useRef(0)
+  const touchStartX = useRef(0)
+  const scrollAccumulatorRef = useRef(0)
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 1024)
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
     checkMobile()
     window.addEventListener("resize", checkMobile)
+
     return () => window.removeEventListener("resize", checkMobile)
   }, [])
 
@@ -204,10 +49,14 @@ export default function Home() {
     if (checkShaderReady()) return
 
     const intervalId = setInterval(() => {
-      if (checkShaderReady()) clearInterval(intervalId)
+      if (checkShaderReady()) {
+        clearInterval(intervalId)
+      }
     }, 100)
 
-    const fallbackTimer = setTimeout(() => setIsLoaded(true), 1500)
+    const fallbackTimer = setTimeout(() => {
+      setIsLoaded(true)
+    }, 1500)
 
     return () => {
       clearInterval(intervalId)
@@ -215,77 +64,88 @@ export default function Home() {
     }
   }, [])
 
-  const canSectionScroll = useCallback(
-    (el: HTMLElement | null) => (el ? el.scrollHeight > el.clientHeight + 10 : false),
-    [],
-  )
+  const canSectionScroll = useCallback((sectionElement: HTMLElement | null): boolean => {
+    if (!sectionElement) return false
+    return sectionElement.scrollHeight > sectionElement.clientHeight + 10
+  }, [])
 
-  const isAtSectionBottom = useCallback(
-    (el: HTMLElement | null) => (el ? el.scrollHeight - el.clientHeight - el.scrollTop < 10 : true),
-    [],
-  )
+  const isAtSectionBottom = useCallback((sectionElement: HTMLElement | null): boolean => {
+    if (!sectionElement) return true
+    const threshold = 10
+    return sectionElement.scrollHeight - sectionElement.clientHeight - sectionElement.scrollTop < threshold
+  }, [])
 
-  const isAtSectionTop = useCallback((el: HTMLElement | null) => (el ? el.scrollTop < 10 : true), [])
+  const isAtSectionTop = useCallback((sectionElement: HTMLElement | null): boolean => {
+    if (!sectionElement) return true
+    return sectionElement.scrollTop < 10
+  }, [])
 
   const scrollToSection = useCallback((index: number) => {
-    if (!scrollContainerRef.current || scrollState.current.isTransitioning || index < 0 || index >= SECTIONS.length)
-      return // Use SECTIONS.length for bounds
+    if (!scrollContainerRef.current || isTransitioningRef.current || index < 0 || index >= 8) return
 
-    scrollState.current.isTransitioning = true
+    isTransitioningRef.current = true
+
     const sectionWidth = scrollContainerRef.current.offsetWidth
-    scrollContainerRef.current.scrollTo({ left: sectionWidth * index, behavior: "smooth" })
+    scrollContainerRef.current.scrollTo({
+      left: sectionWidth * index,
+      behavior: "smooth",
+    })
+
     setCurrentSection(index)
 
     setTimeout(() => {
-      scrollState.current.isTransitioning = false
+      isTransitioningRef.current = false
     }, 700)
   }, [])
 
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
       const now = Date.now()
-      if (scrollState.current.isTransitioning) {
+
+      if (isTransitioningRef.current) {
         e.preventDefault()
         return
       }
 
-      const currentEl = sectionRefsRef.current[currentSection]
-      const canScroll = canSectionScroll(currentEl)
-      const atBottom = isAtSectionBottom(currentEl)
-      const atTop = isAtSectionTop(currentEl)
+      const currentSectionElement = sectionRefsRef.current[currentSection]
+      const canScroll = canSectionScroll(currentSectionElement)
+      const atBottom = isAtSectionBottom(currentSectionElement)
+      const atTop = isAtSectionTop(currentSectionElement)
 
-      if (canScroll && currentEl) {
+      if (canScroll && currentSectionElement) {
         if (e.deltaY < 0 && !atTop) {
-          currentEl.scrollBy({ top: e.deltaY, behavior: "auto" })
+          currentSectionElement.scrollBy({ top: e.deltaY, behavior: "auto" })
           e.preventDefault()
           return
         } else if (e.deltaY > 0 && !atBottom) {
-          currentEl.scrollBy({ top: e.deltaY, behavior: "auto" })
+          currentSectionElement.scrollBy({ top: e.deltaY, behavior: "auto" })
           e.preventDefault()
           return
         }
       }
 
-      if (now - scrollState.current.lastScrollTime < 800) {
+      const timeSinceLastScroll = now - lastScrollTimeRef.current
+      if (timeSinceLastScroll < 800) {
         e.preventDefault()
         return
       }
 
-      scrollState.current.accumulator += e.deltaY
+      scrollAccumulatorRef.current += e.deltaY
+
       const shouldNavigate =
-        Math.abs(scrollState.current.accumulator) > 50 &&
+        Math.abs(scrollAccumulatorRef.current) > 50 &&
         (!canScroll || (e.deltaY > 0 && atBottom) || (e.deltaY < 0 && atTop))
 
       if (shouldNavigate) {
         e.preventDefault()
-        if (scrollState.current.accumulator > 0 && currentSection < SECTIONS.length - 1) {
-          // Use SECTIONS.length for bounds
-          scrollState.current.lastScrollTime = now
-          scrollState.current.accumulator = 0
+
+        if (scrollAccumulatorRef.current > 0 && currentSection < 7) {
+          lastScrollTimeRef.current = now
+          scrollAccumulatorRef.current = 0
           scrollToSection(currentSection + 1)
-        } else if (scrollState.current.accumulator < 0 && currentSection > 0) {
-          scrollState.current.lastScrollTime = now
-          scrollState.current.accumulator = 0
+        } else if (scrollAccumulatorRef.current < 0 && currentSection > 0) {
+          lastScrollTimeRef.current = now
+          scrollAccumulatorRef.current = 0
           scrollToSection(currentSection - 1)
         }
       }
@@ -293,35 +153,47 @@ export default function Home() {
 
     const container = scrollContainerRef.current
     if (container && !isMobile) {
+      // Only add listener if not mobile
       container.addEventListener("wheel", handleWheel, { passive: false })
     }
+
     return () => {
-      if (container) container.removeEventListener("wheel", handleWheel)
+      if (container) {
+        container.removeEventListener("wheel", handleWheel)
+      }
     }
   }, [currentSection, isMobile, canSectionScroll, isAtSectionBottom, isAtSectionTop, scrollToSection])
 
   useEffect(() => {
     const handleTouchStart = (e: TouchEvent) => {
-      scrollState.current.touchStartY = e.touches[0].clientY
-      scrollState.current.touchStartX = e.touches[0].clientX
+      touchStartY.current = e.touches[0].clientY
+      touchStartX.current = e.touches[0].clientX
     }
 
     const handleTouchEnd = (e: TouchEvent) => {
-      const deltaY = scrollState.current.touchStartY - e.changedTouches[0].clientY
-      const deltaX = scrollState.current.touchStartX - e.changedTouches[0].clientX
+      const touchEndY = e.changedTouches[0].clientY
+      const touchEndX = e.changedTouches[0].clientX
+      const deltaY = touchStartY.current - touchEndY
+      const deltaX = touchStartX.current - touchEndX
 
-      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
-        if (deltaX > 0 && currentSection < SECTIONS.length - 1)
-          scrollToSection(currentSection + 1) // Use SECTIONS.length for bounds
-        else if (deltaX < 0 && currentSection > 0) scrollToSection(currentSection - 1)
+      const threshold = 50
+
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > threshold) {
+        if (deltaX > 0 && currentSection < 7) {
+          scrollToSection(currentSection + 1)
+        } else if (deltaX < 0 && currentSection > 0) {
+          scrollToSection(currentSection - 1)
+        }
       }
     }
 
     const container = scrollContainerRef.current
     if (container && isMobile) {
+      // Only add listener if mobile
       container.addEventListener("touchstart", handleTouchStart, { passive: true })
       container.addEventListener("touchend", handleTouchEnd, { passive: true })
     }
+
     return () => {
       if (container) {
         container.removeEventListener("touchstart", handleTouchStart)
@@ -330,15 +202,56 @@ export default function Home() {
     }
   }, [currentSection, isMobile, scrollToSection])
 
+  const sections = [
+    "Home",
+    "About Us",
+    "Services",
+    "Our Pricing",
+    "Clients Brands",
+    "Internships",
+    "Blog",
+    "Contact Us",
+  ]
+
+  const itDomains = [
+    { name: "Web Development" },
+    { name: "Mobile App Development" },
+    { name: "Data Science & Analytics" },
+    { name: "Machine Learning & AI" },
+    { name: "Generative AI" },
+    { name: "Prompt Engineering" },
+    { name: "Cloud Computing" },
+    { name: "Cybersecurity" },
+    { name: "DevOps" },
+    { name: "UI/UX Design" },
+    { name: "Database Management" },
+    { name: "Blockchain" },
+  ]
+
+  const nonItDomains = [
+    { name: "Digital Marketing" },
+    { name: "Content Writing & Copywriting" },
+    { name: "Graphic Design" },
+    { name: "Human Resources (HR)" },
+    { name: "Business Development & Sales" },
+    { name: "Finance & Accounting" },
+    { name: "Operations Management" },
+    { name: "Market Research & Analytics" },
+    { name: "Public Relations (PR)" },
+    { name: "Video Editing & Production" },
+  ]
+
+  const gradientText = "bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-300 bg-clip-text text-transparent"
+
   if (isMobile) {
     return (
-      <main className="relative min-h-screen w-full bg-background overflow-y-auto">
+      <main className="relative min-h-screen w-full bg-background overflow-y-auto overflow-x-hidden">
         <GrainOverlay />
 
+        {/* Simplified shader for mobile */}
         <div
           ref={shaderContainerRef}
           className={`fixed inset-0 z-0 transition-opacity duration-700 ${isLoaded ? "opacity-100" : "opacity-0"}`}
-          style={{ contain: "strict" }}
         >
           <Shader className="h-full w-full">
             <Swirl
@@ -370,293 +283,510 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/20" />
         </div>
 
-        {/* Mobile Navigation */}
-        <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/80 border-b border-foreground/10">
-          <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4">
-            <Link href="/" className="flex items-center gap-2 min-h-[44px]">
-              <img
-                src="/images/design-mode/cropped_circle_image.png"
-                alt="Projxty Logo"
-                className="h-8 w-8 sm:h-9 sm:w-9"
-              />
-              <span className="font-monument text-base sm:text-lg font-bold">Projxty</span>
-            </Link>
-            <Link
-              href="/start-project"
-              className="rounded-full bg-gradient-to-r from-primary/20 to-accent/20 px-4 sm:px-6 py-2.5 sm:py-3 font-sans text-xs sm:text-sm font-semibold text-foreground backdrop-blur transition-all hover:from-primary/30 hover:to-accent/30 min-h-[44px] flex items-center"
-            >
+        {/* Mobile Header */}
+        <nav className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between px-4 h-16 backdrop-blur-sm bg-background/80 border-b border-foreground/10">
+          <Link href="/" className="flex items-center gap-2 transition-transform hover:scale-105">
+            <img src="/images/design-mode/cropped_circle_image.png" alt="Projxty Logo" className="h-6 w-6" />
+            <span className="font-monument text-lg font-bold tracking-tight text-foreground">Projxty</span>
+          </Link>
+          <button className="rounded-full bg-gradient-to-r from-primary to-accent px-4 py-2 text-xs font-semibold text-background">
+            <Link href="/start-project" className="block w-full h-full flex items-center justify-center">
               Get Started
             </Link>
-          </div>
+          </button>
         </nav>
 
-        <div className="pt-16 sm:pt-20 px-4 sm:px-6 md:px-8 pb-16 space-y-6 sm:space-y-8 md:space-10">
-          {/* Hero Section */}
-          <section className="min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-5rem)] flex flex-col justify-center py-12 sm:py-16">
-            <div className="max-w-2xl mx-auto text-center">
-              <p className="text-xs sm:text-sm text-foreground/60 mb-3 sm:mb-4 uppercase tracking-wider">
-                Now Building Tomorrow&apos;s Web
-              </p>
-              <h1 className="font-monument text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
-                TRANSFORM
-                <br />
-                <span className={GRADIENT_TEXT}>IDEAS</span>
-                <br />
-                INTO REALITY
-              </h1>
-              <p className="text-sm sm:text-base md:text-lg text-foreground/80 mb-6 sm:mb-8 leading-relaxed px-2">
-                Elevate your digital presence with cutting-edge web development and design. We craft experiences that
-                captivate, inspire, and convert.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-2">
-                <Link
-                  href="/start-project"
-                  className="rounded-full bg-gradient-to-r from-primary to-accent px-6 sm:px-8 py-3 sm:py-3.5 font-sans text-sm sm:text-base font-bold text-foreground shadow-lg transition-all hover:shadow-xl hover:scale-105 min-h-[48px] flex items-center justify-center"
-                >
-                  Start Your Project
-                </Link>
-                <Link
-                  href="#internships"
-                  className="rounded-full border-2 border-foreground/20 px-6 sm:px-8 py-3 sm:py-3.5 font-sans text-sm sm:text-base font-semibold text-foreground backdrop-blur transition-all hover:bg-foreground/5 min-h-[48px] flex items-center justify-center"
-                >
-                  Explore Internships →
-                </Link>
+        {/* Mobile Content - Vertically scrolling sections */}
+        <div className="relative z-10 pt-16">
+          {/* Home Section */}
+          <section className="min-h-screen flex flex-col justify-center px-6 py-12">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-foreground/5 px-3 py-2 backdrop-blur-sm">
+              <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-xs font-medium text-foreground/70">Now Building Tomorrow's Web</span>
+            </div>
+
+            <h1 className="font-monument font-black uppercase text-foreground text-4xl leading-[0.95] mb-4">
+              Transform
+              <br />
+              <span className="bg-gradient-to-r from-amber-600 to-amber-400 bg-clip-text text-transparent font-black">
+                Ideas
+              </span>
+              <br />
+              Into Reality
+            </h1>
+
+            <p className="mt-6 text-sm text-foreground/70 leading-relaxed">
+              Elevate your digital presence with cutting-edge web development and design. We craft experiences that
+              captivate, inspire, and convert.
+            </p>
+
+            <div className="mt-8 flex flex-col gap-3">
+              <Link
+                href="/start-project"
+                className="rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 text-sm font-semibold text-background text-center"
+              >
+                Start Your Project
+              </Link>
+              <button
+                onClick={() => {
+                  const internshipsSection = document.getElementById("internships")
+                  if (internshipsSection) {
+                    internshipsSection.scrollIntoView({ behavior: "smooth" })
+                  }
+                }}
+                className="group rounded-full border-2 border-foreground/30 px-6 py-3 text-sm font-semibold text-foreground transition-all hover:border-foreground/60 hover:bg-foreground/5"
+              >
+                Explore Internships
+                <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+              </button>
+            </div>
+
+            <div className="mt-12 grid grid-cols-3 gap-4">
+              <div className="space-y-1">
+                <p className="text-xs uppercase tracking-widest text-foreground/50">Trusted By</p>
+                <p className="text-sm font-semibold text-foreground">500+ Companies</p>
+              </div>
+              <div className="space-y-1">
+                <p className="text-xs uppercase tracking-widest text-foreground/50">Industry</p>
+                <p className="text-sm font-semibold text-foreground">MSME Registered</p>
+              </div>
+              <div className="space-y-1">
+                <p className="text-xs uppercase tracking-widest text-foreground/50">Recognized</p>
+                <p className="text-sm font-semibold text-foreground">Startup India</p>
               </div>
             </div>
           </section>
 
-          {/* About Section */}
-          <section className="py-8 sm:py-12 md:py-16">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="font-monument text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8">
-                About <span className={GRADIENT_TEXT}>Us</span>
-              </h2>
-              <div className="rounded-2xl border border-foreground/20 bg-foreground/5 backdrop-blur-sm p-5 sm:p-6 md:p-8 space-y-4 sm:space-y-5">
-                <p className="text-sm sm:text-base md:text-lg text-foreground/80 leading-relaxed">
-                  Founded by <span className="font-semibold text-foreground">Sunhith Reddy</span>, Projxty is a leading
-                  web development company specializing in creating innovative digital solutions.
+          {/* About Us Section */}
+          <section className="min-h-screen px-6 py-16">
+            <h1 className="font-monument text-4xl font-bold text-foreground mb-6">About Us</h1>
+
+            <div className="flex flex-wrap gap-2 mb-6">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30 px-3 py-1.5 text-xs font-semibold text-foreground">
+                <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fillRule="evenodd"
+                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                AICTE APPROVED
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30 px-3 py-1.5 text-xs font-semibold text-foreground">
+                <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fillRule="evenodd"
+                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                MSME REGISTERED
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30 px-3 py-1.5 text-xs font-semibold text-foreground">
+                <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fillRule="evenodd"
+                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                STARTUP INDIA
+              </span>
+            </div>
+
+            <div className="space-y-3 text-sm text-foreground/80 leading-relaxed">
+              <p>
+                <span className="font-semibold text-foreground">Projxty</span> is a modern web development and design
+                company built on one simple belief — great ideas deserve great execution.
+              </p>
+
+              <p>
+                We combine creativity with clean, powerful code — turning concepts into sleek, high-performing websites
+                and brand platforms.
+              </p>
+
+              <div className="pt-3 border-t border-foreground/10">
+                <p className="text-base font-semibold text-foreground leading-tight">
+                  We don't just build websites.
+                  <br />
+                  <span className={gradientText}>We create digital identities that last.</span>
                 </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-4">
-                  {[
-                    { label: "Trusted By", value: "500+ Companies" },
-                    { label: "Industry", value: "MSME Registered" },
-                    { label: "Recognized", value: "Startup India" },
-                    { label: "Experience", value: "Expert Team" },
-                  ].map((stat) => (
-                    <div
-                      key={stat.label}
-                      className="rounded-xl border border-foreground/10 bg-foreground/5 p-4 sm:p-5 text-center"
-                    >
-                      <p className="text-xs sm:text-sm text-foreground/60 mb-1">{stat.label}</p>
-                      <p className="text-base sm:text-lg md:text-xl font-bold text-foreground">{stat.value}</p>
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
           </section>
 
           {/* Services Section */}
-          <section className="py-8 sm:py-12 md:py-16">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="font-monument text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8">
-                Our <span className={GRADIENT_TEXT}>Services</span>
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
-                {SERVICES.map((service, index) => (
-                  <div
-                    key={index}
-                    className="group rounded-2xl border border-foreground/20 bg-foreground/5 backdrop-blur-sm p-5 sm:p-6 transition-all hover:bg-foreground/10 hover:border-primary/50 hover:scale-[1.02] min-h-[180px] sm:min-h-[200px] flex flex-col"
-                  >
-                    <div className="mb-4">
-                      <svg
-                        className="h-10 w-10 sm:h-12 sm:w-12 text-primary transition-transform group-hover:scale-110"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
+          <section className="min-h-screen px-6 py-16">
+            <h1 className="font-monument text-4xl font-bold text-foreground mb-6">Services</h1>
+
+            <div className="space-y-4">
+              {[
+                {
+                  icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
+                  title: "Web Design & Development",
+                  desc: "Fast, functional, and visually dynamic websites",
+                },
+                {
+                  icon: "M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01",
+                  title: "Branding & Visual Identity",
+                  desc: "Build recognition through storytelling",
+                },
+                {
+                  icon: "M4 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-3zM14 13a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1h-4a1 1 0 01-1-1v-7z",
+                  title: "UI/UX Design",
+                  desc: "Smooth, intuitive user experiences",
+                },
+                {
+                  icon: "M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z",
+                  title: "E-Commerce Solutions",
+                  desc: "Secure platforms with smart integrations",
+                },
+                {
+                  icon: "M11 3.055A9.001 9.001 0 110 0v13a9.001 9.001 0 0111-9.945z",
+                  title: "Digital Marketing",
+                  desc: "SEO, social media, and performance tracking",
+                },
+                {
+                  icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
+                  title: "Digital Strategy & SEO",
+                  desc: "Data-driven optimization for reach",
+                },
+                {
+                  icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37.996.608 2.296.07 2.572-1.065z",
+                  title: "Maintenance & Support",
+                  desc: "24/7 website care and updates",
+                },
+              ].map((service, idx) => (
+                <div key={idx} className="rounded-lg border border-foreground/20 bg-foreground/5 p-5">
+                  <div className="flex items-start gap-3">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r from-primary to-accent">
+                      <svg className="h-5 w-5 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={service.icon} />
                       </svg>
                     </div>
-                    <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2">{service.title}</h3>
-                    <p className="text-xs sm:text-sm text-foreground/70 leading-relaxed flex-grow">{service.desc}</p>
+                    <div>
+                      <h3 className="font-sans text-base font-bold text-foreground mb-1">{service.title}</h3>
+                      <p className="text-xs text-foreground/70">{service.desc}</p>
+                    </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </section>
 
           {/* Pricing Section */}
-          <section className="py-8 sm:py-12 md:py-16">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="font-monument text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8">
-                Our <span className={GRADIENT_TEXT}>Pricing</span>
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
-                {PRICING_PLANS.map((plan, index) => (
-                  <div
-                    key={index}
-                    className={`rounded-2xl border ${
-                      plan.recommended // Changed from 'featured' to 'recommended'
-                        ? "border-primary bg-gradient-to-b from-primary/10 to-accent/10"
-                        : "border-foreground/20 bg-foreground/5"
-                    } backdrop-blur-sm p-6 sm:p-7 md:p-8 transition-all hover:scale-[1.02] flex flex-col min-h-[400px] sm:min-h-[450px]`}
-                  >
-                    {plan.recommended && ( // Changed from 'featured' to 'recommended'
-                      <div className="mb-3 inline-block self-start rounded-full bg-gradient-to-r from-primary to-accent px-3 py-1 text-xs font-bold">
-                        MOST POPULAR
-                      </div>
-                    )}
-                    <h3 className="text-xl sm:text-2xl font-bold mb-2">{plan.name}</h3>
-                    <div className="mb-4 sm:mb-5">
-                      <span className="text-3xl sm:text-4xl font-bold">{plan.price}</span>
-                      <span className="text-sm sm:text-base text-foreground/60"> /month</span> {/* Added duration */}
-                    </div>
-                    <ul className="space-y-2.5 sm:space-y-3 mb-6 flex-grow">
-                      {plan.features.map((feature, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <svg
-                            className="h-5 w-5 flex-shrink-0 text-primary mt-0.5"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
-                          <span className="text-xs sm:text-sm text-foreground/80">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Link
-                      href="/start-project"
-                      className={`mt-auto rounded-full px-6 py-3 sm:py-3.5 font-sans text-sm sm:text-base font-bold text-center transition-all min-h-[48px] flex items-center justify-center ${
-                        plan.recommended // Changed from 'featured' to 'recommended'
-                          ? "bg-gradient-to-r from-primary to-accent shadow-lg hover:shadow-xl hover:scale-105"
-                          : "border-2 border-foreground/20 hover:bg-foreground/5"
-                      }`}
-                    >
-                      Choose Plan
-                    </Link>
-                  </div>
-                ))}
+          <section className="min-h-screen px-6 py-16">
+            <div className="text-center mb-8">
+              <h1 className="font-monument text-4xl font-bold text-foreground mb-2">Our Pricing</h1>
+              <p className="text-sm text-foreground/60">Choose the perfect plan</p>
+            </div>
+
+            <div className="space-y-4 mb-6">
+              {/* Starter */}
+              <div className="rounded-lg border-2 border-foreground/20 bg-foreground/5 p-6">
+                <h3 className="font-monument text-2xl font-bold text-foreground mb-2">Starter</h3>
+                <div className="flex items-baseline gap-1 mb-3">
+                  <span className="text-4xl font-bold text-foreground">₹5,999</span>
+                </div>
+                <p className="text-sm text-foreground/60 mb-4">For individuals and small businesses</p>
+                <ul className="space-y-2 mb-4">
+                  {["Up to 5 web pages", "Responsive design", "Basic SEO setup", "Contact form", "1 week delivery"].map(
+                    (feature, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-sm text-foreground/80">
+                        <svg
+                          className="h-5 w-5 text-primary shrink-0"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>{feature}</span>
+                      </li>
+                    ),
+                  )}
+                </ul>
+                <button className="w-full rounded-lg border-2 border-foreground/30 px-6 py-3 text-sm font-semibold text-foreground">
+                  Get Started
+                </button>
               </div>
+
+              {/* Professional */}
+              <div className="rounded-lg border-2 border-primary/40 bg-gradient-to-br from-primary/15 via-accent/15 to-primary/20 p-6 relative">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-4 py-1.5 shadow-lg border-2 border-background">
+                    <svg className="h-4 w-4 text-background" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <span className="text-xs font-bold text-background uppercase">Recommended</span>
+                  </div>
+                </div>
+                <h3 className="font-monument text-2xl font-bold text-foreground mb-2 mt-2">Professional</h3>
+                <div className="flex items-baseline gap-1 mb-3">
+                  <span className={`text-4xl font-bold ${gradientText}`}>₹9,999</span>
+                </div>
+                <p className="text-sm text-foreground/60 mb-4">For brands ready to grow</p>
+                <ul className="space-y-2 mb-4">
+                  {[
+                    "Custom design + animations",
+                    "CMS/API integration",
+                    "SEO + analytics",
+                    "Priority support",
+                    "2-3 weeks delivery",
+                  ].map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-sm text-foreground/80">
+                      <svg
+                        className="h-5 w-5 text-primary shrink-0"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <button className="w-full rounded-lg bg-gradient-to-r from-primary to-accent px-6 py-3 text-sm font-semibold text-background">
+                  Get Started
+                </button>
+              </div>
+
+              {/* Enterprise */}
+              <div className="rounded-lg border-2 border-foreground/20 bg-foreground/5 p-6">
+                <h3 className="font-monument text-2xl font-bold text-foreground mb-2">Enterprise</h3>
+                <div className="flex items-baseline gap-1 mb-3">
+                  <span className="text-4xl font-bold text-foreground">Custom</span>
+                </div>
+                <p className="text-sm text-foreground/60 mb-4">Complete digital solutions</p>
+                <ul className="space-y-2 mb-4">
+                  {["Full-scale development", "Branding + marketing", "SEO strategy", "Maintenance + updates"].map(
+                    (feature, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-sm text-foreground/80">
+                        <svg
+                          className="h-5 w-5 text-primary shrink-0"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>{feature}</span>
+                      </li>
+                    ),
+                  )}
+                </ul>
+                <button className="w-full rounded-lg border-2 border-foreground/30 px-6 py-3 text-sm font-semibold text-foreground">
+                  Contact Us
+                </button>
+              </div>
+            </div>
+
+            <div className="rounded-lg bg-gradient-to-r from-foreground/5 via-foreground/8 to-foreground/5 border border-foreground/10 p-6 text-center">
+              <h3 className="font-sans text-lg font-bold text-foreground mb-2">Need a custom plan?</h3>
+              <p className="text-sm text-foreground/60 mb-4">Tell us your goals — we'll craft the perfect package.</p>
+              <button className="rounded-lg bg-foreground px-6 py-2.5 text-sm font-semibold text-background">
+                Let's Talk
+              </button>
+            </div>
+          </section>
+
+          {/* Clients Section */}
+          <section className="min-h-screen px-6 py-16">
+            <h1 className="font-monument text-4xl font-bold text-foreground text-center mb-8">Clients Brands</h1>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                "TechCorp",
+                "Design Co",
+                "Start Up",
+                "Digital Pro",
+                "Cloud Nine",
+                "Code Labs",
+                "Web Studio",
+                "Brand X",
+              ].map((brand) => (
+                <div
+                  key={brand}
+                  className="flex items-center justify-center rounded-lg border border-foreground/20 p-6"
+                >
+                  <p className="text-sm font-semibold text-foreground/60">{brand}</p>
+                </div>
+              ))}
             </div>
           </section>
 
           {/* Internships Section */}
-          <section className="py-8 sm:py-12 md:py-16">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="font-monument text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8">
-                <span className={GRADIENT_TEXT}>Internship</span> Opportunities
-              </h2>
-
-              {/* IT Domains */}
-              <div className="mb-6 sm:mb-8">
-                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-5 text-center sm:text-left">
-                  IT Domains
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-                  {IT_DOMAINS.map((domain, index) => (
-                    <div
-                      key={index}
-                      className="rounded-xl border border-foreground/20 bg-foreground/5 backdrop-blur-sm p-4 sm:p-5 transition-all hover:bg-foreground/10 hover:border-primary/50 min-h-[80px] flex items-center"
-                    >
-                      <p className="text-sm sm:text-base font-medium">{domain.name}</p> {/* Changed to domain.name */}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Non-IT Domains */}
-              <div className="mb-6 sm:mb-8">
-                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-5 text-center sm:text-left">
-                  Non-IT Domains
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-                  {NON_IT_DOMAINS.map((domain, index) => (
-                    <div
-                      key={index}
-                      className="rounded-xl border border-foreground/20 bg-foreground/5 backdrop-blur-sm p-4 sm:p-5 transition-all hover:bg-foreground/10 hover:border-accent/50 min-h-[80px] flex items-center"
-                    >
-                      <p className="text-sm sm:text-base font-medium">{domain.name}</p> {/* Changed to domain.name */}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Apply Now Button */}
-              <div className="text-center pt-4">
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLScqQN6dekmUKKtsu7tSHvvRN3gZmCIzIx7qrxpQBxparQHjqA/viewform"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block rounded-full bg-gradient-to-r from-primary to-accent px-8 sm:px-10 py-3.5 sm:py-4 font-sans text-sm sm:text-base font-bold text-foreground shadow-lg transition-all hover:shadow-xl hover:scale-105 min-h-[52px]"
-                >
-                  Apply Now
-                </a>
-              </div>
+          <section id="internships" className="min-h-screen px-6 py-16">
+            <div className="text-center mb-8">
+              <h1 className="font-monument text-4xl font-bold text-foreground mb-3">Internships</h1>
+              <p className="text-sm text-foreground/70 leading-relaxed max-w-2xl mx-auto">
+                Work on real-world projects, gain verified experience, and build your portfolio with our internship
+                programs.
+              </p>
             </div>
-          </section>
 
-          {/* Get in Touch Links */}
-          <section className="py-8 sm:py-12 md:py-16">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="font-monument text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8">
-                Connect <span className={GRADIENT_TEXT}>With Us</span>
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-                {GET_IN_TOUCH_LINKS.map((link, index) => (
-                  <a
-                    key={index}
-                    href={link.link} // Changed from 'url' to 'link'
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group rounded-2xl border border-foreground/20 bg-gradient-to-br from-foreground/5 to-foreground/10 backdrop-blur-sm p-5 sm:p-6 transition-all hover:border-primary/50 hover:scale-[1.02] flex items-center gap-4 min-h-[100px]"
+            {/* Program Highlights */}
+            <div className="mb-8 rounded-xl bg-foreground/5 border border-foreground/10 p-6">
+              <h2 className="font-monument text-xl font-bold text-foreground mb-4">Program Highlights</h2>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <svg className="h-5 w-5 text-primary mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-sm text-foreground/80">Official Offer Letter and Completion Certificate</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="h-5 w-5 text-primary mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-sm text-foreground/80">Work-from-home based internship</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="h-5 w-5 text-primary mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-sm text-foreground/80">Real-time industry projects</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="h-5 w-5 text-primary mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-sm text-foreground/80">Flexible work schedule and task submission</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="h-5 w-5 text-primary mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-sm text-foreground/80">Placement guidance and interview preparation</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="h-5 w-5 text-primary mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-sm text-foreground/80">Resume building support</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="h-5 w-5 text-primary mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-sm text-foreground/80">
+                    Certificate and LOR hard copies couriered (post-completion)
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Duration Options */}
+            <div className="mb-8 rounded-xl bg-foreground/5 border border-foreground/10 p-6">
+              <h2 className="font-monument text-xl font-bold text-foreground mb-4">Internship Duration Options</h2>
+              <div className="flex flex-wrap gap-2">
+                {["4 Weeks", "6 Weeks", "8 Weeks", "12 Weeks", "6 Months"].map((duration) => (
+                  <span
+                    key={duration}
+                    className="px-4 py-2 rounded-full bg-primary/20 border border-primary/30 text-sm font-semibold text-foreground"
                   >
-                    <div className="flex-shrink-0 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 p-3 sm:p-4">
-                      <svg
-                        className="h-6 w-6 sm:h-7 sm:w-7 text-primary"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={link.icon} />{" "}
-                        {/* Added icon */}
-                      </svg>
-                    </div>
-                    <div className="flex-grow">
-                      <h3 className="text-base sm:text-lg font-bold mb-1">{link.title}</h3>
-                      <p className="text-xs sm:text-sm text-foreground/70">{link.desc}</p>{" "}
-                      {/* Changed from 'description' to 'desc' */}
-                    </div>
-                    <svg
-                      className="h-5 w-5 flex-shrink-0 text-foreground/40 transition-transform group-hover:translate-x-1"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </a>
+                    {duration}
+                  </span>
                 ))}
               </div>
             </div>
-          </section>
 
-          {/* Contact Info */}
-          <section className="py-8 sm:py-12 md:py-16">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="font-monument text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8">
-                Get in <span className={GRADIENT_TEXT}>Touch</span>
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
-                <div className="rounded-2xl border border-foreground/20 bg-foreground/5 backdrop-blur-sm p-5 sm:p-6 text-center min-h-[120px] flex flex-col justify-center">
-                  <svg
-                    className="mx-auto mb-3 h-8 w-8 sm:h-10 sm:w-10 text-primary"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
+            {/* Sample Documents Section for Mobile */}
+            <div className="mb-8 rounded-xl bg-foreground/5 border border-foreground/10 p-6">
+              <h2 className="font-monument text-xl font-bold text-foreground mb-4">Sample Documents</h2>
+              <div className="space-y-6">
+                <div className="space-y-2">
+                  <h3 className="font-sans text-sm font-semibold text-foreground/80">Offer Letter</h3>
+                  <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg border border-foreground/10">
+                    <Image
+                      src="/images/rahul-offer-letter.png"
+                      alt="Sample Offer Letter"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <h3 className="font-sans text-sm font-semibold text-foreground/80">Certificate of Internship</h3>
+                  <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-foreground/10">
+                    <Image
+                      src="/images/rahul-certificate.png"
+                      alt="Sample Internship Certificate"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-6">
+              <h2 className="font-monument text-xl font-bold text-foreground mb-3">IT Domains</h2>
+              <ul className="space-y-2 list-disc list-inside">
+                {itDomains.map((domain, idx) => (
+                  <li key={idx} className="font-sans text-sm text-foreground/80">
+                    {domain.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mb-8">
+              <h2 className="font-monument text-xl font-bold text-foreground mb-3">Non-IT Domains</h2>
+              <ul className="space-y-2 list-disc list-inside">
+                {nonItDomains.map((domain, idx) => (
+                  <li key={idx} className="font-sans text-sm text-foreground/80">
+                    {domain.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Eligibility */}
+            <div className="mb-8 rounded-xl bg-foreground/5 border border-foreground/10 p-6">
+              <h2 className="font-monument text-xl font-bold text-foreground mb-3">Eligibility</h2>
+              <p className="text-sm text-foreground/80 leading-relaxed">
+                Open to students, recent graduates, and professionals from technical and non-technical backgrounds.
+              </p>
+            </div>
+
+            {/* Contact Details */}
+            <div className="mb-8 rounded-xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 p-6">
+              <h2 className="font-monument text-xl font-bold text-foreground mb-4">Contact HR</h2>
+              <div className="space-y-3">
+                <a
+                  href="mailto:projxty@gmail.com"
+                  className="flex items-center gap-3 text-sm text-foreground/80 hover:text-primary transition-colors"
+                >
+                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -664,16 +794,13 @@ export default function Home() {
                       d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                     />
                   </svg>
-                  <p className="text-xs sm:text-sm text-foreground/60 mb-1">Email</p>
-                  <p className="text-sm sm:text-base font-semibold break-all">projxty@gmail.com</p>
-                </div>
-                <div className="rounded-2xl border border-foreground/20 bg-foreground/5 backdrop-blur-sm p-5 sm:p-6 text-center min-h-[120px] flex flex-col justify-center">
-                  <svg
-                    className="mx-auto mb-3 h-8 w-8 sm:h-10 sm:w-10 text-primary"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
+                  projxty@gmail.com
+                </a>
+                <a
+                  href="tel:+919392768519"
+                  className="flex items-center gap-3 text-sm text-foreground/80 hover:text-primary transition-colors"
+                >
+                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -681,16 +808,99 @@ export default function Home() {
                       d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                     />
                   </svg>
-                  <p className="text-xs sm:text-sm text-foreground/60 mb-1">Phone</p>
-                  <p className="text-sm sm:text-base font-semibold">+91 6361064550 </p>
+                  +91 93927 68519
+                </a>
+              </div>
+            </div>
+
+            {/* Call to Action Buttons */}
+            <div className="space-y-3">
+              <a
+                href="https://forms.gle/pZ5quDYmozAHk6AC6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full text-center rounded-full bg-gradient-to-r from-primary to-accent px-10 py-4 font-sans text-base font-bold text-background hover:shadow-lg hover:shadow-primary/30 hover:scale-105 active:scale-95 transition-all duration-300"
+              >
+                Apply Now
+              </a>
+              <button
+                onClick={() => window.open("/sample-certificate.pdf", "_blank")}
+                className="block w-full text-center rounded-full border-2 border-primary px-10 py-4 font-sans text-base font-semibold text-primary hover:bg-primary/10 transition-all duration-300"
+              >
+                View Sample Certificate
+              </button>
+            </div>
+          </section>
+
+          {/* Blog Section */}
+          <section className="min-h-screen px-6 py-16">
+            <h1 className="font-monument text-4xl font-bold text-foreground text-center mb-8">Blog</h1>
+            <div className="space-y-4">
+              {[
+                { title: "Web Design Trends 2025", date: "Jan 15, 2025" },
+                { title: "React Performance Tips", date: "Jan 10, 2025" },
+                { title: "UX Best Practices", date: "Jan 5, 2025" },
+                { title: "Next.js Guide", date: "Dec 28, 2024" },
+              ].map((post) => (
+                <div key={post.title} className="rounded-lg border border-foreground/20 p-5">
+                  <h3 className="text-base font-semibold text-foreground mb-2">{post.title}</h3>
+                  <p className="text-xs text-foreground/60">{post.date}</p>
                 </div>
-                <div className="rounded-2xl border border-foreground/20 bg-foreground/5 backdrop-blur-sm p-5 sm:p-6 text-center min-h-[120px] flex flex-col justify-center">
-                  <svg
-                    className="mx-auto mb-3 h-8 w-8 sm:h-10 sm:w-10 text-primary"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
+              ))}
+            </div>
+          </section>
+
+          {/* Contact Section */}
+          <section className="min-h-screen px-6 py-16">
+            <h1 className="font-monument text-3xl font-bold text-foreground mb-2">
+              Let's Build Something
+              <br />
+              <span className={gradientText}>Great Together.</span>
+            </h1>
+            <p className="text-sm text-foreground/70 mb-8">Reach out to collaborate or discuss projects.</p>
+
+            <div className="space-y-4 mb-8">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-r from-primary to-accent">
+                  <svg className="h-5 w-5 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-xs text-foreground/50 uppercase">Email</p>
+                  <a href="mailto:projxty@gmail.com" className="text-sm font-medium text-foreground">
+                    projxty@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-r from-primary to-accent">
+                  <svg className="h-5 w-5 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-xs text-foreground/50 uppercase">Phone</p>
+                  <a href="tel:+916361064550" className="text-sm font-medium text-foreground">
+                    +91 6361064550
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-r from-primary to-accent">
+                  <svg className="h-5 w-5 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -704,37 +914,46 @@ export default function Home() {
                       d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                     />
                   </svg>
-                  <p className="text-xs sm:text-sm text-foreground/60 mb-1">Location</p>
-                  <p className="text-sm sm:text-base font-semibold">Bangalore, India</p>
+                </div>
+                <div>
+                  <p className="text-xs text-foreground/50 uppercase">Location</p>
+                  <p className="text-sm font-medium text-foreground">Banglore, India</p>
                 </div>
               </div>
             </div>
-          </section>
 
-          {/* Social Media */}
-          <section className="py-8 sm:py-12 pb-16">
-            <div className="max-w-4xl mx-auto text-center">
-              <p className="text-xs sm:text-sm text-foreground/60 mb-4 sm:mb-5">Follow us on social media</p>
-              <div className="flex gap-4 sm:gap-5 justify-center flex-wrap">
-                {SOCIAL_LINKS.map(
-                  (
-                    social,
-                    index, // Added SOCIAL_LINKS definition below
-                  ) => (
-                    <a
-                      key={index}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="rounded-full border border-foreground/20 bg-foreground/5 backdrop-blur-sm p-3 sm:p-4 transition-all hover:bg-foreground/10 hover:border-primary/50 hover:scale-110 min-w-[52px] min-h-[52px] flex items-center justify-center"
-                      aria-label={social.name}
-                    >
-                      <svg className="h-6 w-6 sm:h-7 sm:w-7" fill="currentColor" viewBox="0 0 24 24">
-                        <path d={social.icon} />
-                      </svg>
-                    </a>
-                  ),
-                )}
+            <div className="mb-8">
+              <p className="text-xs text-foreground/50 uppercase mb-3">Follow Us</p>
+              <div className="flex gap-3">
+                {[
+                  {
+                    name: "LinkedIn",
+                    url: "https://www.linkedin.com/company/projxty",
+                    icon: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z",
+                  },
+                  {
+                    name: "Instagram",
+                    url: "https://www.instagram.com/projxty",
+                    icon: "M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.275-.045-1.65-.06-4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z",
+                  },
+                  {
+                    name: "Facebook",
+                    url: "https://www.facebook.com/projxty",
+                    icon: "M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z",
+                  },
+                ].map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-10 w-10 items-center justify-center rounded-lg bg-foreground/10"
+                  >
+                    <svg className="h-4 w-4 text-foreground" fill="currentColor" viewBox="0 0 24 24">
+                      <path d={social.icon} />
+                    </svg>
+                  </a>
+                ))}
               </div>
             </div>
           </section>
@@ -743,6 +962,7 @@ export default function Home() {
     )
   }
 
+  // Desktop version - existing horizontal scroll layout
   return (
     <main className="relative h-screen w-full overflow-hidden bg-background">
       <CustomCursor />
@@ -804,7 +1024,7 @@ export default function Home() {
         </Link>
 
         <div className="hidden items-center gap-6 sm:gap-8 lg:flex">
-          {SECTIONS.map((item, index) => (
+          {sections.map((item, index) => (
             <button
               key={item}
               onClick={() => scrollToSection(index)}
@@ -858,7 +1078,7 @@ export default function Home() {
             <div className="mb-6 sm:mb-8 inline-flex items-center gap-2 rounded-full bg-foreground/5 px-3 sm:px-4 py-2 backdrop-blur-sm">
               <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse flex-shrink-0" />
               <span className="font-sans text-xs sm:text-xs font-medium tracking-wide text-foreground/70">
-                Now Building Tomorrow&apos;s Web
+                Now Building Tomorrow's Web
               </span>
             </div>
 
@@ -867,7 +1087,7 @@ export default function Home() {
               <br className="hidden sm:block" />
               <span className="relative inline-block">
                 <span className="absolute inset-0 bg-gradient-to-r from-primary to-accent blur-lg opacity-40" />
-                <span className={`relative inline-block ${GRADIENT_TEXT} font-black`}>Ideas</span>
+                <span className={`relative inline-block ${gradientText} font-black`}>Ideas</span>
               </span>
               <br className="hidden sm:block" />
               Into Reality
@@ -886,7 +1106,16 @@ export default function Home() {
                 Start Your Project
               </Link>
               <button
-                onClick={() => scrollToSection(5)}
+                onClick={() => {
+                  if (isMobile) {
+                    const internshipsSection = document.getElementById("internships")
+                    if (internshipsSection) {
+                      internshipsSection.scrollIntoView({ behavior: "smooth" })
+                    }
+                  } else {
+                    scrollToSection(5)
+                  }
+                }}
                 className="group rounded-full border-2 border-foreground/30 px-6 sm:px-8 py-3 sm:py-4 font-sans text-sm sm:text-base font-semibold text-foreground transition-all hover:border-foreground/60 hover:bg-foreground/5"
               >
                 Explore Internships
@@ -895,18 +1124,22 @@ export default function Home() {
             </div>
 
             <div className="absolute right-4 sm:right-8 md:right-12 lg:right-24 top-1/2 -translate-y-1/2 flex flex-col gap-4 sm:gap-6 text-right">
-              {[
-                { label: "Trusted By", value: "500+ Companies" },
-                { label: "Industry", value: "MSME Registered" },
-                { label: "Recognized", value: "Startup India" },
-              ].map((stat, idx) => (
-                <div key={idx} className={`space-y-1 opacity-0 animate-fade-in-up-${idx + 1}`}>
-                  <p className="font-sans text-xs uppercase tracking-widest text-foreground/50">{stat.label}</p>
-                  <p className="font-sans text-xs sm:text-sm md:text-base font-semibold text-foreground">
-                    {stat.value}
-                  </p>
-                </div>
-              ))}
+              <div className="space-y-1 opacity-0 animate-fade-in-up-1">
+                <p className="font-sans text-xs uppercase tracking-widest text-foreground/50">Trusted By</p>
+                <p className="font-sans text-xs sm:text-sm md:text-base font-semibold text-foreground">
+                  500+ Companies
+                </p>
+              </div>
+              <div className="space-y-1 opacity-0 animate-fade-in-up-2">
+                <p className="font-sans text-xs uppercase tracking-widest text-foreground/50">Industry</p>
+                <p className="font-sans text-xs sm:text-sm md:text-base font-semibold text-foreground">
+                  MSME Registered
+                </p>
+              </div>
+              <div className="space-y-1 opacity-0 animate-fade-in-up-3">
+                <p className="font-sans text-xs uppercase tracking-widest text-foreground/50">Recognized</p>
+                <p className="font-sans text-xs sm:text-sm md:text-base font-semibold text-foreground">Startup India</p>
+              </div>
             </div>
           </div>
         </section>
@@ -964,7 +1197,7 @@ export default function Home() {
                   <p className="text-base sm:text-lg lg:text-xl font-semibold text-foreground leading-tight">
                     We don't just build websites.
                     <br />
-                    <span className={GRADIENT_TEXT}>We create digital identities that last.</span>
+                    <span className={gradientText}>We create digital identities that last.</span>
                   </p>
                 </div>
 
@@ -984,7 +1217,7 @@ export default function Home() {
                 <h2 className="font-monument text-xl sm:text-2xl lg:text-3xl font-bold text-foreground mb-1 sm:mb-2">
                   Founded by
                   <br />
-                  <span className={GRADIENT_TEXT}>Sunhith Reddy</span>
+                  <span className={gradientText}>Sunhith Reddy</span>
                 </h2>
                 <p className="text-xs sm:text-xs text-foreground/60 uppercase tracking-widest">Founder & CEO</p>
               </div>
@@ -1051,35 +1284,220 @@ export default function Home() {
             </h1>
 
             <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3 overflow-hidden">
-              {SERVICES.map((service, idx) => (
-                <div
-                  key={idx}
-                  className={`group relative rounded-xl border border-foreground/20 bg-foreground/5 p-4 sm:p-5 hover:border-foreground/40 hover:bg-foreground/8 transition-all duration-300 ${service.span || ""}`}
-                >
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary/20 to-accent/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative">
-                    <div className="flex items-start justify-between mb-2.5 sm:mb-3">
-                      <div className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-gradient-to-r from-primary to-accent flex-shrink-0">
-                        <svg
-                          className="h-4 w-4 sm:h-5 sm:w-5 text-background"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={service.icon} />
-                        </svg>
-                      </div>
-                      <span className="text-[10px] font-mono text-foreground/40">
-                        {String(idx + 1).padStart(2, "0")}
-                      </span>
+              {/* Web Design & Development - Spans 2 columns */}
+              <div className="sm:col-span-2 group relative rounded-xl border border-foreground/20 bg-foreground/5 p-4 sm:p-5 hover:border-foreground/40 hover:bg-foreground/8 transition-all duration-300 overflow-hidden">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary/20 to-accent/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative">
+                  <div className="flex items-start justify-between mb-2.5 sm:mb-3">
+                    <div className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-gradient-to-r from-primary to-accent flex-shrink-0">
+                      <svg
+                        className="h-4 w-4 sm:h-5 sm:w-5 text-background"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        />
+                      </svg>
                     </div>
-                    <h3 className="font-sans text-base sm:text-lg lg:text-xl font-bold text-foreground mb-1.5 sm:mb-2">
-                      {service.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-foreground/70 leading-relaxed">{service.desc}</p>
+                    <span className="text-[10px] font-mono text-foreground/40">01</span>
+                  </div>
+                  <h3 className="font-sans text-base sm:text-lg lg:text-xl font-bold text-foreground mb-1.5 sm:mb-2">
+                    Web Design & Development
+                  </h3>
+                  <p className="text-xs sm:text-sm text-foreground/70 leading-relaxed">
+                    We create fast, functional, and visually dynamic websites built for scalability and performance.
+                  </p>
+                </div>
+              </div>
+
+              {/* Branding & Visual Identity */}
+              <div className="group relative rounded-xl border border-foreground/20 bg-foreground/5 p-4 sm:p-5 hover:border-foreground/40 hover:bg-foreground/8 transition-all duration-300">
+                <div className="flex items-start justify-between mb-2.5 sm:mb-3">
+                  <div className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-gradient-to-r from-primary to-accent flex-shrink-0">
+                    <svg
+                      className="h-4 w-4 sm:h-5 sm:w-5 text-background"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+                      />
+                    </svg>
+                  </div>
+                  <span className="text-[10px] font-mono text-foreground/40">02</span>
+                </div>
+                <h3 className="font-sans text-sm sm:text-base font-bold text-foreground mb-1.5">
+                  Branding & Visual Identity
+                </h3>
+                <p className="text-xs text-foreground/70 leading-relaxed">
+                  Build recognition through storytelling and visual systems.
+                </p>
+              </div>
+
+              {/* UI/UX Design */}
+              <div className="group relative rounded-xl border border-foreground/20 bg-foreground/5 p-4 sm:p-5 hover:border-foreground/40 hover:bg-foreground/8 transition-all duration-300">
+                <div className="flex items-start justify-between mb-2.5 sm:mb-3">
+                  <div className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-gradient-to-r from-primary to-accent flex-shrink-0">
+                    <svg
+                      className="h-4 w-4 sm:h-5 sm:w-5 text-background"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-3zM14 13a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1h-4a1 1 0 01-1-1v-7z"
+                      />
+                    </svg>
+                  </div>
+                  <span className="text-[10px] font-mono text-foreground/40">03</span>
+                </div>
+                <h3 className="font-sans text-sm sm:text-base font-bold text-foreground mb-1.5">UI/UX Design</h3>
+                <p className="text-xs text-foreground/70 leading-relaxed">
+                  Smooth, intuitive experiences that feel effortless.
+                </p>
+              </div>
+
+              {/* E-Commerce Solutions */}
+              <div className="group relative rounded-xl border border-foreground/20 bg-foreground/5 p-4 sm:p-5 hover:border-foreground/40 hover:bg-foreground/8 transition-all duration-300">
+                <div className="flex items-start justify-between mb-2.5 sm:mb-3">
+                  <div className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-gradient-to-r from-primary to-accent flex-shrink-0">
+                    <svg
+                      className="h-4 w-4 sm:h-5 sm:w-5 text-background"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                      />
+                    </svg>
+                  </div>
+                  <span className="text-[10px] font-mono text-foreground/40">04</span>
+                </div>
+                <h3 className="font-sans text-sm sm:text-base font-bold text-foreground mb-1.5">
+                  E-Commerce Solutions
+                </h3>
+                <p className="text-xs text-foreground/70 leading-relaxed">Secure platforms with smart integrations.</p>
+              </div>
+
+              {/* Digital Marketing */}
+              <div className="group relative rounded-xl border border-foreground/20 bg-foreground/5 p-4 sm:p-5 hover:border-foreground/40 hover:bg-foreground/8 transition-all duration-300">
+                <div className="flex items-start justify-between mb-2.5 sm:mb-3">
+                  <div className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-gradient-to-r from-primary to-accent flex-shrink-0">
+                    <svg
+                      className="h-4 w-4 sm:h-5 sm:w-5 text-background"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M11 3.055A9.001 9.001 0 110 0v13a9.001 9.001 0 0111-9.945z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"
+                      />
+                    </svg>
+                  </div>
+                  <span className="text-[10px] font-mono text-foreground/40">05</span>
+                </div>
+                <h3 className="font-sans text-sm sm:text-base font-bold text-foreground mb-1.5">Digital Marketing</h3>
+                <p className="text-xs text-foreground/70 leading-relaxed">
+                  SEO, social media, and performance tracking.
+                </p>
+              </div>
+
+              {/* Digital Strategy & SEO */}
+              <div className="group relative rounded-xl border border-foreground/20 bg-foreground/5 p-4 sm:p-5 hover:border-foreground/40 hover:bg-foreground/8 transition-all duration-300">
+                <div className="flex items-start justify-between mb-2.5 sm:mb-3">
+                  <div className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-gradient-to-r from-primary to-accent flex-shrink-0">
+                    <svg
+                      className="h-4 w-4 sm:h-5 sm:w-5 text-background"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                      />
+                    </svg>
+                  </div>
+                  <span className="text-[10px] font-mono text-foreground/40">06</span>
+                </div>
+                <h3 className="font-sans text-sm sm:text-base font-bold text-foreground mb-1.5">
+                  Digital Strategy & SEO
+                </h3>
+                <p className="text-xs text-foreground/70 leading-relaxed">
+                  Data-driven optimization for reach and ranking.
+                </p>
+              </div>
+
+              {/* Maintenance & Support - Spans all 4 columns on large screens, 2 on medium */}
+              <div className="sm:col-span-2 lg:col-span-4 group relative rounded-xl border border-foreground/20 bg-gradient-to-br from-foreground/5 to-foreground/10 p-4 sm:p-5 hover:border-foreground/40 hover:from-foreground/8 hover:to-foreground/12 transition-all duration-300">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5 sm:gap-3">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-gradient-to-r from-primary to-accent flex-shrink-0">
+                      <svg
+                        className="h-4 w-4 sm:h-5 sm:w-5 text-background"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37.996.608 2.296.07 2.572-1.065z"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2 mb-0.5">
+                        <h3 className="font-sans text-sm sm:text-base lg:text-lg font-bold text-foreground">
+                          Maintenance & Support
+                        </h3>
+                        <span className="text-[10px] font-mono text-foreground/40">07</span>
+                      </div>
+                      <p className="text-xs text-foreground/70 leading-relaxed">
+                        Keep your website fast, secure, and updated.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-[10px] text-foreground/50">
+                    <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+                    <span className="font-mono">24/7</span>
                   </div>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </section>
@@ -1101,74 +1519,163 @@ export default function Home() {
             </div>
 
             <div className="flex-1 grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 mb-5 sm:mb-6">
-              {PRICING_PLANS.map((plan, idx) => (
-                <div
-                  key={idx}
-                  onMouseEnter={() => setHoveredPlan(plan.name.toLowerCase())}
-                  onMouseLeave={() => setHoveredPlan(null)}
-                  className={`relative rounded-lg border-2 bg-foreground/5 backdrop-blur-sm p-6 sm:p-7 flex flex-col transition-all duration-500 ${
-                    hoveredPlan === plan.name.toLowerCase()
-                      ? "scale-[1.08] border-foreground/40 bg-foreground/10 shadow-2xl z-20"
-                      : hoveredPlan
-                        ? "scale-90 opacity-40 border-foreground/10"
-                        : plan.recommended
-                          ? "border-primary/40 shadow-lg shadow-primary/10"
-                          : "border-foreground/20 hover:border-foreground/30"
-                  }`}
-                >
-                  {plan.recommended && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                      <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-4 py-1.5 shadow-lg border-2 border-background">
-                        <svg className="h-4 w-4 text-background" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                        <span className="text-xs font-bold text-background uppercase tracking-wide">Recommended</span>
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="mb-6 mt-2">
-                    <h3 className="font-monument text-2xl sm:text-3xl font-bold text-foreground mb-2">{plan.name}</h3>
-                    <div className="flex items-baseline gap-1 mb-3">
-                      <span
-                        className={`text-4xl sm:text-5xl font-bold ${plan.recommended ? GRADIENT_TEXT : "text-foreground"}`}
-                      >
-                        {plan.price}
-                      </span>
-                    </div>
-                    <p className="text-sm text-foreground/60 leading-relaxed">{plan.desc}</p>
+              {/* Starter Plan */}
+              <div
+                onMouseEnter={() => setHoveredPlan("starter")}
+                onMouseLeave={() => setHoveredPlan(null)}
+                className={`relative rounded-lg border-2 bg-foreground/5 backdrop-blur-sm p-6 sm:p-7 flex flex-col transition-all duration-500 ${
+                  hoveredPlan === "starter"
+                    ? "scale-[1.08] border-foreground/40 bg-foreground/10 shadow-2xl z-20"
+                    : hoveredPlan
+                      ? "scale-90 opacity-40 border-foreground/10"
+                      : "border-foreground/20 hover:border-foreground/30"
+                }`}
+              >
+                <div className="mb-6">
+                  <h3 className="font-monument text-2xl sm:text-3xl font-bold text-foreground mb-2">Starter</h3>
+                  <div className="flex items-baseline gap-1 mb-3">
+                    <span className="text-4xl sm:text-5xl font-bold text-foreground">₹5,999</span>
                   </div>
-
-                  <ul className="space-y-3 mb-6 flex-1">
-                    {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-sm text-foreground/80">
-                        <svg
-                          className="h-5 w-5 text-primary flex-shrink-0 mt-0.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {plan.name === "Enterprise" ? (
-                    <button className="w-full rounded-lg border-2 border-foreground/30 px-6 py-3 font-sans text-sm font-semibold text-foreground hover:bg-foreground/5 hover:border-foreground/50 transition-all duration-200">
-                      Contact Us
-                    </button>
-                  ) : (
-                    <Link
-                      href="/start-project"
-                      className="w-full rounded-lg bg-gradient-to-r from-primary to-accent px-6 py-3 font-sans text-sm font-semibold text-background text-center"
-                    >
-                      Get Started
-                    </Link>
-                  )}
+                  <p className="text-sm text-foreground/60 leading-relaxed">
+                    For individuals and small businesses starting online.
+                  </p>
                 </div>
-              ))}
+
+                <ul className="space-y-3 mb-6 flex-1">
+                  {[
+                    "Up to 5 web pages",
+                    "Responsive design",
+                    "Basic SEO setup",
+                    "Contact form integration",
+                    "Delivery in 1 week",
+                  ].map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-sm text-foreground/80">
+                      <svg
+                        className="h-5 w-5 text-primary flex-shrink-0 mt-0.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <button className="w-full rounded-lg border-2 border-foreground/30 px-6 py-3 font-sans text-sm font-semibold text-foreground hover:bg-foreground/5 hover:border-foreground/50 transition-all duration-200">
+                  Get Started
+                </button>
+              </div>
+
+              {/* Professional Plan - Recommended */}
+              <div
+                onMouseEnter={() => setHoveredPlan("professional")}
+                onMouseLeave={() => setHoveredPlan(null)}
+                className={`relative rounded-lg border-2 bg-gradient-to-br from-primary/15 via-accent/15 to-primary/20 backdrop-blur-sm p-6 sm:p-7 flex flex-col transition-all duration-500 ${
+                  hoveredPlan === "professional"
+                    ? "scale-[1.08] border-primary/60 from-primary/15 via-accent/15 to-primary/20 shadow-2xl shadow-primary/30 z-20"
+                    : hoveredPlan
+                      ? "scale-90 opacity-40 border-primary/20"
+                      : "border-primary/40 shadow-lg shadow-primary/10"
+                }`}
+              >
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-4 py-1.5 shadow-lg border-2 border-background">
+                    <svg className="h-4 w-4 text-background" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <span className="text-xs font-bold text-background uppercase tracking-wide">Recommended</span>
+                  </div>
+                </div>
+
+                <div className="mb-6 mt-2">
+                  <h3 className="font-monument text-2xl sm:text-3xl font-bold text-foreground mb-2">Professional</h3>
+                  <div className="flex items-baseline gap-1 mb-3">
+                    <span className={`text-4xl sm:text-5xl font-bold ${gradientText}`}>₹9,999</span>
+                  </div>
+                  <p className="text-sm text-foreground/60 leading-relaxed">
+                    For brands ready to grow their digital presence.
+                  </p>
+                </div>
+
+                <ul className="space-y-3 mb-6 flex-1">
+                  {[
+                    "Custom design and animations",
+                    "CMS or API integration",
+                    "SEO optimization + analytics",
+                    "Priority support",
+                    "Delivery in 2–3 weeks",
+                  ].map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-sm text-foreground/80">
+                      <svg
+                        className="h-5 w-5 text-primary flex-shrink-0 mt-0.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  href="/start-project"
+                  className="w-full rounded-lg bg-gradient-to-r from-primary to-accent px-6 py-3 font-sans text-sm font-semibold text-background text-center"
+                >
+                  Get Started
+                </Link>
+              </div>
+
+              {/* Enterprise */}
+              <div
+                onMouseEnter={() => setHoveredPlan("enterprise")}
+                onMouseLeave={() => setHoveredPlan(null)}
+                className={`relative rounded-lg border-2 bg-foreground/5 backdrop-blur-sm p-6 sm:p-7 flex flex-col transition-all duration-500 ${
+                  hoveredPlan === "enterprise"
+                    ? "scale-[1.08] border-foreground/40 bg-foreground/10 shadow-2xl z-20"
+                    : hoveredPlan
+                      ? "scale-90 opacity-40 border-foreground/10"
+                      : "border-foreground/20 hover:border-foreground/30"
+                }`}
+              >
+                <div className="mb-6">
+                  <h3 className="font-monument text-2xl sm:text-3xl font-bold text-foreground mb-2">Enterprise</h3>
+                  <div className="flex items-baseline gap-1 mb-3">
+                    <span className="text-4xl sm:text-5xl font-bold text-foreground">Custom</span>
+                  </div>
+                  <p className="text-sm text-foreground/60 leading-relaxed">
+                    For startups or companies needing complete digital solutions.
+                  </p>
+                </div>
+
+                <ul className="space-y-3 mb-6 flex-1">
+                  {[
+                    "Full-scale web or e-commerce development",
+                    "Branding & marketing",
+                    "SEO and performance strategy",
+                    "Maintenance & updates",
+                  ].map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-sm text-foreground/80">
+                      <svg
+                        className="h-5 w-5 text-primary flex-shrink-0 mt-0.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <button className="w-full rounded-lg border-2 border-foreground/30 px-6 py-3 font-sans text-sm font-semibold text-foreground hover:bg-foreground/5 hover:border-foreground/50 transition-all duration-200">
+                  Contact Us
+                </button>
+              </div>
             </div>
 
             <div className="rounded-lg bg-gradient-to-r from-foreground/5 via-foreground/8 to-foreground/5 border border-foreground/10 p-6 text-center">
@@ -1372,7 +1879,7 @@ export default function Home() {
                     IT Domains
                   </h2>
                   <ul className="space-y-2 list-disc list-inside pl-4">
-                    {IT_DOMAINS.map((domain, idx) => (
+                    {itDomains.map((domain, idx) => (
                       <li key={idx} className="font-sans text-base text-foreground/80">
                         {domain.name}
                       </li>
@@ -1385,7 +1892,7 @@ export default function Home() {
                     Non-IT Domains
                   </h2>
                   <ul className="space-y-2 list-disc list-inside pl-4">
-                    {NON_IT_DOMAINS.map((domain, idx) => (
+                    {nonItDomains.map((domain, idx) => (
                       <li key={idx} className="font-sans text-base text-foreground/80">
                         {domain.name}
                       </li>
@@ -1505,7 +2012,7 @@ export default function Home() {
                 <h1 className="font-monument text-3xl font-bold text-foreground mb-3 sm:mb-4 leading-tight sm:text-4xl">
                   Let's Build Something
                   <br />
-                  <span className={GRADIENT_TEXT}>Great Together.</span>
+                  <span className={gradientText}>Great Together.</span>
                 </h1>
                 <p className="text-sm sm:text-base text-foreground/70 leading-relaxed">
                   Reach out to collaborate, discuss projects, or just say hello.
@@ -1561,7 +2068,7 @@ export default function Home() {
                   <div>
                     <p className="text-xs text-foreground/50 uppercase tracking-wide mb-0.5">Phone</p>
                     <a
-                      href="tel:+916361064550"
+                      href="tel:+919392768519"
                       className="text-sm sm:text-base font-medium text-foreground hover:text-primary transition-colors"
                     >
                       {"+91 6361064550\n"}
@@ -1594,7 +2101,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-xs text-foreground/50 uppercase tracking-wide mb-0.5">Location</p>
-                    <p className="text-sm sm:text-base font-medium text-foreground">Bangalore, India</p>
+                    <p className="text-sm sm:text-base font-medium text-foreground">Banglore, India</p>
                   </div>
                 </div>
               </div>
@@ -1631,7 +2138,7 @@ export default function Home() {
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.275-.045-1.65-.06-4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z" />
+                      <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.275-.045-1.65-.06-4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z" />
                     </svg>
                   </a>
 
@@ -1679,7 +2186,7 @@ export default function Home() {
                     Join our team and gain real-world experience in web development.
                   </p>
                   <a
-                    href="https://wa.me/916361064550?text=Hi%2C%20I'm%20interested%20in%20internship%20opportunities"
+                    href="https://wa.me/916361064550?text=Hi%2C%20I%27m%20interested%20in%20internship%20opportunities"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 text-sm px-5 py-2.5 rounded-xl bg-primary text-background font-semibold hover:shadow-lg hover:shadow-primary/30 hover:scale-105 transition-all duration-300 w-full"
@@ -1693,24 +2200,24 @@ export default function Home() {
               </div>
 
               {/* Web Development */}
-              <div className="group relative border border-foreground/20 rounded-2xl p-6 bg-background/50 backdrop-blur-sm hover:border-foreground/40 hover:shadow-2xl hover:shadow-accent/10 transition-all duration-300 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="group relative border border-foreground/20 rounded-2xl p-6 bg-background/50 backdrop-blur-sm hover:border-foreground/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative z-10 flex flex-col h-full">
-                  <h3 className="font-semibold text-lg text-foreground mb-2 group-hover:text-accent transition-colors">
+                  <h3 className="font-semibold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
                     Web Development
                   </h3>
                   <p className="text-sm text-foreground/60 mb-4 leading-relaxed flex-1">
                     Professional websites that drive results for your business.
                   </p>
                   <a
-                    href="https://wa.me/916361064550?text=Hi%2C%20I'd%20like%20to%20discuss%20web%20development"
+                    href="https://wa.me/916361064550?text=Hi%2C%20I%27m%20interested%20in%20web%20development%20services"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 text-sm px-5 py-2.5 rounded-xl bg-accent text-background font-semibold hover:shadow-lg hover:shadow-accent/30 hover:scale-105 transition-all duration-300 w-full"
                   >
                     <span>Get Started</span>
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   </a>
                 </div>
@@ -1741,24 +2248,24 @@ export default function Home() {
               </div>
 
               {/* Capstone Project Help */}
-              <div className="group relative border border-foreground/20 rounded-2xl p-6 bg-background/50 backdrop-blur-sm hover:border-foreground/40 hover:shadow-2xl hover:shadow-accent/10 transition-all duration-300 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="group relative border border-foreground/20 rounded-2xl p-6 bg-background/50 backdrop-blur-sm hover:border-foreground/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative z-10 flex flex-col h-full">
-                  <h3 className="font-semibold text-lg text-foreground mb-2 group-hover:text-accent transition-colors">
+                  <h3 className="font-semibold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
                     Capstone Project Help
                   </h3>
                   <p className="text-sm text-foreground/60 mb-4 leading-relaxed flex-1">
                     Get expert guidance for your final year capstone project
                   </p>
                   <a
-                    href="https://wa.me/916361064550?text=Hi%2C%20I%20need%20help%20with%20my%20capstone%20project"
+                    href="https://wa.me/916361064550?text=Hi%2C%20I%27m%20interested%20in%20capstone%20project%20help"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 text-sm px-5 py-2.5 rounded-xl bg-accent text-background font-semibold hover:shadow-lg hover:shadow-accent/30 hover:scale-105 transition-all duration-300 w-full"
                   >
                     <span>Learn More</span>
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   </a>
                 </div>
