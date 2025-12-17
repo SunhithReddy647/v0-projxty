@@ -23,7 +23,6 @@ export default function SitemapsPage() {
             "Our Pricing",
             "Clients Brands",
             "Work With",
-            "Blog",
             "Sitemaps",
             "Contact Us",
           ].map((item) => (

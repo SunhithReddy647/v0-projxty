@@ -209,7 +209,6 @@ export default function Home() {
     "Our Pricing",
     "Clients Brands",
     "Internships",
-    "Blog",
     "Contact Us",
   ]
 
@@ -829,24 +828,6 @@ export default function Home() {
               >
                 View Sample Certificate
               </button>
-            </div>
-          </section>
-
-          {/* Blog Section */}
-          <section className="min-h-screen px-6 py-16">
-            <h1 className="font-monument text-4xl font-bold text-foreground text-center mb-8">Blog</h1>
-            <div className="space-y-4">
-              {[
-                { title: "Web Design Trends 2025", date: "Jan 15, 2025" },
-                { title: "React Performance Tips", date: "Jan 10, 2025" },
-                { title: "UX Best Practices", date: "Jan 5, 2025" },
-                { title: "Next.js Guide", date: "Dec 28, 2024" },
-              ].map((post) => (
-                <div key={post.title} className="rounded-lg border border-foreground/20 p-5">
-                  <h3 className="text-base font-semibold text-foreground mb-2">{post.title}</h3>
-                  <p className="text-xs text-foreground/60">{post.date}</p>
-                </div>
-              ))}
             </div>
           </section>
 
@@ -1911,7 +1892,7 @@ export default function Home() {
                 </div>
 
                 <div className="rounded-2xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 p-8">
-                  <h2 className="font-monument text-2xl font-bold text-foreground mb-4">Contact HR</h2>
+                  <h2 className="font-monument text-2xl font-bold text-foreground mb-4">Contact Executive </h2>
                   <div className="space-y-3">
                     <a
                       href="mailto:projxty@gmail.com"
@@ -1928,7 +1909,7 @@ export default function Home() {
                       projxty@gmail.com
                     </a>
                     <a
-                      href="tel:+919392768519"
+                      href="tel:+916303459155"
                       className="flex items-center gap-3 text-base text-foreground/80 hover:text-primary transition-colors"
                     >
                       <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1939,7 +1920,7 @@ export default function Home() {
                           d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                         />
                       </svg>
-                      +91 93927 68519
+                      +91 6303459155
                     </a>
                   </div>
                 </div>
@@ -1967,36 +1948,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* Blog Section */}
-        <section
-          ref={(el) => {
-            sectionRefsRef.current[6] = el
-          }}
-          className="flex min-h-screen w-screen shrink-0 flex-col items-center justify-start px-4 sm:px-6 md:px-12 pt-16 sm:pt-20 pb-16 overflow-y-auto"
-          style={{ scrollSnapAlign: "center", scrollSnapStop: "always" }}
-        >
-          <div className="max-w-4xl mx-auto w-full pt-12">
-            <h1 className="text-center font-monument text-7xl font-bold text-foreground">Blog</h1>
-            <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
-              {[
-                { title: "Web Design Trends 2025", date: "Jan 15, 2025" },
-                { title: "React Performance Tips", date: "Jan 10, 2025" },
-                { title: "UX Best Practices", date: "Jan 5, 2025" },
-                { title: "Next.js Guide", date: "Dec 28, 2024" },
-              ].map((post) => (
-                <div
-                  key={post.title}
-                  className="rounded-lg border border-foreground/20 p-4 sm:p-6 hover:border-foreground/40 transition-colors"
-                >
-                  <h3 className="font-sans text-base sm:text-lg font-semibold text-foreground">{post.title}</h3>
-                  <p className="mt-2 text-xs sm:text-sm text-foreground/60">{post.date}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Contact Section */}
         <section
           ref={(el) => {
@@ -2071,7 +2022,7 @@ export default function Home() {
                       href="tel:+919392768519"
                       className="text-sm sm:text-base font-medium text-foreground hover:text-primary transition-colors"
                     >
-                      {"+91 6361064550\n"}
+                      {"+91 6303459155"}
                     </a>
                   </div>
                 </div>

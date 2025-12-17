@@ -48,7 +48,6 @@ export default function AboutUsPage() {
             "Our Pricing",
             "Clients Brands",
             "Work With",
-            "Blog",
             "Sitemaps",
             "Contact Us",
           ].map((item) => (

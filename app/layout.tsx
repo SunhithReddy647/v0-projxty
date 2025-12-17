@@ -695,15 +695,10 @@ export default function RootLayout({
             name: "Contact",
             item: "https://projxty.com/contact-us",
           },
+          
           {
             "@type": "ListItem",
             position: 7,
-            name: "Blog",
-            item: "https://projxty.com/blog",
-          },
-          {
-            "@type": "ListItem",
-            position: 8,
             name: "Start Project",
             item: "https://projxty.com/start-project",
           },
