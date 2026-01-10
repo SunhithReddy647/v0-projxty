@@ -1,0 +1,26 @@
+{
+  "name": "Projxty - Web Development & Design Company",
+  "short_name": "Projxty",
+  "description": "Top web development company in India offering custom websites, capstone projects, final year projects & internships",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/design-mode/cropped_circle_image.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["business", "education", "productivity"],
+  "lang": "en-IN",
+  "dir": "ltr"
+}
