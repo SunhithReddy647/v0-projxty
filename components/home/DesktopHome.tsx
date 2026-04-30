@@ -645,33 +645,20 @@ export default function DesktopHome() {
                             </div>
 
                             <div className="rounded-2xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 p-8">
-                                <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+                                <div className="flex flex-col items-center gap-6 text-center">
                                     <div>
-                                        <h3 className="font-monument text-xl font-bold text-foreground mb-2">Register Now</h3>
-                                        <div className="flex items-baseline gap-2">
-                                            <p className="text-3xl font-bold text-primary">₹800</p>
-                                            <p className="text-sm text-foreground/60 italic">/ person</p>
-                                        </div>
-                                        <p className="text-xs text-foreground/50 mt-1 max-w-[200px]">
-                                            Max group of 5 - ideal for teams!
+                                        <h3 className="font-monument text-xl font-bold text-foreground mb-3">Thank You for Your Participation!</h3>
+                                        <p className="text-lg text-foreground/80 mb-2">PGTC 2026 has concluded.</p>
+                                        <p className="text-sm text-foreground/60 max-w-[400px]">
+                                            We&apos;ll be sharing updates about the next conference soon. Stay tuned for announcements!
                                         </p>
                                     </div>
-                                    <div className="flex flex-col gap-3 w-full sm:w-auto">
-                                        <a
-                                            href="https://forms.gle/QQCWt9xTRKh63cBDA"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="px-8 py-3 rounded-full bg-gradient-to-r from-primary to-accent text-sm font-bold text-background text-center hover:shadow-lg hover:shadow-primary/25 transition-all"
-                                        >
-                                            Book Seat
-                                        </a>
-                                        <a
-                                            href="mailto:projxty@gmail.com"
-                                            className="px-8 py-3 rounded-full border border-foreground/20 text-sm font-bold text-foreground text-center hover:bg-foreground/5 transition-all"
-                                        >
-                                            Contact Us
-                                        </a>
-                                    </div>
+                                    <a
+                                        href="mailto:projxty@gmail.com"
+                                        className="px-8 py-3 rounded-full border border-foreground/20 text-sm font-bold text-foreground hover:bg-foreground/5 transition-all"
+                                    >
+                                        Get Notified
+                                    </a>
                                 </div>
                             </div>
                         </div>

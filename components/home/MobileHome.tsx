@@ -268,27 +268,21 @@ export default function MobileHome() {
                         ))}
                     </div>
 
-                    {/* Registration */}
-                    <div className="rounded-2xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 p-6 text-center">
-                        <h3 className="font-monument text-xl font-bold text-foreground mb-3">Register for PGTC 2026</h3>
-                        <p className="text-2xl font-bold text-primary mb-2">₹800</p>
-                        <p className="text-xs text-foreground/60 mb-6 italic">Max group of 5 - ideal for teams!</p>
-                        <div className="space-y-3">
-                            <a
-                                href="https://forms.gle/QQCWt9xTRKh63cBDA"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="block w-full py-3 rounded-full bg-gradient-to-r from-primary to-accent text-sm font-bold text-background"
-                            >
-                                Register now
-                            </a>
-                            <a
-                                href="mailto:projxty@gmail.com"
-                                className="block w-full py-3 rounded-full border border-foreground/20 text-sm font-bold text-foreground"
-                            >
-                                Contact us
-                            </a>
+                    {/* Conference Concluded Message */}
+                    <div className="rounded-2xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 p-6 text-center space-y-4">
+                        <div>
+                            <h3 className="font-monument text-xl font-bold text-foreground mb-2">Thank You for Your Participation!</h3>
+                            <p className="text-base text-foreground/80 mb-2">PGTC 2026 has concluded.</p>
+                            <p className="text-xs text-foreground/60 leading-relaxed">
+                                We&apos;ll be sharing updates about the next conference soon. Stay tuned for announcements!
+                            </p>
                         </div>
+                        <a
+                            href="mailto:projxty@gmail.com"
+                            className="block w-full py-3 rounded-full border border-foreground/20 text-sm font-bold text-foreground hover:bg-foreground/5 transition-all"
+                        >
+                            Get Notified
+                        </a>
                     </div>
                 </section>
 
