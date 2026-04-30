@@ -13,8 +13,7 @@ import {
     internshipHighlights,
     internshipDurations,
     socialLinks,
-    conferencePillars,
-    conferenceStats
+    projects
 } from "@/lib/data"
 
 import { useShaderLoader } from "@/hooks/use-shader-loader"
@@ -133,7 +132,7 @@ export default function MobileHome() {
                     <div className="mt-12 grid grid-cols-3 gap-4">
                         <div className="space-y-1">
                             <p className="text-xs uppercase tracking-widest text-foreground/50">Trusted By</p>
-                            <p className="text-sm font-semibold text-foreground">50+ Companies</p>
+                            <p className="text-sm font-semibold text-foreground">150+ Capstone Teams</p>
                         </div>
                         <div className="space-y-1">
                             <p className="text-xs uppercase tracking-widest text-foreground/50">Industry</p>
@@ -229,66 +228,6 @@ export default function MobileHome() {
                                 <p className="text-sm font-semibold text-foreground/60">{brand}</p>
                             </div>
                         ))}
-                    </div>
-                </section>
-
-                <section id="conference" className="min-h-screen px-6 py-16">
-                    <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-3 py-1 text-xs font-bold text-primary">
-                        <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
-                        PGTC 2026
-                    </div>
-                    <h1 className="font-monument text-4xl font-bold text-foreground mb-2">Projxty Global</h1>
-                    <h2 className={`font-monument text-3xl font-bold mb-6 ${gradientText}`}>Tech Conference 2026</h2>
-                    <p className="text-lg font-medium text-foreground/90 mb-4 tracking-tight">Unlock the Future. Be There.</p>
-                    <p className="text-sm text-foreground/60 mb-8 font-mono tracking-widest uppercase">#PGTC2K26</p>
-
-                    {/* Three Pillars */}
-                    <div className="space-y-6 mb-12">
-                        <h3 className="font-monument text-xl font-bold text-foreground">Three Pillars of Innovation</h3>
-                        <div className="space-y-4">
-                            {conferencePillars.map((pillar, i) => (
-                                <div key={i} className="rounded-xl border border-foreground/10 bg-foreground/5 p-5">
-                                    <h4 className="font-bold text-primary mb-2 text-base">{pillar.title}</h4>
-                                    <p className="text-sm text-foreground/70 leading-relaxed">{pillar.desc}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Stats */}
-                    <div className="grid grid-cols-2 gap-4 mb-12">
-                        {conferenceStats.map((stat, i) => (
-                            <div
-                                key={i}
-                                className="text-center rounded-xl bg-gradient-to-br from-primary/5 to-accent/5 border border-foreground/5 p-4"
-                            >
-                                <p className="text-2xl font-monument font-bold text-foreground">{stat.val}</p>
-                                <p className="text-[10px] uppercase tracking-widest text-foreground/40 mt-1">{stat.label}</p>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Registration */}
-                    <div className="rounded-2xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 p-6 text-center">
-                        <h3 className="font-monument text-xl font-bold text-foreground mb-3">Register for PGTC 2026</h3>
-                        <p className="text-2xl font-bold text-primary mb-2">₹800</p>
-                        <p className="text-xs text-foreground/60 mb-6 italic">Max group of 5 - ideal for teams!</p>
-                        <div className="space-y-3">
-                            <a
-                                href="https://forms.gle/QQCWt9xTRKh63cBDA"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="block w-full py-3 rounded-full bg-gradient-to-r from-primary to-accent text-sm font-bold text-background"
-                            >
-                                Register now
-                            </a>
-                            <a
-                                href="mailto:projxty@gmail.com"
-                                className="block w-full py-3 rounded-full border border-foreground/20 text-sm font-bold text-foreground"
-                            >
-                                Contact us
-                            </a>
-                        </div>
                     </div>
                 </section>
 
@@ -442,6 +381,73 @@ export default function MobileHome() {
                         >
                             Contact Us
                         </button>
+                    </div>
+                </section>
+
+                {/* Projects Section */}
+                <section id="projects" className="min-h-screen px-6 pt-20 pb-16">
+                    <div className="mb-8">
+                        <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-3 py-1 text-xs font-bold text-primary">
+                            <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
+                            Student Projects
+                        </div>
+                        <h1 className="font-monument text-4xl font-bold text-foreground mb-2">Capstone</h1>
+                        <h2 className={`font-monument text-3xl font-bold mb-4 ${gradientText}`}>Projects Showcase</h2>
+                        <p className="text-sm text-foreground/90 leading-relaxed">
+                            Explore innovative projects built by our talented capstone teams using cutting-edge technologies.
+                        </p>
+                    </div>
+
+                    <div className="space-y-6">
+                        {projects.map((project, i) => (
+                            <div
+                                key={i}
+                                className="rounded-xl border border-foreground/10 bg-gradient-to-br from-foreground/5 to-foreground/2 p-5 space-y-4"
+                            >
+                                <div>
+                                    <h3 className="font-bold text-base text-foreground mb-2 line-clamp-2">
+                                        {project.title}
+                                    </h3>
+                                    <p className="text-xs text-foreground/70 leading-relaxed line-clamp-2">
+                                        {project.description}
+                                    </p>
+                                </div>
+
+                                <div className="space-y-3">
+                                    <div>
+                                        <p className="text-[10px] uppercase tracking-widest text-foreground/40 mb-2">Technologies</p>
+                                        <div className="flex flex-wrap gap-1.5">
+                                            {project.technologies.map((tech, j) => (
+                                                <span
+                                                    key={j}
+                                                    className="text-[10px] font-semibold px-2 py-1 rounded-full bg-primary/10 text-primary border border-primary/20"
+                                                >
+                                                    {tech}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className="grid grid-cols-2 gap-3">
+                                        <div>
+                                            <p className="text-[10px] uppercase tracking-widest text-foreground/40 mb-0.5">Team Size</p>
+                                            <p className="text-xs font-semibold text-foreground">{project.teamSize}</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-[10px] uppercase tracking-widest text-foreground/40 mb-0.5">Duration</p>
+                                            <p className="text-xs font-semibold text-foreground">{project.duration}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <a
+                                    href={project.demoLink}
+                                    className="inline-block px-4 py-2 rounded-full border border-primary/50 text-xs font-bold text-primary hover:bg-primary/10 transition-all"
+                                >
+                                    View Project →
+                                </a>
+                            </div>
+                        ))}
                     </div>
                 </section>
 

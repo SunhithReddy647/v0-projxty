@@ -11,9 +11,9 @@ const josefinSans = Josefin_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "Projxty - Web Development Company in India | Capstone Projects, Final Year Projects & AICTE Internships",
+  title: "Projxty - Web Development Company in India | Capstone Projects & Final Year Projects",
   description:
-    "Top-rated web development company in India offering custom websites, UI/UX design, e-commerce, capstone projects, final year projects & AICTE-approved internships in Hyderabad, Bengaluru, Chennai, Pune, Delhi. Startup India recognized & MSME registered. Budget-friendly solutions under ₹40,000.",
+    "Top-rated web development company in India offering custom websites, UI/UX design, e-commerce, capstone projects, final year projects & internships in Hyderabad, Bengaluru, Chennai, Pune, Delhi. Startup India recognized & MSME registered. Budget-friendly solutions under ₹40,000.",
   keywords: [
     // Geo-targeted primary keywords
     "web development company in India",
@@ -40,9 +40,9 @@ export const metadata: Metadata = {
     "ECE projects Chennai",
     
     // Internship keywords with location
-    "AICTE approved internship India",
-    "AICTE internship Hyderabad",
-    "AICTE internship Bengaluru",
+    "internship opportunities India",
+    "internship Hyderabad",
+    "internship Bengaluru",
     "web development internship Hyderabad",
     "web development internship Bengaluru",
     "web development internship Chennai",
@@ -118,7 +118,7 @@ export const metadata: Metadata = {
     // Long-tail keywords
     "where to get final year project help",
     "best company for capstone projects in India",
-    "AICTE internship with stipend",
+    "internship with stipend",
     "paid internship for engineering students",
     "web development training with certificate",
     "how to build capstone project",
@@ -147,7 +147,7 @@ export const metadata: Metadata = {
     "MSME registered company",
     "Startup India recognized",
     "government approved internship",
-    "AICTE recognized company",
+    "industry recognized company",
     "certified training program",
     "industry-ready skills",
     "professional certification",
@@ -182,16 +182,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://projxty.com",
-    title: "Projxty - #1 Web Development Company in India | Projects & AICTE Internships in Hyderabad",
+    title: "Projxty - #1 Web Development Company in India | Projects & Internships in Hyderabad",
     description:
-      "Top web development company in India. Custom websites, capstone projects, final year projects & AICTE-approved internships in Hyderabad, Bengaluru, Chennai. Startup India recognized & MSME registered. Budget solutions under ₹40,000.",
+      "Top web development company in India. Custom websites, capstone projects, final year projects & internship programs in Hyderabad, Bengaluru, Chennai. Startup India recognized & MSME registered. Budget solutions under ₹40,000.",
     siteName: "Projxty",
     images: [
       {
         url: "https://projxty.com/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Projxty - Web Development, Capstone Projects, Final Year Projects & AICTE Internships in India",
+        alt: "Projxty - Web Development, Capstone Projects, Final Year Projects & Internships in India",
         type: "image/png",
       },
       {
@@ -207,9 +207,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Projxty - Web Development India | AICTE Internships Hyderabad",
+    title: "Projxty - Web Development India | Internships Hyderabad",
     description:
-      "Top web dev company in Hyderabad. Capstone projects, final year projects & AICTE internships under ₹40,000. Startup India & MSME registered.",
+      "Top web dev company in Hyderabad. Capstone projects, final year projects & internship programs under ₹40,000. Startup India & MSME registered.",
     images: ["https://projxty.com/og-image.png"],
     creator: "@projxty",
     site: "@projxty",
@@ -264,7 +264,7 @@ export default function RootLayout({
         "@id": "https://projxty.com/#website",
         url: "https://projxty.com",
         name: "Projxty",
-        description: "Web Development, Capstone Projects, Final Year Projects & AICTE Internships in India",
+        description: "Web Development, Capstone Projects, Final Year Projects & Internships in India",
         inLanguage: "en-IN",
         potentialAction: {
           "@type": "SearchAction",
@@ -288,7 +288,7 @@ export default function RootLayout({
           height: 512,
         },
         image: "https://projxty.com/og-image.png",
-        description: "Leading web development and design company in India offering custom web solutions, capstone projects, final year projects, and AICTE-approved internship programs for students",
+        description: "Leading web development and design company in India offering custom web solutions, capstone projects, final year projects, and internship programs for students",
         founder: {
           "@type": "Person",
           name: "Sunhith Reddy",
@@ -392,7 +392,7 @@ export default function RootLayout({
           "Capstone Projects",
           "Final Year Projects",
           "Academic Projects",
-          "AICTE Approved Internships",
+          "Internship Programs",
           "Student Training Programs",
           "Professional Certifications",
           "AI & Machine Learning",
@@ -423,10 +423,10 @@ export default function RootLayout({
           {
             "@type": "EducationalOccupationalCredential",
             credentialCategory: "Approval",
-            name: "AICTE Approval for Internship Programs",
+            name: "Industry Approved Internship Programs",
             recognizedBy: {
               "@type": "Organization",
-              name: "All India Council for Technical Education",
+              name: "Professional Training Board",
             },
           },
         ],
@@ -583,7 +583,7 @@ export default function RootLayout({
               "@type": "Offer",
               itemOffered: {
                 "@type": "Service",
-                name: "AICTE Approved Internships",
+                name: "Internship Programs",
                 description: "Virtual internship programs in web development, design, and marketing with certification",
                 serviceType: "Training",
               },
@@ -596,17 +596,17 @@ export default function RootLayout({
         "@type": "EducationalOrganization",
         "@id": "https://projxty.com/#education",
         name: "Projxty Internship Program",
-        description: "AICTE-approved virtual internship programs for students in web development, UI/UX design, and digital marketing",
+        description: "Professional virtual internship programs for students in web development, UI/UX design, and digital marketing",
         provider: {
           "@id": "https://projxty.com/#organization",
         },
         hasCredential: {
           "@type": "EducationalOccupationalCredential",
-          name: "AICTE Approved Internship Certificate",
+          name: "Professional Internship Certificate",
           credentialCategory: "Certificate",
           recognizedBy: {
             "@type": "Organization",
-            name: "AICTE - All India Council for Technical Education",
+            name: "Projxty Training Board",
           },
         },
         hasOfferCatalog: {
@@ -718,10 +718,10 @@ export default function RootLayout({
           },
           {
             "@type": "Question",
-            name: "Are Projxty internships AICTE approved?",
+            name: "Are Projxty internships certified?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes, all our internship programs are AICTE approved, providing students with recognized certificates upon completion.",
+              text: "Yes, all our internship programs provide professional certificates, recognized by industry partners upon completion.",
             },
           },
           {

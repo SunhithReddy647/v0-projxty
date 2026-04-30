@@ -11,8 +11,7 @@ import {
     clientBrands,
     internshipHighlights,
     internshipDurations,
-    conferencePillars,
-    conferenceStats
+    projects
 } from "@/lib/data"
 
 import { useShaderLoader } from "@/hooks/use-shader-loader"
@@ -281,7 +280,7 @@ export default function DesktopHome() {
                             <div className="space-y-1 opacity-0 animate-fade-in-up-1">
                                 <p className="font-sans text-xs uppercase tracking-widest text-foreground/50">Trusted By</p>
                                 <p className="font-sans text-xs sm:text-sm md:text-base font-semibold text-foreground">
-                                    50+ Companies
+                                    150+ Capstone Teams
                                 </p>
                             </div>
                             <div className="space-y-1 opacity-0 animate-fade-in-up-2">
@@ -602,94 +601,83 @@ export default function DesktopHome() {
                     </div>
                 </section>
 
-                {/* Conference Section (5) */}
+                {/* Projects Section (5) */}
                 <section
                     ref={(el) => {
                         sectionRefsRef.current[5] = el
                     }}
-                    id="conference"
-                    className="flex min-h-screen w-screen shrink-0 flex-col items-center justify-center px-4 sm:px-6 md:px-12 lg:px-16 pt-16 sm:pt-20 pb-16 overflow-y-auto"
+                    id="projects"
+                    className="flex min-h-screen w-screen shrink-0 flex-col px-4 sm:px-6 md:px-12 lg:px-16 pt-20 sm:pt-24 pb-16 overflow-y-auto"
                     style={{
-                        scrollSnapAlign: "center",
+                        scrollSnapAlign: "start",
                         scrollSnapStop: "always"
                     }}
                 >
-                    <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                        <div className="space-y-8">
-                            <div>
-                                <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-3 py-1 text-sm font-bold text-primary">
-                                    <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
-                                    PGTC 2026
-                                </div>
-                                <h1 className="font-monument text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-2">
-                                    Projxty Global
-                                </h1>
-                                <h2 className={`font-monument text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 ${gradientText}`}>
-                                    Tech Conference 2026
-                                </h2>
-                                <p className="text-xl sm:text-2xl font-medium text-foreground/90 mb-4 tracking-tight">
-                                    Unlock the Future. Be There.
-                                </p>
-                                <p className="text-sm text-foreground/60 font-mono tracking-widest uppercase">
-                                    #PGTC2K26
-                                </p>
+                    <div className="max-w-6xl mx-auto w-full space-y-12">
+                        <div>
+                            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-3 py-1 text-sm font-bold text-primary">
+                                <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
+                                Student Projects
                             </div>
-
-                            <div className="grid grid-cols-2 gap-6">
-                                {conferenceStats.map((stat, i) => (
-                                    <div key={i} className="rounded-xl bg-gradient-to-br from-primary/5 to-accent/5 border border-foreground/5 p-6">
-                                        <p className="text-3xl sm:text-4xl font-monument font-bold text-foreground mb-2">{stat.val}</p>
-                                        <p className="text-xs uppercase tracking-widest text-foreground/40">{stat.label}</p>
-                                    </div>
-                                ))}
-                            </div>
-
-                            <div className="rounded-2xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 p-8">
-                                <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-                                    <div>
-                                        <h3 className="font-monument text-xl font-bold text-foreground mb-2">Register Now</h3>
-                                        <div className="flex items-baseline gap-2">
-                                            <p className="text-3xl font-bold text-primary">₹800</p>
-                                            <p className="text-sm text-foreground/60 italic">/ person</p>
-                                        </div>
-                                        <p className="text-xs text-foreground/50 mt-1 max-w-[200px]">
-                                            Max group of 5 - ideal for teams!
-                                        </p>
-                                    </div>
-                                    <div className="flex flex-col gap-3 w-full sm:w-auto">
-                                        <a
-                                            href="https://forms.gle/QQCWt9xTRKh63cBDA"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="px-8 py-3 rounded-full bg-gradient-to-r from-primary to-accent text-sm font-bold text-background text-center hover:shadow-lg hover:shadow-primary/25 transition-all"
-                                        >
-                                            Book Seat
-                                        </a>
-                                        <a
-                                            href="mailto:projxty@gmail.com"
-                                            className="px-8 py-3 rounded-full border border-foreground/20 text-sm font-bold text-foreground text-center hover:bg-foreground/5 transition-all"
-                                        >
-                                            Contact Us
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                            <h1 className="font-monument text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-2">
+                                Capstone
+                            </h1>
+                            <h2 className={`font-monument text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 ${gradientText}`}>
+                                Projects Showcase
+                            </h2>
+                            <p className="text-xl sm:text-2xl font-medium text-foreground/90 max-w-2xl">
+                                Explore innovative projects built by our talented capstone teams using cutting-edge technologies.
+                            </p>
                         </div>
 
-                        <div className="space-y-6">
-                            <h3 className="font-monument text-xl font-bold text-foreground">Three Pillars of Innovation</h3>
-                            <div className="grid grid-cols-1 gap-4">
-                                {conferencePillars.map((pillar, i) => (
-                                    <div key={i} className="group rounded-xl border border-foreground/10 bg-foreground/5 p-6 hover:border-foreground/20 transition-all">
-                                        <h4 className="font-bold text-primary mb-2 text-lg group-hover:text-accent transition-colors">
-                                            {pillar.title}
-                                        </h4>
-                                        <p className="text-base text-foreground/70 leading-relaxed">
-                                            {pillar.desc}
-                                        </p>
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            {projects.map((project, i) => (
+                                <div
+                                    key={i}
+                                    className="group rounded-2xl border border-foreground/10 bg-gradient-to-br from-foreground/5 to-foreground/2 p-8 hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/10"
+                                >
+                                    <h3 className="font-bold text-xl text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                                        {project.title}
+                                    </h3>
+                                    <p className="text-sm text-foreground/70 mb-6 leading-relaxed line-clamp-3">
+                                        {project.description}
+                                    </p>
+
+                                    <div className="space-y-4 mb-6">
+                                        <div>
+                                            <p className="text-xs uppercase tracking-widest text-foreground/40 mb-2">Technologies</p>
+                                            <div className="flex flex-wrap gap-2">
+                                                {project.technologies.map((tech, j) => (
+                                                    <span
+                                                        key={j}
+                                                        className="text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20"
+                                                    >
+                                                        {tech}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <p className="text-xs uppercase tracking-widest text-foreground/40 mb-1">Team Size</p>
+                                                <p className="text-sm font-semibold text-foreground">{project.teamSize}</p>
+                                            </div>
+                                            <div>
+                                                <p className="text-xs uppercase tracking-widest text-foreground/40 mb-1">Duration</p>
+                                                <p className="text-sm font-semibold text-foreground">{project.duration}</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                ))}
-                            </div>
+
+                                    <a
+                                        href={project.demoLink}
+                                        className="inline-block px-6 py-2 rounded-full border border-primary/50 text-sm font-bold text-primary hover:bg-primary/10 transition-all"
+                                    >
+                                        View Project →
+                                    </a>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </section>
