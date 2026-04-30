@@ -281,7 +281,7 @@ export default function DesktopHome() {
                             <div className="space-y-1 opacity-0 animate-fade-in-up-1">
                                 <p className="font-sans text-xs uppercase tracking-widest text-foreground/50">Trusted By</p>
                                 <p className="font-sans text-xs sm:text-sm md:text-base font-semibold text-foreground">
-                                    50+ Companies
+                                    150+ Capstone Teams
                                 </p>
                             </div>
                             <div className="space-y-1 opacity-0 animate-fade-in-up-2">

@@ -133,7 +133,7 @@ export default function MobileHome() {
                     <div className="mt-12 grid grid-cols-3 gap-4">
                         <div className="space-y-1">
                             <p className="text-xs uppercase tracking-widest text-foreground/50">Trusted By</p>
-                            <p className="text-sm font-semibold text-foreground">50+ Companies</p>
+                            <p className="text-sm font-semibold text-foreground">150+ Capstone Teams</p>
                         </div>
                         <div className="space-y-1">
                             <p className="text-xs uppercase tracking-widest text-foreground/50">Industry</p>
