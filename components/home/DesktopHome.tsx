@@ -10,9 +10,7 @@ import {
     services,
     clientBrands,
     internshipHighlights,
-    internshipDurations,
-    conferencePillars,
-    conferenceStats
+    internshipDurations
 } from "@/lib/data"
 
 import { useShaderLoader } from "@/hooks/use-shader-loader"
@@ -602,89 +600,10 @@ export default function DesktopHome() {
                     </div>
                 </section>
 
-                {/* Conference Section (5) */}
+                {/* Contact Us Section (5) */}
                 <section
                     ref={(el) => {
                         sectionRefsRef.current[5] = el
-                    }}
-                    id="conference"
-                    className="flex min-h-screen w-screen shrink-0 flex-col items-center justify-center px-4 sm:px-6 md:px-12 lg:px-16 pt-16 sm:pt-20 pb-16 overflow-y-auto"
-                    style={{
-                        scrollSnapAlign: "center",
-                        scrollSnapStop: "always"
-                    }}
-                >
-                    <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                        <div className="space-y-8">
-                            <div>
-                                <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-3 py-1 text-sm font-bold text-primary">
-                                    <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
-                                    PGTC 2026
-                                </div>
-                                <h1 className="font-monument text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-2">
-                                    Projxty Global
-                                </h1>
-                                <h2 className={`font-monument text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 ${gradientText}`}>
-                                    Tech Conference 2026
-                                </h2>
-                                <p className="text-xl sm:text-2xl font-medium text-foreground/90 mb-4 tracking-tight">
-                                    Unlock the Future. Be There.
-                                </p>
-                                <p className="text-sm text-foreground/60 font-mono tracking-widest uppercase">
-                                    #PGTC2K26
-                                </p>
-                            </div>
-
-                            <div className="grid grid-cols-2 gap-6">
-                                {conferenceStats.map((stat, i) => (
-                                    <div key={i} className="rounded-xl bg-gradient-to-br from-primary/5 to-accent/5 border border-foreground/5 p-6">
-                                        <p className="text-3xl sm:text-4xl font-monument font-bold text-foreground mb-2">{stat.val}</p>
-                                        <p className="text-xs uppercase tracking-widest text-foreground/40">{stat.label}</p>
-                                    </div>
-                                ))}
-                            </div>
-
-                            <div className="rounded-2xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 p-8">
-                                <div className="flex flex-col items-center gap-6 text-center">
-                                    <div>
-                                        <h3 className="font-monument text-xl font-bold text-foreground mb-3">Thank You for Your Participation!</h3>
-                                        <p className="text-lg text-foreground/80 mb-2">PGTC 2026 has concluded.</p>
-                                        <p className="text-sm text-foreground/60 max-w-[400px]">
-                                            We&apos;ll be sharing updates about the next conference soon. Stay tuned for announcements!
-                                        </p>
-                                    </div>
-                                    <a
-                                        href="mailto:projxty@gmail.com"
-                                        className="px-8 py-3 rounded-full border border-foreground/20 text-sm font-bold text-foreground hover:bg-foreground/5 transition-all"
-                                    >
-                                        Get Notified
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="space-y-6">
-                            <h3 className="font-monument text-xl font-bold text-foreground">Three Pillars of Innovation</h3>
-                            <div className="grid grid-cols-1 gap-4">
-                                {conferencePillars.map((pillar, i) => (
-                                    <div key={i} className="group rounded-xl border border-foreground/10 bg-foreground/5 p-6 hover:border-foreground/20 transition-all">
-                                        <h4 className="font-bold text-primary mb-2 text-lg group-hover:text-accent transition-colors">
-                                            {pillar.title}
-                                        </h4>
-                                        <p className="text-base text-foreground/70 leading-relaxed">
-                                            {pillar.desc}
-                                        </p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Contact Us Section (6) */}
-                <section
-                    ref={(el) => {
-                        sectionRefsRef.current[6] = el
                     }}
                     className="flex min-h-screen w-screen shrink-0 flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-24 overflow-hidden"
                     style={{

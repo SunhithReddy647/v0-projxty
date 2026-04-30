@@ -12,9 +12,7 @@ import {
     clientBrands,
     internshipHighlights,
     internshipDurations,
-    socialLinks,
-    conferencePillars,
-    conferenceStats
+    socialLinks
 } from "@/lib/data"
 
 import { useShaderLoader } from "@/hooks/use-shader-loader"
@@ -229,60 +227,6 @@ export default function MobileHome() {
                                 <p className="text-sm font-semibold text-foreground/60">{brand}</p>
                             </div>
                         ))}
-                    </div>
-                </section>
-
-                <section id="conference" className="min-h-screen px-6 py-16">
-                    <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-3 py-1 text-xs font-bold text-primary">
-                        <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
-                        PGTC 2026
-                    </div>
-                    <h1 className="font-monument text-4xl font-bold text-foreground mb-2">Projxty Global</h1>
-                    <h2 className={`font-monument text-3xl font-bold mb-6 ${gradientText}`}>Tech Conference 2026</h2>
-                    <p className="text-lg font-medium text-foreground/90 mb-4 tracking-tight">Unlock the Future. Be There.</p>
-                    <p className="text-sm text-foreground/60 mb-8 font-mono tracking-widest uppercase">#PGTC2K26</p>
-
-                    {/* Three Pillars */}
-                    <div className="space-y-6 mb-12">
-                        <h3 className="font-monument text-xl font-bold text-foreground">Three Pillars of Innovation</h3>
-                        <div className="space-y-4">
-                            {conferencePillars.map((pillar, i) => (
-                                <div key={i} className="rounded-xl border border-foreground/10 bg-foreground/5 p-5">
-                                    <h4 className="font-bold text-primary mb-2 text-base">{pillar.title}</h4>
-                                    <p className="text-sm text-foreground/70 leading-relaxed">{pillar.desc}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Stats */}
-                    <div className="grid grid-cols-2 gap-4 mb-12">
-                        {conferenceStats.map((stat, i) => (
-                            <div
-                                key={i}
-                                className="text-center rounded-xl bg-gradient-to-br from-primary/5 to-accent/5 border border-foreground/5 p-4"
-                            >
-                                <p className="text-2xl font-monument font-bold text-foreground">{stat.val}</p>
-                                <p className="text-[10px] uppercase tracking-widest text-foreground/40 mt-1">{stat.label}</p>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Conference Concluded Message */}
-                    <div className="rounded-2xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 p-6 text-center space-y-4">
-                        <div>
-                            <h3 className="font-monument text-xl font-bold text-foreground mb-2">Thank You for Your Participation!</h3>
-                            <p className="text-base text-foreground/80 mb-2">PGTC 2026 has concluded.</p>
-                            <p className="text-xs text-foreground/60 leading-relaxed">
-                                We&apos;ll be sharing updates about the next conference soon. Stay tuned for announcements!
-                            </p>
-                        </div>
-                        <a
-                            href="mailto:projxty@gmail.com"
-                            className="block w-full py-3 rounded-full border border-foreground/20 text-sm font-bold text-foreground hover:bg-foreground/5 transition-all"
-                        >
-                            Get Notified
-                        </a>
                     </div>
                 </section>
 
