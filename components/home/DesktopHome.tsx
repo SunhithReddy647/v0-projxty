@@ -10,7 +10,8 @@ import {
     services,
     clientBrands,
     internshipHighlights,
-    internshipDurations
+    internshipDurations,
+    projects
 } from "@/lib/data"
 
 import { useShaderLoader } from "@/hooks/use-shader-loader"
@@ -600,10 +601,91 @@ export default function DesktopHome() {
                     </div>
                 </section>
 
-                {/* Contact Us Section (5) */}
+                {/* Projects Section (5) */}
                 <section
                     ref={(el) => {
                         sectionRefsRef.current[5] = el
+                    }}
+                    id="projects"
+                    className="flex min-h-screen w-screen shrink-0 flex-col items-center justify-center px-4 sm:px-6 md:px-12 lg:px-16 pt-16 sm:pt-20 pb-16 overflow-y-auto"
+                    style={{
+                        scrollSnapAlign: "center",
+                        scrollSnapStop: "always"
+                    }}
+                >
+                    <div className="max-w-6xl mx-auto w-full space-y-12">
+                        <div>
+                            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-3 py-1 text-sm font-bold text-primary">
+                                <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
+                                Student Projects
+                            </div>
+                            <h1 className="font-monument text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-2">
+                                Capstone
+                            </h1>
+                            <h2 className={`font-monument text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 ${gradientText}`}>
+                                Projects Showcase
+                            </h2>
+                            <p className="text-xl sm:text-2xl font-medium text-foreground/90 max-w-2xl">
+                                Explore innovative projects built by our talented capstone teams using cutting-edge technologies.
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            {projects.map((project, i) => (
+                                <div
+                                    key={i}
+                                    className="group rounded-2xl border border-foreground/10 bg-gradient-to-br from-foreground/5 to-foreground/2 p-8 hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/10"
+                                >
+                                    <h3 className="font-bold text-xl text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                                        {project.title}
+                                    </h3>
+                                    <p className="text-sm text-foreground/70 mb-6 leading-relaxed line-clamp-3">
+                                        {project.description}
+                                    </p>
+
+                                    <div className="space-y-4 mb-6">
+                                        <div>
+                                            <p className="text-xs uppercase tracking-widest text-foreground/40 mb-2">Technologies</p>
+                                            <div className="flex flex-wrap gap-2">
+                                                {project.technologies.map((tech, j) => (
+                                                    <span
+                                                        key={j}
+                                                        className="text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20"
+                                                    >
+                                                        {tech}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <p className="text-xs uppercase tracking-widest text-foreground/40 mb-1">Team Size</p>
+                                                <p className="text-sm font-semibold text-foreground">{project.teamSize}</p>
+                                            </div>
+                                            <div>
+                                                <p className="text-xs uppercase tracking-widest text-foreground/40 mb-1">Duration</p>
+                                                <p className="text-sm font-semibold text-foreground">{project.duration}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <a
+                                        href={project.demoLink}
+                                        className="inline-block px-6 py-2 rounded-full border border-primary/50 text-sm font-bold text-primary hover:bg-primary/10 transition-all"
+                                    >
+                                        View Project →
+                                    </a>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Contact Us Section (6) */}
+                <section
+                    ref={(el) => {
+                        sectionRefsRef.current[6] = el
                     }}
                     className="flex min-h-screen w-screen shrink-0 flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-24 overflow-hidden"
                     style={{
