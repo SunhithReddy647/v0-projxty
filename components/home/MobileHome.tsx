@@ -385,7 +385,7 @@ export default function MobileHome() {
                 </section>
 
                 {/* Projects Section */}
-                <section id="projects" className="min-h-screen px-6 py-16">
+                <section id="projects" className="min-h-screen px-6 pt-20 pb-16">
                     <div className="mb-8">
                         <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-3 py-1 text-xs font-bold text-primary">
                             <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />

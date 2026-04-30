@@ -607,9 +607,9 @@ export default function DesktopHome() {
                         sectionRefsRef.current[5] = el
                     }}
                     id="projects"
-                    className="flex min-h-screen w-screen shrink-0 flex-col items-center justify-center px-4 sm:px-6 md:px-12 lg:px-16 pt-16 sm:pt-20 pb-16 overflow-y-auto"
+                    className="flex min-h-screen w-screen shrink-0 flex-col px-4 sm:px-6 md:px-12 lg:px-16 pt-20 sm:pt-24 pb-16 overflow-y-auto"
                     style={{
-                        scrollSnapAlign: "center",
+                        scrollSnapAlign: "start",
                         scrollSnapStop: "always"
                     }}
                 >
