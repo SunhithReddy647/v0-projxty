@@ -3,6 +3,7 @@
 import { Shader, ChromaFlow, Swirl } from "shaders/react"
 import { CustomCursor } from "@/components/custom-cursor"
 import { GrainOverlay } from "@/components/grain-overlay"
+import { ProjectsSection } from "@/components/home/ProjectsSection"
 import { useRef, useEffect, useState, useCallback } from "react"
 import Link from "next/link"
 import {
@@ -11,7 +12,8 @@ import {
     clientBrands,
     internshipHighlights,
     internshipDurations,
-    projects
+    projects,
+    projectDomains
 } from "@/lib/data"
 
 import { useShaderLoader } from "@/hooks/use-shader-loader"
@@ -602,82 +604,8 @@ export default function DesktopHome() {
                 </section>
 
                 {/* Projects Section (5) */}
-                <section
-                    ref={(el) => {
-                        sectionRefsRef.current[5] = el
-                    }}
-                    id="projects"
-                    className="flex min-h-screen w-screen shrink-0 flex-col px-4 sm:px-6 md:px-12 lg:px-16 pt-20 sm:pt-24 pb-16 overflow-y-auto"
-                    style={{
-                        scrollSnapAlign: "start",
-                        scrollSnapStop: "always"
-                    }}
-                >
-                    <div className="max-w-6xl mx-auto w-full space-y-12">
-                        <div>
-                            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-3 py-1 text-sm font-bold text-primary">
-                                <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
-                                Student Projects
-                            </div>
-                            <h1 className="font-monument text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-2">
-                                Capstone
-                            </h1>
-                            <h2 className={`font-monument text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 ${gradientText}`}>
-                                Projects Showcase
-                            </h2>
-                            <p className="text-xl sm:text-2xl font-medium text-foreground/90 max-w-2xl">
-                                Explore innovative projects built by our talented capstone teams using cutting-edge technologies.
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-                            {projects.map((project, i) => (
-                                <div
-                                    key={i}
-                                    className="group flex flex-col rounded-2xl border border-foreground/10 bg-gradient-to-br from-foreground/5 to-foreground/2 overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/15 h-full"
-                                >
-                                    {/* Video Container */}
-                                    <div className="relative w-full aspect-video bg-foreground/10 overflow-hidden">
-                                        <iframe
-                                            src={`${project.videoLink}?modestbranding=1&rel=0`}
-                                            title={project.title}
-                                            className="w-full h-full border-0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                                    </div>
-
-                                    {/* Content */}
-                                    <div className="flex flex-col flex-1 p-6 space-y-4">
-                                        <div>
-                                            <h3 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2">
-                                                {project.title}
-                                            </h3>
-                                        </div>
-                                        
-                                        <p className="text-sm text-foreground/70 leading-relaxed line-clamp-2 flex-1">
-                                            {project.description}
-                                        </p>
-
-                                        {/* Watch Button */}
-                                        <a
-                                            href={project.videoLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-primary to-accent text-sm font-bold text-background hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 w-full"
-                                        >
-                                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M8 5v14l11-7z" />
-                                            </svg>
-                                            Watch Demo
-                                        </a>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                <ProjectsSection />
+                
 
                 {/* Contact Us Section (6) */}
                 <section
