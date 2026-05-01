@@ -604,7 +604,19 @@ export default function DesktopHome() {
                 </section>
 
                 {/* Projects Section (5) */}
-                <ProjectsSection />
+                <section
+                    ref={(el) => {
+                        sectionRefsRef.current[5] = el
+                    }}
+                    id="projects"
+                    className="flex min-h-screen w-screen shrink-0 flex-col px-4 sm:px-6 md:px-12 lg:px-16 pt-20 sm:pt-24 pb-16 overflow-y-auto"
+                    style={{
+                        scrollSnapAlign: "start",
+                        scrollSnapStop: "always"
+                    }}
+                >
+                    <ProjectsSection />
+                </section>
                 
 
                 {/* Contact Us Section (6) */}

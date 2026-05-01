@@ -17,14 +17,7 @@ export function ProjectsSection() {
   }, [activeDomain])
 
   return (
-    <section
-      id="projects"
-      className="flex min-h-screen w-screen shrink-0 flex-col px-4 sm:px-6 md:px-12 lg:px-16 pt-20 sm:pt-24 pb-16 overflow-y-auto"
-      style={{
-        scrollSnapAlign: "start",
-        scrollSnapStop: "always",
-      }}
-    >
+    <>
       <div className="max-w-7xl mx-auto w-full space-y-12">
         {/* Header */}
         <div className="space-y-4">
@@ -170,7 +163,7 @@ export function ProjectsSection() {
           onClose={() => setSelectedProject(null)}
         />
       )}
-    </section>
+    </>
   )
 }
 
