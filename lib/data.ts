@@ -164,7 +164,7 @@ export const projectDomains = [
 
 export type ProjectDomain = typeof projectDomains[number];
 
-// Comprehensive project database organized by domain
+// Comprehensive project database organized by domain - 50 Real Student Projects with Video Links
 export const projects: Array<{
   title: string;
   description: string;
@@ -172,20 +172,78 @@ export const projects: Array<{
   domain: Exclude<ProjectDomain, "All Projects">;
   highlights?: string[];
 }> = [
-  // AI/ML & Data Science
+  // Web Development (9 projects)
+  {
+    domain: "Web Development",
+    title: "Bank Management System",
+    description: "Complete banking system with account creation, transactions, and admin monitoring.",
+    videoLink: "https://youtu.be/dVh6_vj6jAU",
+    highlights: ["Full-Stack", "Banking", "Admin Panel"]
+  },
+  {
+    domain: "Web Development",
+    title: "Hybrid AI Product Recommendation",
+    description: "Detects fake reviews and ranks products using DeBERTa semantic analysis.",
+    videoLink: "https://youtu.be/Xw0KxV6wHlI",
+    highlights: ["NLP", "DeBERTa", "Recommendation"]
+  },
+  {
+    domain: "Web Development",
+    title: "Django E-Learning LMS",
+    description: "Full-stack learning platform with Razorpay integration for course monetization.",
+    videoLink: "https://youtu.be/JCLaC_NkQ1I",
+    highlights: ["Django", "Razorpay", "E-Learning"]
+  },
+  {
+    domain: "Web Development",
+    title: "Secure Online Voting System",
+    description: "Django-based platform with email authentication and real-time results.",
+    videoLink: "https://youtu.be/4MPItu9p9ag",
+    highlights: ["Django", "Authentication", "Real-time"]
+  },
+  {
+    domain: "Web Development",
+    title: "College AI Assistant (Gemini AI)",
+    description: "NLP chatbot answering student queries about admissions and timetables.",
+    videoLink: "https://youtu.be/mF_C-qE_H9A",
+    highlights: ["Gemini AI", "Chatbot", "NLP"]
+  },
+  {
+    domain: "Web Development",
+    title: "AI Plagiarism Detection System",
+    description: "Uses Cosine Similarity to detect similarity in academic research papers.",
+    videoLink: "https://youtu.be/FFJ-U-sb9Uo",
+    highlights: ["Cosine Similarity", "Academic Tools"]
+  },
+  {
+    domain: "Web Development",
+    title: "College Placement Prediction",
+    description: "Flask app using Decision Trees to predict student placement outcomes.",
+    videoLink: "https://youtu.be/r_Lg2dNKbwc",
+    highlights: ["Flask", "Decision Trees"]
+  },
+  {
+    domain: "Web Development",
+    title: "MERN Stack E-commerce Website",
+    description: "Full-stack D2C solution for a shoe brand using React and Node.js.",
+    videoLink: "https://youtu.be/1PT-lDEBBxY",
+    highlights: ["MERN", "E-commerce", "Full-Stack"]
+  },
+  {
+    domain: "Web Development",
+    title: "Projxty Intro & Solutions",
+    description: "Overview of the ultimate platform for engineering and CS capstone projects.",
+    videoLink: "https://youtu.be/mF_C-qE_H9A",
+    highlights: ["Platform", "Overview", "Solutions"]
+  },
+
+  // AI/ML & Data Science (15 projects)
   {
     domain: "AI/ML & Data Science",
     title: "AI Interior Design Generator",
     description: "Transforms room photos into photorealistic interior renders using Stable Diffusion.",
     videoLink: "https://youtu.be/TtD6qReAA_g",
     highlights: ["Stable Diffusion", "Computer Vision", "Deep Learning"]
-  },
-  {
-    domain: "AI/ML & Data Science",
-    title: "Hybrid AI Product Recommendation",
-    description: "Detects fake reviews and ranks products using DeBERTa semantic analysis.",
-    videoLink: "https://youtu.be/Xw0KxV6wHlI",
-    highlights: ["NLP", "DeBERTa", "ML Fraud Detection"]
   },
   {
     domain: "AI/ML & Data Science",
@@ -238,6 +296,13 @@ export const projects: Array<{
   },
   {
     domain: "AI/ML & Data Science",
+    title: "Fake News Detection System",
+    description: "ML system utilizing TF-IDF and Random Forest on 44,000+ articles.",
+    videoLink: "https://youtu.be/LK0kU30k2G0",
+    highlights: ["TF-IDF", "Content Verification"]
+  },
+  {
+    domain: "AI/ML & Data Science",
     title: "India Air Quality Prediction",
     description: "Forecasts PM2.5 levels for Indian cities using Random Forest.",
     videoLink: "https://youtu.be/64UYYVvu9DM",
@@ -255,7 +320,7 @@ export const projects: Array<{
     title: "Tata Motors Stock Price Forecasting",
     description: "Uses 5 ML algorithms to analyze trends and predict future stock prices.",
     videoLink: "https://youtu.be/_HLoCNJi5gg",
-    highlights: ["Stock Prediction", "Time Series Analysis", "5 ML Models"]
+    highlights: ["Stock Prediction", "Time Series Analysis"]
   },
   {
     domain: "AI/ML & Data Science",
@@ -266,10 +331,17 @@ export const projects: Array<{
   },
   {
     domain: "AI/ML & Data Science",
+    title: "AI-Based News Aggregator",
+    description: "NLP-powered system for real-time news categorization and filtering.",
+    videoLink: "https://youtu.be/LK0kU30k2G0",
+    highlights: ["NLP", "Content Curation"]
+  },
+  {
+    domain: "AI/ML & Data Science",
     title: "Crime Data Visualization",
     description: "Analytics tool for Indian cities using heatmaps and predictive ML.",
     videoLink: "https://youtu.be/9fCQQzH-ozM",
-    highlights: ["Data Visualization", "Heatmaps", "Predictive Analytics"]
+    highlights: ["Data Visualization", "Heatmaps"]
   },
   {
     domain: "AI/ML & Data Science",
@@ -279,7 +351,7 @@ export const projects: Array<{
     highlights: ["Random Forest", "Price Prediction"]
   },
 
-  // Healthcare & Biotech
+  // Healthcare & Biotech (13 projects)
   {
     domain: "Healthcare & Biotech",
     title: "Early Rheumatoid Arthritis Detection",
@@ -292,7 +364,7 @@ export const projects: Array<{
     title: "DermaGuard AI - Skin Cancer Detection",
     description: "CNN-based diagnostic system detecting 24 skin diseases from images.",
     videoLink: "https://youtu.be/h63uVshU5aE",
-    highlights: ["CNN", "Medical Imaging", "24 Disease Types"]
+    highlights: ["CNN", "Medical Imaging", "24 Diseases"]
   },
   {
     domain: "Healthcare & Biotech",
@@ -310,7 +382,7 @@ export const projects: Array<{
   },
   {
     domain: "Healthcare & Biotech",
-    title: "NutriMedSafe: Drug–Food Checker",
+    title: "NutriMedSafe: Drug-Food Checker",
     description: "Analyzes interactions for 1000+ medicines using the DrugBank 6.0 database.",
     videoLink: "https://youtu.be/IN7AFemZ6as",
     highlights: ["Healthcare", "Drug Database", "1000+ Medicines"]
@@ -341,14 +413,14 @@ export const projects: Array<{
     title: "AI Diabetes Risk Prediction",
     description: "Flask app trained on 100K+ records for real-time risk analysis.",
     videoLink: "https://youtu.be/TNdOGKYqaLY",
-    highlights: ["Flask", "100K+ Records", "Medical Prediction"]
+    highlights: ["Flask", "100K+ Records", "Medical"]
   },
   {
     domain: "Healthcare & Biotech",
     title: "AI Lung Cancer Prediction",
     description: "Compares 7 ML algorithms (XGBoost, SVM, etc.) for clinical diagnosis.",
     videoLink: "https://youtu.be/Ewk8ZM84m4k",
-    highlights: ["7 ML Models", "Cancer Detection", "XGBoost", "SVM"]
+    highlights: ["7 ML Models", "Cancer Detection", "XGBoost"]
   },
   {
     domain: "Healthcare & Biotech",
@@ -372,72 +444,7 @@ export const projects: Array<{
     highlights: ["Quantum AI", "Medical Signal Processing"]
   },
 
-  // Web Development
-  {
-    domain: "Web Development",
-    title: "Bank Management System",
-    description: "Complete banking system with account creation, transactions, and admin monitoring.",
-    videoLink: "https://youtu.be/dVh6_vj6jAU",
-    highlights: ["Full-Stack", "Banking", "Admin Panel"]
-  },
-  {
-    domain: "Web Development",
-    title: "Django E-Learning LMS",
-    description: "Full-stack learning platform with Razorpay integration for course monetization.",
-    videoLink: "https://youtu.be/JCLaC_NkQ1I",
-    highlights: ["Django", "Razorpay", "E-Learning"]
-  },
-  {
-    domain: "Web Development",
-    title: "Secure Online Voting System",
-    description: "Django-based platform with email authentication and real-time results.",
-    videoLink: "https://youtu.be/4MPItu9p9ag",
-    highlights: ["Django", "Authentication", "Real-time Results"]
-  },
-  {
-    domain: "Web Development",
-    title: "College AI Assistant (Gemini AI)",
-    description: "NLP chatbot answering student queries about admissions and timetables.",
-    videoLink: "https://youtu.be/mF_C-qE_H9A",
-    highlights: ["Gemini AI", "Chatbot", "NLP"]
-  },
-  {
-    domain: "Web Development",
-    title: "Fake News Detection System",
-    description: "ML system utilizing TF-IDF and Random Forest on 44,000+ articles.",
-    videoLink: "https://youtu.be/LK0kU30k2G0",
-    highlights: ["TF-IDF", "Content Verification"]
-  },
-  {
-    domain: "Web Development",
-    title: "AI Plagiarism Detection System",
-    description: "Uses Cosine Similarity to detect similarity in academic research papers.",
-    videoLink: "https://youtu.be/FFJ-U-sb9Uo",
-    highlights: ["Cosine Similarity", "Academic Tools"]
-  },
-  {
-    domain: "Web Development",
-    title: "College Placement Prediction",
-    description: "Flask app using Decision Trees to predict student placement outcomes.",
-    videoLink: "https://youtu.be/r_Lg2dNKbwc",
-    highlights: ["Flask", "Decision Trees"]
-  },
-  {
-    domain: "Web Development",
-    title: "AI-Based News Aggregator",
-    description: "NLP-powered system for real-time news categorization and filtering.",
-    videoLink: "https://youtu.be/LK0kU30k2G0",
-    highlights: ["NLP", "Content Curation"]
-  },
-  {
-    domain: "Web Development",
-    title: "MERN Stack E-commerce Website",
-    description: "Full-stack D2C solution for a shoe brand using React and Node.js.",
-    videoLink: "https://youtu.be/1PT-lDEBBxY",
-    highlights: ["MERN", "E-commerce", "Full-Stack"]
-  },
-
-  // Mobile Apps
+  // Mobile Apps (7 projects)
   {
     domain: "Mobile Apps",
     title: "Internship & Job Tracker App",
@@ -450,7 +457,7 @@ export const projects: Array<{
     title: "Campus Food Ordering System",
     description: "Flutter app with Razorpay integration and real-time order tracking.",
     videoLink: "https://youtu.be/zQN_Lr8fqik",
-    highlights: ["Flutter", "Razorpay", "Real-time Tracking"]
+    highlights: ["Flutter", "Razorpay", "Real-time"]
   },
   {
     domain: "Mobile Apps",
@@ -478,7 +485,7 @@ export const projects: Array<{
     title: "AI Vehicle Speed Detection",
     description: "Real-time traffic monitoring and license plate recognition system.",
     videoLink: "https://youtu.be/WR1XwiUVjxc",
-    highlights: ["Computer Vision", "Real-time", "Mobile"]
+    highlights: ["Computer Vision", "Real-time", "Traffic"]
   },
   {
     domain: "Mobile Apps",
@@ -488,7 +495,7 @@ export const projects: Array<{
     highlights: ["XGBoost", "Customer Analytics"]
   },
 
-  // Blockchain & Web3
+  // Blockchain & Web3 (5 projects)
   {
     domain: "Blockchain & Web3",
     title: "Blockchain Analytics Framework",
@@ -523,14 +530,5 @@ export const projects: Array<{
     description: "CNN-based model for live webcam signature authentication.",
     videoLink: "https://youtu.be/biVJ_ALA65Q",
     highlights: ["CNN", "Biometric", "Authentication"]
-  },
-
-  // Business Intelligence
-  {
-    domain: "Business Intelligence",
-    title: "Projxty Intro & Solutions",
-    description: "Overview of the ultimate platform for engineering and CS capstone projects.",
-    videoLink: "https://youtu.be/mF_C-qE_H9A",
-    highlights: ["Platform Overview", "Solutions"]
   },
 ];
