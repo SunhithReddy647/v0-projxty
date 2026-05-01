@@ -630,52 +630,49 @@ export default function DesktopHome() {
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
                             {projects.map((project, i) => (
                                 <div
                                     key={i}
-                                    className="group rounded-2xl border border-foreground/10 bg-gradient-to-br from-foreground/5 to-foreground/2 p-8 hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/10"
+                                    className="group flex flex-col rounded-2xl border border-foreground/10 bg-gradient-to-br from-foreground/5 to-foreground/2 overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/15 h-full"
                                 >
-                                    <h3 className="font-bold text-xl text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                                        {project.title}
-                                    </h3>
-                                    <p className="text-sm text-foreground/70 mb-6 leading-relaxed line-clamp-3">
-                                        {project.description}
-                                    </p>
-
-                                    <div className="space-y-4 mb-6">
-                                        <div>
-                                            <p className="text-xs uppercase tracking-widest text-foreground/40 mb-2">Technologies</p>
-                                            <div className="flex flex-wrap gap-2">
-                                                {project.technologies.map((tech, j) => (
-                                                    <span
-                                                        key={j}
-                                                        className="text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20"
-                                                    >
-                                                        {tech}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        </div>
-
-                                        <div className="grid grid-cols-2 gap-4">
-                                            <div>
-                                                <p className="text-xs uppercase tracking-widest text-foreground/40 mb-1">Team Size</p>
-                                                <p className="text-sm font-semibold text-foreground">{project.teamSize}</p>
-                                            </div>
-                                            <div>
-                                                <p className="text-xs uppercase tracking-widest text-foreground/40 mb-1">Duration</p>
-                                                <p className="text-sm font-semibold text-foreground">{project.duration}</p>
-                                            </div>
-                                        </div>
+                                    {/* Video Container */}
+                                    <div className="relative w-full aspect-video bg-foreground/10 overflow-hidden">
+                                        <iframe
+                                            src={`${project.videoLink}?modestbranding=1&rel=0`}
+                                            title={project.title}
+                                            className="w-full h-full border-0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                                     </div>
 
-                                    <a
-                                        href={project.demoLink}
-                                        className="inline-block px-6 py-2 rounded-full border border-primary/50 text-sm font-bold text-primary hover:bg-primary/10 transition-all"
-                                    >
-                                        View Project →
-                                    </a>
+                                    {/* Content */}
+                                    <div className="flex flex-col flex-1 p-6 space-y-4">
+                                        <div>
+                                            <h3 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2">
+                                                {project.title}
+                                            </h3>
+                                        </div>
+                                        
+                                        <p className="text-sm text-foreground/70 leading-relaxed line-clamp-2 flex-1">
+                                            {project.description}
+                                        </p>
+
+                                        {/* Watch Button */}
+                                        <a
+                                            href={project.videoLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-primary to-accent text-sm font-bold text-background hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 w-full"
+                                        >
+                                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z" />
+                                            </svg>
+                                            Watch Demo
+                                        </a>
+                                    </div>
                                 </div>
                             ))}
                         </div>
