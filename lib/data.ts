@@ -164,7 +164,7 @@ export const projectDomains = [
 
 export type ProjectDomain = typeof projectDomains[number];
 
-// Comprehensive project database organized by domain - 50 Real Student Projects with Video Links
+// Comprehensive project database organized by domain - 50 Real Student Projects with Corrected Video Links
 export const projects: Array<{
   title: string;
   description: string;
@@ -184,7 +184,7 @@ export const projects: Array<{
     domain: "Web Development",
     title: "Hybrid AI Product Recommendation",
     description: "Detects fake reviews and ranks products using DeBERTa semantic analysis.",
-    videoLink: "https://youtu.be/Xw0KxV6wHlI",
+    videoLink: "https://youtu.be/YTaXpoQ2aQE",
     highlights: ["NLP", "DeBERTa", "Recommendation"]
   },
   {
@@ -205,7 +205,7 @@ export const projects: Array<{
     domain: "Web Development",
     title: "College AI Assistant (Gemini AI)",
     description: "NLP chatbot answering student queries about admissions and timetables.",
-    videoLink: "https://youtu.be/mF_C-qE_H9A",
+    videoLink: "https://youtu.be/WXMJHRpdb78",
     highlights: ["Gemini AI", "Chatbot", "NLP"]
   },
   {
@@ -263,21 +263,21 @@ export const projects: Array<{
     domain: "AI/ML & Data Science",
     title: "CommentSense AI - Sentiment Analyzer",
     description: "NLP app using LSTM to classify YouTube comments (Positive/Negative/Neutral).",
-    videoLink: "https://youtu.be/q59kZt09mGo",
+    videoLink: "https://youtu.be/3kpMhg4Ps-c",
     highlights: ["LSTM", "Text Classification", "NLP"]
   },
   {
     domain: "AI/ML & Data Science",
     title: "GoldVision AI - Gold Price Prediction",
     description: "Uses 11 ML models to forecast gold prices with a 99.99% accuracy rate.",
-    videoLink: "https://youtu.be/xW4zV9uH-08",
+    videoLink: "https://youtu.be/HYNy5k5C6yI",
     highlights: ["Time Series", "11 ML Models", "99.99% Accuracy"]
   },
   {
     domain: "AI/ML & Data Science",
     title: "TsunamiGuard AI - Warning System",
     description: "Analyzes magnitude and location for tsunami risk using Gradient Boosting.",
-    videoLink: "https://youtu.be/Z77lXyWqX-U",
+    videoLink: "https://youtu.be/XOGU6aEsQ5Y",
     highlights: ["Gradient Boosting", "Risk Prediction"]
   },
   {
@@ -356,21 +356,21 @@ export const projects: Array<{
     domain: "Healthcare & Biotech",
     title: "Early Rheumatoid Arthritis Detection",
     description: "Healthcare AI using 45,000 records to predict risk with 99.5%+ accuracy.",
-    videoLink: "https://youtu.be/9yX3XlGf1qU",
+    videoLink: "https://youtu.be/8KEYclyr5cY",
     highlights: ["Medical AI", "99.5%+ Accuracy", "45K Records"]
   },
   {
     domain: "Healthcare & Biotech",
     title: "DermaGuard AI - Skin Cancer Detection",
     description: "CNN-based diagnostic system detecting 24 skin diseases from images.",
-    videoLink: "https://youtu.be/h63uVshU5aE",
+    videoLink: "https://youtu.be/RLyWzumBp_U",
     highlights: ["CNN", "Medical Imaging", "24 Diseases"]
   },
   {
     domain: "Healthcare & Biotech",
     title: "NetGuardX AI - Intrusion Detection",
     description: "Cybersecurity project classifying network attacks with 99.89% accuracy.",
-    videoLink: "https://youtu.be/Cis8vS7_f6g",
+    videoLink: "https://youtu.be/uCq3B19kGLI",
     highlights: ["Cybersecurity", "99.89% Accuracy"]
   },
   {
@@ -475,7 +475,7 @@ export const projects: Array<{
   },
   {
     domain: "Mobile Apps",
-    title: "Home Services Platform",
+    title: "Home Services Project",
     description: "Platform for booking home maintenance and professional repair services.",
     videoLink: "https://youtu.be/6w3F473ZBXU",
     highlights: ["Booking System", "Service Marketplace"]
@@ -507,7 +507,7 @@ export const projects: Array<{
     domain: "Blockchain & Web3",
     title: "AI-Powered UPI Fraud Shield",
     description: "Real-time fraud detection for UPI transactions with 99%+ accuracy.",
-    videoLink: "https://youtu.be/oX_f7u1W3qA",
+    videoLink: "https://youtu.be/pEVuOjBPcHg",
     highlights: ["Payment Security", "99%+ Accuracy", "Real-time"]
   },
   {
@@ -521,7 +521,7 @@ export const projects: Array<{
     domain: "Blockchain & Web3",
     title: "KeyDefender AI - Keylogger Detection",
     description: "Detects spyware in real-time through behavioral analysis and system monitoring.",
-    videoLink: "https://youtu.be/uG_v8u978E0",
+    videoLink: "https://youtu.be/5anYQs5bASg",
     highlights: ["Security", "Threat Detection", "Real-time"]
   },
   {
