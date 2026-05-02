@@ -117,7 +117,7 @@ export function ProjectsSection() {
                     </div>
                   )}
 
-                  {/* Watch Button */}
+                  {/* Contact Developer Button */}
                   <button
                     onClick={() => setSelectedProject(project)}
                     className="inline-flex items-center justify-center gap-2 px-4 py-3 mt-auto rounded-full bg-gradient-to-r from-primary to-accent text-sm font-bold text-background hover:shadow-lg hover:shadow-primary/40 hover:scale-105 transition-all duration-300 w-full"
@@ -125,7 +125,7 @@ export function ProjectsSection() {
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z" />
                     </svg>
-                    Watch Full Demo
+                    Play Video
                   </button>
                 </div>
               </div>

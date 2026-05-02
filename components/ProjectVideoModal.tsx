@@ -6,10 +6,11 @@ interface ProjectVideoModalProps {
   isOpen: boolean
   videoLink: string
   title: string
+  phoneNumber?: string
   onClose: () => void
 }
 
-export function ProjectVideoModal({ isOpen, videoLink, title, onClose }: ProjectVideoModalProps) {
+export function ProjectVideoModal({ isOpen, videoLink, title, phoneNumber = "6303459155", onClose }: ProjectVideoModalProps) {
   const modalRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -19,10 +20,8 @@ export function ProjectVideoModal({ isOpen, videoLink, title, onClose }: Project
 
     if (isOpen) {
       document.addEventListener("keydown", handleEscape)
-      document.body.style.overflow = "hidden"
       return () => {
         document.removeEventListener("keydown", handleEscape)
-        document.body.style.overflow = "unset"
       }
     }
   }, [isOpen, onClose])
@@ -40,62 +39,67 @@ export function ProjectVideoModal({ isOpen, videoLink, title, onClose }: Project
     return videoId ? `https://www.youtube.com/embed/${videoId}?autoplay=1` : url
   }
 
+  const handleContactDeveloper = () => {
+    const message = `Hi, I'm interested in enquiring about the project: ${title}. Can you provide more details?`
+    const encodedMessage = encodeURIComponent(message)
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`
+    window.open(whatsappUrl, "_blank")
+  }
+
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
-      onClick={onClose}
+      className="fixed bottom-4 right-4 z-50 w-96 max-w-[calc(100vw-2rem)] rounded-2xl bg-black border border-primary/20 shadow-2xl shadow-primary/30 overflow-hidden"
       ref={modalRef}
     >
-      <div
-        className="w-full max-w-4xl animate-fade-in-up"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Header */}
-        <div className="mb-4 flex items-center justify-between">
-          <h3 className="font-monument text-2xl font-bold text-foreground text-pretty">
-            {title}
-          </h3>
-          <button
-            onClick={onClose}
-            className="rounded-full p-2 hover:bg-foreground/10 transition-all"
-            aria-label="Close modal"
+      {/* Header */}
+      <div className="flex items-center justify-between gap-4 p-4 border-b border-primary/10">
+        <h3 className="font-bold text-sm text-foreground line-clamp-1">
+          {title}
+        </h3>
+        <button
+          onClick={onClose}
+          className="rounded-full p-1 hover:bg-foreground/10 transition-all flex-shrink-0"
+          aria-label="Close modal"
+        >
+          <svg
+            className="h-5 w-5 text-foreground/70"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
           >
-            <svg
-              className="h-6 w-6 text-foreground/70"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-        </div>
-
-        {/* Video Container */}
-        <div className="relative w-full bg-black rounded-2xl overflow-hidden shadow-2xl shadow-primary/25">
-          <div className="relative pb-[56.25%]">
-            <iframe
-              src={getYouTubeEmbedUrl(videoLink)}
-              title={title}
-              className="absolute inset-0 w-full h-full"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
             />
-          </div>
-        </div>
+          </svg>
+        </button>
+      </div>
 
-        {/* Footer Info */}
-        <div className="mt-6 text-center">
-          <p className="text-sm text-foreground/60">
-            Press <kbd className="rounded bg-foreground/10 px-2 py-1">ESC</kbd> to close
-          </p>
-        </div>
+      {/* Video Container */}
+      <div className="relative w-full bg-black aspect-video">
+        <iframe
+          src={getYouTubeEmbedUrl(videoLink)}
+          title={title}
+          className="absolute inset-0 w-full h-full"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+
+      {/* Contact Button */}
+      <div className="p-4 border-t border-primary/10">
+        <button
+          onClick={handleContactDeveloper}
+          className="w-full px-4 py-3 rounded-full bg-gradient-to-r from-primary to-accent text-sm font-bold text-background hover:shadow-lg hover:shadow-primary/40 transition-all duration-300 flex items-center justify-center gap-2"
+        >
+          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.707 12.293a.999.999 0 0 0-1.414 0L13 15.586V6a1 1 0 1 0-2 0v9.586l-3.293-3.293a1 1 0 1 0-1.414 1.414l5 5a1 1 0 0 0 1.414 0l5-5a.999.999 0 0 0 0-1.414z"/>
+          </svg>
+          Contact Developer
+        </button>
       </div>
     </div>
   )
