@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
+import { createPortal } from "react-dom"
 
 interface ProjectVideoModalProps {
   isOpen: boolean
@@ -12,6 +13,11 @@ interface ProjectVideoModalProps {
 
 export function ProjectVideoModal({ isOpen, videoLink, title, phoneNumber = "6303459155", onClose }: ProjectVideoModalProps) {
   const modalRef = useRef<HTMLDivElement>(null)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -26,7 +32,7 @@ export function ProjectVideoModal({ isOpen, videoLink, title, phoneNumber = "630
     }
   }, [isOpen, onClose])
 
-  if (!isOpen) return null
+  if (!isOpen || !mounted) return null
 
   // Extract video ID from YouTube URL
   const getYouTubeEmbedUrl = (url: string) => {
@@ -46,9 +52,10 @@ export function ProjectVideoModal({ isOpen, videoLink, title, phoneNumber = "630
     window.open(whatsappUrl, "_blank")
   }
 
-  return (
+  const modalContent = (
     <div
-      className="fixed bottom-4 right-4 z-50 w-96 max-w-[calc(100vw-2rem)] rounded-2xl bg-black border border-primary/20 shadow-2xl shadow-primary/30 overflow-hidden"
+      className="fixed bottom-4 right-4 w-96 max-w-[calc(100vw-2rem)] rounded-2xl bg-black border border-primary/20 shadow-2xl shadow-primary/30 overflow-hidden"
+      style={{ zIndex: 9999 }}
       ref={modalRef}
     >
       {/* Header */}
@@ -103,4 +110,6 @@ export function ProjectVideoModal({ isOpen, videoLink, title, phoneNumber = "630
       </div>
     </div>
   )
+
+  return createPortal(modalContent, document.body)
 }
