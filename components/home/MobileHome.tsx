@@ -2,6 +2,7 @@
 
 import { Shader, ChromaFlow, Swirl } from "shaders/react"
 import { GrainOverlay } from "@/components/grain-overlay"
+import { ProjectsSectionMobile } from "@/components/home/ProjectsSectionMobile"
 import { useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
@@ -13,7 +14,8 @@ import {
     internshipHighlights,
     internshipDurations,
     socialLinks,
-    projects
+    projects,
+    projectDomains
 } from "@/lib/data"
 
 import { useShaderLoader } from "@/hooks/use-shader-loader"
@@ -385,71 +387,7 @@ export default function MobileHome() {
                 </section>
 
                 {/* Projects Section */}
-                <section id="projects" className="min-h-screen px-6 pt-20 pb-16">
-                    <div className="mb-8">
-                        <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-3 py-1 text-xs font-bold text-primary">
-                            <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
-                            Student Projects
-                        </div>
-                        <h1 className="font-monument text-4xl font-bold text-foreground mb-2">Capstone</h1>
-                        <h2 className={`font-monument text-3xl font-bold mb-4 ${gradientText}`}>Projects Showcase</h2>
-                        <p className="text-sm text-foreground/90 leading-relaxed">
-                            Explore innovative projects built by our talented capstone teams using cutting-edge technologies.
-                        </p>
-                    </div>
-
-                    <div className="space-y-6">
-                        {projects.map((project, i) => (
-                            <div
-                                key={i}
-                                className="rounded-xl border border-foreground/10 bg-gradient-to-br from-foreground/5 to-foreground/2 p-5 space-y-4"
-                            >
-                                <div>
-                                    <h3 className="font-bold text-base text-foreground mb-2 line-clamp-2">
-                                        {project.title}
-                                    </h3>
-                                    <p className="text-xs text-foreground/70 leading-relaxed line-clamp-2">
-                                        {project.description}
-                                    </p>
-                                </div>
-
-                                <div className="space-y-3">
-                                    <div>
-                                        <p className="text-[10px] uppercase tracking-widest text-foreground/40 mb-2">Technologies</p>
-                                        <div className="flex flex-wrap gap-1.5">
-                                            {project.technologies.map((tech, j) => (
-                                                <span
-                                                    key={j}
-                                                    className="text-[10px] font-semibold px-2 py-1 rounded-full bg-primary/10 text-primary border border-primary/20"
-                                                >
-                                                    {tech}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    <div className="grid grid-cols-2 gap-3">
-                                        <div>
-                                            <p className="text-[10px] uppercase tracking-widest text-foreground/40 mb-0.5">Team Size</p>
-                                            <p className="text-xs font-semibold text-foreground">{project.teamSize}</p>
-                                        </div>
-                                        <div>
-                                            <p className="text-[10px] uppercase tracking-widest text-foreground/40 mb-0.5">Duration</p>
-                                            <p className="text-xs font-semibold text-foreground">{project.duration}</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <a
-                                    href={project.demoLink}
-                                    className="inline-block px-4 py-2 rounded-full border border-primary/50 text-xs font-bold text-primary hover:bg-primary/10 transition-all"
-                                >
-                                    View Project →
-                                </a>
-                            </div>
-                        ))}
-                    </div>
-                </section>
+                <ProjectsSectionMobile />
 
                 {/* Contact Section */}
                 <section id="contact" className="min-h-screen px-6 py-16">

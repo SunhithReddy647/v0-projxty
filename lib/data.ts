@@ -151,53 +151,377 @@ export const socialLinks = [
   },
 ];
 
-export const projects = [
-  {
-    title: "AI-Powered Task Management System",
-    description: "An intelligent task management platform with ML-based priority prediction and smart notifications.",
-    technologies: ["React", "Node.js", "TensorFlow", "MongoDB"],
-    teamSize: "4 members",
-    duration: "3 months",
-    demoLink: "#",
-  },
-  {
-    title: "Real-time Collaborative Design Tool",
-    description: "A web-based design collaboration platform enabling real-time editing with WebSocket integration.",
-    technologies: ["Next.js", "Canvas API", "Socket.io", "PostgreSQL"],
-    teamSize: "3 members",
-    duration: "2 months",
-    demoLink: "#",
-  },
-  {
-    title: "Blockchain-Based Supply Chain Tracker",
-    description: "A transparent supply chain management system utilizing blockchain for immutable record-keeping.",
-    technologies: ["Web3.js", "Solidity", "React", "Ethereum"],
-    teamSize: "5 members",
-    duration: "4 months",
-    demoLink: "#",
-  },
-  {
-    title: "Mobile Health & Fitness App",
-    description: "Cross-platform mobile app for fitness tracking with personalized workout recommendations.",
-    technologies: ["React Native", "Firebase", "Python", "Machine Learning"],
-    teamSize: "4 members",
-    duration: "3 months",
-    demoLink: "#",
-  },
-  {
-    title: "E-Commerce Platform with AR Try-On",
-    description: "Full-stack e-commerce solution with augmented reality product visualization feature.",
-    technologies: ["Next.js", "Three.js", "Stripe", "AWS"],
-    teamSize: "6 members",
-    duration: "4 months",
-    demoLink: "#",
-  },
-  {
-    title: "Data Visualization Analytics Dashboard",
-    description: "Interactive analytics dashboard with real-time data visualization and predictive analytics.",
-    technologies: ["Vue.js", "D3.js", "Python", "Apache Kafka"],
-    teamSize: "3 members",
-    duration: "2 months",
-    demoLink: "#",
-  },
-];
+// Project domains for filtering
+export const projectDomains = [
+  "All Projects",
+  "AI/ML & Data Science",
+  "Web Development",
+  "Mobile Apps",
+  "Healthcare & Biotech",
+  "Blockchain & Web3",
+  "Business Intelligence"
+] as const;
+
+export type ProjectDomain = typeof projectDomains[number];
+
+// Comprehensive project database organized by domain - 50 Real Student Projects with Corrected Video Links
+export const projects: Array<{
+  title: string;
+  description: string;
+  videoLink: string;
+  domain: Exclude<ProjectDomain, "All Projects">;
+  highlights?: string[];
+}> = [
+    // Web Development (9 projects)
+    {
+      domain: "Web Development",
+      title: "Bank Management System",
+      description: "Complete banking system with account creation, transactions, and admin monitoring.",
+      videoLink: "https://youtu.be/dVh6_vj6jAU",
+      highlights: ["Full-Stack", "Banking", "Admin Panel"]
+    },
+    {
+      domain: "Web Development",
+      title: "Hybrid AI Product Recommendation",
+      description: "Detects fake reviews and ranks products using DeBERTa semantic analysis.",
+      videoLink: "https://youtu.be/YTaXpoQ2aQE",
+      highlights: ["NLP", "DeBERTa", "Recommendation"]
+    },
+    {
+      domain: "Web Development",
+      title: "Django E-Learning LMS",
+      description: "Full-stack learning platform with Razorpay integration for course monetization.",
+      videoLink: "https://youtu.be/JCLaC_NkQ1I",
+      highlights: ["Django", "Razorpay", "E-Learning"]
+    },
+    {
+      domain: "Web Development",
+      title: "Secure Online Voting System",
+      description: "Django-based platform with email authentication and real-time results.",
+      videoLink: "https://youtu.be/4MPItu9p9ag",
+      highlights: ["Django", "Authentication", "Real-time"]
+    },
+    {
+      domain: "Web Development",
+      title: "College AI Assistant (Gemini AI)",
+      description: "NLP chatbot answering student queries about admissions and timetables.",
+      videoLink: "https://youtu.be/WXMJHRpdb78",
+      highlights: ["Gemini AI", "Chatbot", "NLP"]
+    },
+    {
+      domain: "Web Development",
+      title: "AI Plagiarism Detection System",
+      description: "Uses Cosine Similarity to detect similarity in academic research papers.",
+      videoLink: "https://youtu.be/FFJ-U-sb9Uo",
+      highlights: ["Cosine Similarity", "Academic Tools"]
+    },
+    {
+      domain: "Web Development",
+      title: "College Placement Prediction",
+      description: "Flask app using Decision Trees to predict student placement outcomes.",
+      videoLink: "https://youtu.be/r_Lg2dNKbwc",
+      highlights: ["Flask", "Decision Trees"]
+    },
+    {
+      domain: "Web Development",
+      title: "MERN Stack E-commerce Website",
+      description: "Full-stack D2C solution for a shoe brand using React and Node.js.",
+      videoLink: "https://youtu.be/1PT-lDEBBxY",
+      highlights: ["MERN", "E-commerce", "Full-Stack"]
+    },
+
+    // AI/ML & Data Science (15 projects)
+    {
+      domain: "AI/ML & Data Science",
+      title: "AI Interior Design Generator",
+      description: "Transforms room photos into photorealistic interior renders using Stable Diffusion.",
+      videoLink: "https://youtu.be/TtD6qReAA_g",
+      highlights: ["Stable Diffusion", "Computer Vision", "Deep Learning"]
+    },
+    {
+      domain: "AI/ML & Data Science",
+      title: "SMB AI Command Center",
+      description: "Integrates demand forecasting, churn prediction, and inventory management.",
+      videoLink: "https://youtu.be/jALHepMTjDg",
+      highlights: ["Predictive Analytics", "Business Intelligence"]
+    },
+    {
+      domain: "AI/ML & Data Science",
+      title: "ReviewGuard AI - Fake Review Detection",
+      description: "ML-powered fraud detection (99.6% accuracy) using Random Forest and XGBoost.",
+      videoLink: "https://youtu.be/oMij9E01xkI",
+      highlights: ["XGBoost", "99.6% Accuracy", "Random Forest"]
+    },
+    {
+      domain: "AI/ML & Data Science",
+      title: "CommentSense AI - Sentiment Analyzer",
+      description: "NLP app using LSTM to classify YouTube comments (Positive/Negative/Neutral).",
+      videoLink: "https://youtu.be/3kpMhg4Ps-c",
+      highlights: ["LSTM", "Text Classification", "NLP"]
+    },
+    {
+      domain: "AI/ML & Data Science",
+      title: "GoldVision AI - Gold Price Prediction",
+      description: "Uses 11 ML models to forecast gold prices with a 99.99% accuracy rate.",
+      videoLink: "https://youtu.be/HYNy5k5C6yI",
+      highlights: ["Time Series", "11 ML Models", "99.99% Accuracy"]
+    },
+    {
+      domain: "AI/ML & Data Science",
+      title: "TsunamiGuard AI - Warning System",
+      description: "Analyzes magnitude and location for tsunami risk using Gradient Boosting.",
+      videoLink: "https://youtu.be/XOGU6aEsQ5Y",
+      highlights: ["Gradient Boosting", "Risk Prediction"]
+    },
+    {
+      domain: "AI/ML & Data Science",
+      title: "HireSmart AI - Resume Screening",
+      description: "NLP system that extracts skills and ranks candidates using TF-IDF and spaCy.",
+      videoLink: "https://youtu.be/biVJ_ALA65Q",
+      highlights: ["TF-IDF", "spaCy", "Recruitment AI"]
+    },
+    {
+      domain: "AI/ML & Data Science",
+      title: "Smart Recruitment Automation",
+      description: "Uses 8 ML models to predict best-fit job roles with up to 99%+ accuracy.",
+      videoLink: "https://youtu.be/55_u6w-jL8o",
+      highlights: ["8 ML Models", "Job Prediction", "99%+ Accuracy"]
+    },
+    {
+      domain: "AI/ML & Data Science",
+      title: "Fake News Detection System",
+      description: "ML system utilizing TF-IDF and Random Forest on 44,000+ articles.",
+      videoLink: "https://youtu.be/LK0kU30k2G0",
+      highlights: ["TF-IDF", "Content Verification"]
+    },
+    {
+      domain: "AI/ML & Data Science",
+      title: "India Air Quality Prediction",
+      description: "Forecasts PM2.5 levels for Indian cities using Random Forest.",
+      videoLink: "https://youtu.be/64UYYVvu9DM",
+      highlights: ["Environmental ML", "Random Forest"]
+    },
+    {
+      domain: "AI/ML & Data Science",
+      title: "Advanced AI Salary Prediction",
+      description: "Predicts industry salaries with 97.47% accuracy using data science.",
+      videoLink: "https://youtu.be/QZXECbG9210",
+      highlights: ["Regression", "97.47% Accuracy"]
+    },
+    {
+      domain: "AI/ML & Data Science",
+      title: "Tata Motors Stock Price Forecasting",
+      description: "Uses 5 ML algorithms to analyze trends and predict future stock prices.",
+      videoLink: "https://youtu.be/_HLoCNJi5gg",
+      highlights: ["Stock Prediction", "Time Series Analysis"]
+    },
+    {
+      domain: "AI/ML & Data Science",
+      title: "House Price Prediction AI",
+      description: "Regression-based app for predicting real estate prices with Flask.",
+      videoLink: "https://youtu.be/f1uAMl-VgrQ",
+      highlights: ["Regression", "Flask", "Real Estate"]
+    },
+    {
+      domain: "AI/ML & Data Science",
+      title: "AI-Based News Aggregator",
+      description: "NLP-powered system for real-time news categorization and filtering.",
+      videoLink: "https://youtu.be/LK0kU30k2G0",
+      highlights: ["NLP", "Content Curation"]
+    },
+    {
+      domain: "AI/ML & Data Science",
+      title: "Crime Data Visualization",
+      description: "Analytics tool for Indian cities using heatmaps and predictive ML.",
+      videoLink: "https://youtu.be/9fCQQzH-ozM",
+      highlights: ["Data Visualization", "Heatmaps"]
+    },
+    {
+      domain: "AI/ML & Data Science",
+      title: "Flight Fare Prediction System",
+      description: "Predicts ticket prices based on routes and airlines using Random Forest.",
+      videoLink: "https://youtu.be/bFIDIhSZ080",
+      highlights: ["Random Forest", "Price Prediction"]
+    },
+
+    // Healthcare & Biotech (13 projects)
+    {
+      domain: "Healthcare & Biotech",
+      title: "Early Rheumatoid Arthritis Detection",
+      description: "Healthcare AI using 45,000 records to predict risk with 99.5%+ accuracy.",
+      videoLink: "https://youtu.be/8KEYclyr5cY",
+      highlights: ["Medical AI", "99.5%+ Accuracy", "45K Records"]
+    },
+    {
+      domain: "Healthcare & Biotech",
+      title: "DermaGuard AI - Skin Cancer Detection",
+      description: "CNN-based diagnostic system detecting 24 skin diseases from images.",
+      videoLink: "https://youtu.be/RLyWzumBp_U",
+      highlights: ["CNN", "Medical Imaging", "24 Diseases"]
+    },
+    {
+      domain: "Healthcare & Biotech",
+      title: "NetGuardX AI - Intrusion Detection",
+      description: "Cybersecurity project classifying network attacks with 99.89% accuracy.",
+      videoLink: "https://youtu.be/uCq3B19kGLI",
+      highlights: ["Cybersecurity", "99.89% Accuracy"]
+    },
+    {
+      domain: "Healthcare & Biotech",
+      title: "AirSafe Navigator - Route Optimizer",
+      description: "Calculates travel routes based on real-time pollution levels and air quality.",
+      videoLink: "https://youtu.be/PkGjydu2anY",
+      highlights: ["Environmental", "Route Optimization"]
+    },
+    {
+      domain: "Healthcare & Biotech",
+      title: "NutriMedSafe: Drug-Food Checker",
+      description: "Analyzes interactions for 1000+ medicines using the DrugBank 6.0 database.",
+      videoLink: "https://youtu.be/IN7AFemZ6as",
+      highlights: ["Healthcare", "Drug Database", "1000+ Medicines"]
+    },
+    {
+      domain: "Healthcare & Biotech",
+      title: "Emergency Response Management",
+      description: "Integrates YOLOv8 and GPS tracking for real-time emergency coordination.",
+      videoLink: "https://youtu.be/5pDz5F1JRZ0",
+      highlights: ["YOLOv8", "GPS Tracking", "Real-time"]
+    },
+    {
+      domain: "Healthcare & Biotech",
+      title: "Brain Tumor Detection System",
+      description: "Deep learning project using VGG16/ResNet50 for MRI scan analysis.",
+      videoLink: "https://youtu.be/s2Li7WiEfbk",
+      highlights: ["VGG16", "ResNet50", "Medical Imaging"]
+    },
+    {
+      domain: "Healthcare & Biotech",
+      title: "CardioPredict AI - Heart Disease",
+      description: "Analyzes 16 medical parameters for cardiovascular risk assessment.",
+      videoLink: "https://youtu.be/vXYr0I61WsM",
+      highlights: ["Medical AI", "Cardiology", "Risk Assessment"]
+    },
+    {
+      domain: "Healthcare & Biotech",
+      title: "AI Diabetes Risk Prediction",
+      description: "Flask app trained on 100K+ records for real-time risk analysis.",
+      videoLink: "https://youtu.be/TNdOGKYqaLY",
+      highlights: ["Flask", "100K+ Records", "Medical"]
+    },
+    {
+      domain: "Healthcare & Biotech",
+      title: "AI Lung Cancer Prediction",
+      description: "Compares 7 ML algorithms (XGBoost, SVM, etc.) for clinical diagnosis.",
+      videoLink: "https://youtu.be/Ewk8ZM84m4k",
+      highlights: ["7 ML Models", "Cancer Detection", "XGBoost"]
+    },
+    {
+      domain: "Healthcare & Biotech",
+      title: "Health Risk Detection System",
+      description: "Predicts patient risk by analyzing vital parameters like heart rate and BP.",
+      videoLink: "https://youtu.be/2jLmxyl1zJg",
+      highlights: ["Healthcare", "Vital Monitoring"]
+    },
+    {
+      domain: "Healthcare & Biotech",
+      title: "Smart Agriculture AI Prediction",
+      description: "Optimizes irrigation and detects crop diseases using sensor data.",
+      videoLink: "https://youtu.be/YyRg56ZHJK4",
+      highlights: ["Agriculture", "Crop Disease Detection"]
+    },
+    {
+      domain: "Healthcare & Biotech",
+      title: "Advanced EEG Epilepsy Detection",
+      description: "Hybrid Quantum-Classical AI for medical signal analysis.",
+      videoLink: "https://youtu.be/6lba_t6Hx-E",
+      highlights: ["Quantum AI", "Medical Signal Processing"]
+    },
+
+    // Mobile Apps (7 projects)
+    {
+      domain: "Mobile Apps",
+      title: "Internship & Job Tracker App",
+      description: "Flutter mobile app for organizing applications with SQLite and PDF export.",
+      videoLink: "https://youtu.be/bGAH2evlXdE",
+      highlights: ["Flutter", "SQLite", "PDF Generation"]
+    },
+    {
+      domain: "Mobile Apps",
+      title: "Campus Food Ordering System",
+      description: "Flutter app with Razorpay integration and real-time order tracking.",
+      videoLink: "https://youtu.be/zQN_Lr8fqik",
+      highlights: ["Flutter", "Razorpay", "Real-time"]
+    },
+    {
+      domain: "Mobile Apps",
+      title: "Smart Recipe Keeper",
+      description: "Local database recipe management app built with Flutter and Hive.",
+      videoLink: "https://youtu.be/VisWwu0mdQs",
+      highlights: ["Flutter", "Hive", "Local Database"]
+    },
+    {
+      domain: "Mobile Apps",
+      title: "Flutter Pocket Money Tracker",
+      description: "Finance app with animated summaries and savings goals.",
+      videoLink: "https://youtu.be/DOm5mSVYmqU",
+      highlights: ["Flutter", "Finance", "Analytics"]
+    },
+    {
+      domain: "Mobile Apps",
+      title: "Home Services Project",
+      description: "Platform for booking home maintenance and professional repair services.",
+      videoLink: "https://youtu.be/6w3F473ZBXU",
+      highlights: ["Booking System", "Service Marketplace"]
+    },
+    {
+      domain: "Mobile Apps",
+      title: "AI Vehicle Speed Detection",
+      description: "Real-time traffic monitoring and license plate recognition system.",
+      videoLink: "https://youtu.be/WR1XwiUVjxc",
+      highlights: ["Computer Vision", "Real-time", "Traffic"]
+    },
+    {
+      domain: "Mobile Apps",
+      title: "E-commerce Churn Prediction",
+      description: "XGBoost-based web app predicting real-time customer retention risks.",
+      videoLink: "https://youtu.be/jALHepMTjDg",
+      highlights: ["XGBoost", "Customer Analytics"]
+    },
+
+    // Blockchain & Web3 (5 projects)
+    {
+      domain: "Blockchain & Web3",
+      title: "Blockchain Analytics Framework",
+      description: "Flask-based middleware for verifying Ethereum transactions and recipient identity.",
+      videoLink: "https://youtu.be/UNUlxghvuuE",
+      highlights: ["Ethereum", "Smart Contracts", "Transaction Verification"]
+    },
+    {
+      domain: "Blockchain & Web3",
+      title: "AI-Powered UPI Fraud Shield",
+      description: "Real-time fraud detection for UPI transactions with 99%+ accuracy.",
+      videoLink: "https://youtu.be/pEVuOjBPcHg",
+      highlights: ["Payment Security", "99%+ Accuracy", "Real-time"]
+    },
+    {
+      domain: "Blockchain & Web3",
+      title: "Fake Document & Image Detection",
+      description: "CNN-based system to identify forged documents and AI-generated images.",
+      videoLink: "https://youtu.be/xfyNj9TA64g",
+      highlights: ["CNN", "Authenticity", "Forgery Detection"]
+    },
+    {
+      domain: "Blockchain & Web3",
+      title: "KeyDefender AI - Keylogger Detection",
+      description: "Detects spyware in real-time through behavioral analysis and system monitoring.",
+      videoLink: "https://youtu.be/5anYQs5bASg",
+      highlights: ["Security", "Threat Detection", "Real-time"]
+    },
+    {
+      domain: "Blockchain & Web3",
+      title: "AI Signature Verification",
+      description: "CNN-based model for live webcam signature authentication.",
+      videoLink: "https://youtu.be/biVJ_ALA65Q",
+      highlights: ["CNN", "Biometric", "Authentication"]
+    },
+  ];
