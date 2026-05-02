@@ -2,16 +2,27 @@
 
 User-agent: *
 Allow: /
+Allow: /projects
+Allow: /projects/*
+Allow: /about-us
+Allow: /work-with
+Allow: /start-project
 
 Disallow: /api/
 Disallow: /_next/
+Disallow: /.vercel/
+Disallow: /private/
 
 User-agent: Googlebot
 Allow: /
+Allow: /projects
+Allow: /projects/*
 Crawl-delay: 0
 
 User-agent: Bingbot
 Allow: /
+Allow: /projects
+Allow: /projects/*
 Crawl-delay: 0
 
 Sitemap: https://projxty.com/sitemap.xml

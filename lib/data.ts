@@ -167,6 +167,7 @@ export type ProjectDomain = typeof projectDomains[number];
 // Comprehensive project database organized by domain - 50 Real Student Projects with Corrected Video Links
 export const projects: Array<{
   title: string;
+  slug: string;
   description: string;
   videoLink: string;
   domain: Exclude<ProjectDomain, "All Projects">;
@@ -175,6 +176,7 @@ export const projects: Array<{
     // Web Development (9 projects)
     {
       domain: "Web Development",
+      slug: "bank-management-system",
       title: "Bank Management System",
       description: "Complete banking system with account creation, transactions, and admin monitoring.",
       videoLink: "https://youtu.be/dVh6_vj6jAU",
@@ -182,6 +184,7 @@ export const projects: Array<{
     },
     {
       domain: "Web Development",
+      slug: "hybrid-ai-product-recommendation",
       title: "Hybrid AI Product Recommendation",
       description: "Detects fake reviews and ranks products using DeBERTa semantic analysis.",
       videoLink: "https://youtu.be/YTaXpoQ2aQE",
@@ -189,6 +192,7 @@ export const projects: Array<{
     },
     {
       domain: "Web Development",
+      slug: "django-elearning-lms",
       title: "Django E-Learning LMS",
       description: "Full-stack learning platform with Razorpay integration for course monetization.",
       videoLink: "https://youtu.be/JCLaC_NkQ1I",
@@ -196,6 +200,7 @@ export const projects: Array<{
     },
     {
       domain: "Web Development",
+      slug: "secure-online-voting-system",
       title: "Secure Online Voting System",
       description: "Django-based platform with email authentication and real-time results.",
       videoLink: "https://youtu.be/4MPItu9p9ag",
@@ -203,6 +208,7 @@ export const projects: Array<{
     },
     {
       domain: "Web Development",
+      slug: "college-ai-assistant-gemini",
       title: "College AI Assistant (Gemini AI)",
       description: "NLP chatbot answering student queries about admissions and timetables.",
       videoLink: "https://youtu.be/WXMJHRpdb78",
@@ -210,6 +216,7 @@ export const projects: Array<{
     },
     {
       domain: "Web Development",
+      slug: "ai-plagiarism-detection-system",
       title: "AI Plagiarism Detection System",
       description: "Uses Cosine Similarity to detect similarity in academic research papers.",
       videoLink: "https://youtu.be/FFJ-U-sb9Uo",
@@ -217,6 +224,7 @@ export const projects: Array<{
     },
     {
       domain: "Web Development",
+      slug: "college-placement-prediction",
       title: "College Placement Prediction",
       description: "Flask app using Decision Trees to predict student placement outcomes.",
       videoLink: "https://youtu.be/r_Lg2dNKbwc",
@@ -224,6 +232,7 @@ export const projects: Array<{
     },
     {
       domain: "Web Development",
+      slug: "mern-stack-ecommerce-website",
       title: "MERN Stack E-commerce Website",
       description: "Full-stack D2C solution for a shoe brand using React and Node.js.",
       videoLink: "https://youtu.be/1PT-lDEBBxY",
@@ -233,6 +242,7 @@ export const projects: Array<{
     // AI/ML & Data Science (15 projects)
     {
       domain: "AI/ML & Data Science",
+      slug: "projxty-intro-solutions",
       title: "AI Interior Design Generator",
       description: "Transforms room photos into photorealistic interior renders using Stable Diffusion.",
       videoLink: "https://youtu.be/TtD6qReAA_g",
@@ -240,6 +250,7 @@ export const projects: Array<{
     },
     {
       domain: "AI/ML & Data Science",
+      slug: "ai-interior-design-generator",
       title: "SMB AI Command Center",
       description: "Integrates demand forecasting, churn prediction, and inventory management.",
       videoLink: "https://youtu.be/jALHepMTjDg",
@@ -247,6 +258,7 @@ export const projects: Array<{
     },
     {
       domain: "AI/ML & Data Science",
+      slug: "smb-ai-command-center",
       title: "ReviewGuard AI - Fake Review Detection",
       description: "ML-powered fraud detection (99.6% accuracy) using Random Forest and XGBoost.",
       videoLink: "https://youtu.be/oMij9E01xkI",
@@ -254,6 +266,7 @@ export const projects: Array<{
     },
     {
       domain: "AI/ML & Data Science",
+      slug: "reviewguard-ai-fake-review-detection",
       title: "CommentSense AI - Sentiment Analyzer",
       description: "NLP app using LSTM to classify YouTube comments (Positive/Negative/Neutral).",
       videoLink: "https://youtu.be/3kpMhg4Ps-c",
@@ -261,6 +274,7 @@ export const projects: Array<{
     },
     {
       domain: "AI/ML & Data Science",
+      slug: "commentsense-ai-sentiment-analyzer",
       title: "GoldVision AI - Gold Price Prediction",
       description: "Uses 11 ML models to forecast gold prices with a 99.99% accuracy rate.",
       videoLink: "https://youtu.be/HYNy5k5C6yI",
@@ -268,6 +282,7 @@ export const projects: Array<{
     },
     {
       domain: "AI/ML & Data Science",
+      slug: "goldvision-ai-gold-price-prediction",
       title: "TsunamiGuard AI - Warning System",
       description: "Analyzes magnitude and location for tsunami risk using Gradient Boosting.",
       videoLink: "https://youtu.be/XOGU6aEsQ5Y",
@@ -275,6 +290,7 @@ export const projects: Array<{
     },
     {
       domain: "AI/ML & Data Science",
+      slug: "tsunamiguard-ai-warning-system",
       title: "HireSmart AI - Resume Screening",
       description: "NLP system that extracts skills and ranks candidates using TF-IDF and spaCy.",
       videoLink: "https://youtu.be/biVJ_ALA65Q",
@@ -282,6 +298,7 @@ export const projects: Array<{
     },
     {
       domain: "AI/ML & Data Science",
+      slug: "hiresmart-ai-resume-screening",
       title: "Smart Recruitment Automation",
       description: "Uses 8 ML models to predict best-fit job roles with up to 99%+ accuracy.",
       videoLink: "https://youtu.be/55_u6w-jL8o",
@@ -289,6 +306,7 @@ export const projects: Array<{
     },
     {
       domain: "AI/ML & Data Science",
+      slug: "smart-recruitment-automation",
       title: "Fake News Detection System",
       description: "ML system utilizing TF-IDF and Random Forest on 44,000+ articles.",
       videoLink: "https://youtu.be/LK0kU30k2G0",
@@ -296,6 +314,7 @@ export const projects: Array<{
     },
     {
       domain: "AI/ML & Data Science",
+      slug: "fake-news-detection-system",
       title: "India Air Quality Prediction",
       description: "Forecasts PM2.5 levels for Indian cities using Random Forest.",
       videoLink: "https://youtu.be/64UYYVvu9DM",
@@ -303,6 +322,7 @@ export const projects: Array<{
     },
     {
       domain: "AI/ML & Data Science",
+      slug: "india-air-quality-prediction",
       title: "Advanced AI Salary Prediction",
       description: "Predicts industry salaries with 97.47% accuracy using data science.",
       videoLink: "https://youtu.be/QZXECbG9210",
@@ -310,6 +330,7 @@ export const projects: Array<{
     },
     {
       domain: "AI/ML & Data Science",
+      slug: "advanced-ai-salary-prediction",
       title: "Tata Motors Stock Price Forecasting",
       description: "Uses 5 ML algorithms to analyze trends and predict future stock prices.",
       videoLink: "https://youtu.be/_HLoCNJi5gg",
@@ -317,6 +338,7 @@ export const projects: Array<{
     },
     {
       domain: "AI/ML & Data Science",
+      slug: "tata-motors-stock-price-forecasting",
       title: "House Price Prediction AI",
       description: "Regression-based app for predicting real estate prices with Flask.",
       videoLink: "https://youtu.be/f1uAMl-VgrQ",
@@ -324,6 +346,7 @@ export const projects: Array<{
     },
     {
       domain: "AI/ML & Data Science",
+      slug: "house-price-prediction-ai",
       title: "AI-Based News Aggregator",
       description: "NLP-powered system for real-time news categorization and filtering.",
       videoLink: "https://youtu.be/LK0kU30k2G0",
@@ -331,6 +354,7 @@ export const projects: Array<{
     },
     {
       domain: "AI/ML & Data Science",
+      slug: "aibbased-news-aggregator",
       title: "Crime Data Visualization",
       description: "Analytics tool for Indian cities using heatmaps and predictive ML.",
       videoLink: "https://youtu.be/9fCQQzH-ozM",
@@ -338,6 +362,7 @@ export const projects: Array<{
     },
     {
       domain: "AI/ML & Data Science",
+      slug: "crime-data-visualization",
       title: "Flight Fare Prediction System",
       description: "Predicts ticket prices based on routes and airlines using Random Forest.",
       videoLink: "https://youtu.be/bFIDIhSZ080",
@@ -347,6 +372,7 @@ export const projects: Array<{
     // Healthcare & Biotech (13 projects)
     {
       domain: "Healthcare & Biotech",
+      slug: "flight-fare-prediction-system",
       title: "Early Rheumatoid Arthritis Detection",
       description: "Healthcare AI using 45,000 records to predict risk with 99.5%+ accuracy.",
       videoLink: "https://youtu.be/8KEYclyr5cY",
@@ -354,6 +380,7 @@ export const projects: Array<{
     },
     {
       domain: "Healthcare & Biotech",
+      slug: "early-rheumatoid-arthritis-detection",
       title: "DermaGuard AI - Skin Cancer Detection",
       description: "CNN-based diagnostic system detecting 24 skin diseases from images.",
       videoLink: "https://youtu.be/RLyWzumBp_U",
@@ -361,6 +388,7 @@ export const projects: Array<{
     },
     {
       domain: "Healthcare & Biotech",
+      slug: "dermaguard-ai-skin-cancer-detection",
       title: "NetGuardX AI - Intrusion Detection",
       description: "Cybersecurity project classifying network attacks with 99.89% accuracy.",
       videoLink: "https://youtu.be/uCq3B19kGLI",
@@ -368,6 +396,7 @@ export const projects: Array<{
     },
     {
       domain: "Healthcare & Biotech",
+      slug: "netguardx-ai-intrusion-detection",
       title: "AirSafe Navigator - Route Optimizer",
       description: "Calculates travel routes based on real-time pollution levels and air quality.",
       videoLink: "https://youtu.be/PkGjydu2anY",
@@ -375,6 +404,7 @@ export const projects: Array<{
     },
     {
       domain: "Healthcare & Biotech",
+      slug: "airsafe-navigator-route-optimizer",
       title: "NutriMedSafe: Drug-Food Checker",
       description: "Analyzes interactions for 1000+ medicines using the DrugBank 6.0 database.",
       videoLink: "https://youtu.be/IN7AFemZ6as",
@@ -382,6 +412,7 @@ export const projects: Array<{
     },
     {
       domain: "Healthcare & Biotech",
+      slug: "nutrimedsafe-drugfood-checker",
       title: "Emergency Response Management",
       description: "Integrates YOLOv8 and GPS tracking for real-time emergency coordination.",
       videoLink: "https://youtu.be/5pDz5F1JRZ0",
@@ -389,6 +420,7 @@ export const projects: Array<{
     },
     {
       domain: "Healthcare & Biotech",
+      slug: "emergency-response-management",
       title: "Brain Tumor Detection System",
       description: "Deep learning project using VGG16/ResNet50 for MRI scan analysis.",
       videoLink: "https://youtu.be/s2Li7WiEfbk",
@@ -396,6 +428,7 @@ export const projects: Array<{
     },
     {
       domain: "Healthcare & Biotech",
+      slug: "brain-tumor-detection-system",
       title: "CardioPredict AI - Heart Disease",
       description: "Analyzes 16 medical parameters for cardiovascular risk assessment.",
       videoLink: "https://youtu.be/vXYr0I61WsM",
@@ -403,6 +436,7 @@ export const projects: Array<{
     },
     {
       domain: "Healthcare & Biotech",
+      slug: "cardiopredict-ai-heart-disease",
       title: "AI Diabetes Risk Prediction",
       description: "Flask app trained on 100K+ records for real-time risk analysis.",
       videoLink: "https://youtu.be/TNdOGKYqaLY",
@@ -410,6 +444,7 @@ export const projects: Array<{
     },
     {
       domain: "Healthcare & Biotech",
+      slug: "ai-diabetes-risk-prediction",
       title: "AI Lung Cancer Prediction",
       description: "Compares 7 ML algorithms (XGBoost, SVM, etc.) for clinical diagnosis.",
       videoLink: "https://youtu.be/Ewk8ZM84m4k",
@@ -417,6 +452,7 @@ export const projects: Array<{
     },
     {
       domain: "Healthcare & Biotech",
+      slug: "ai-lung-cancer-prediction",
       title: "Health Risk Detection System",
       description: "Predicts patient risk by analyzing vital parameters like heart rate and BP.",
       videoLink: "https://youtu.be/2jLmxyl1zJg",
@@ -424,6 +460,7 @@ export const projects: Array<{
     },
     {
       domain: "Healthcare & Biotech",
+      slug: "health-risk-detection-system",
       title: "Smart Agriculture AI Prediction",
       description: "Optimizes irrigation and detects crop diseases using sensor data.",
       videoLink: "https://youtu.be/YyRg56ZHJK4",
@@ -431,6 +468,7 @@ export const projects: Array<{
     },
     {
       domain: "Healthcare & Biotech",
+      slug: "smart-agriculture-ai-prediction",
       title: "Advanced EEG Epilepsy Detection",
       description: "Hybrid Quantum-Classical AI for medical signal analysis.",
       videoLink: "https://youtu.be/6lba_t6Hx-E",
@@ -440,6 +478,7 @@ export const projects: Array<{
     // Mobile Apps (7 projects)
     {
       domain: "Mobile Apps",
+      slug: "advanced-eeg-epilepsy-detection",
       title: "Internship & Job Tracker App",
       description: "Flutter mobile app for organizing applications with SQLite and PDF export.",
       videoLink: "https://youtu.be/bGAH2evlXdE",
@@ -447,6 +486,7 @@ export const projects: Array<{
     },
     {
       domain: "Mobile Apps",
+      slug: "internship-job-tracker-app",
       title: "Campus Food Ordering System",
       description: "Flutter app with Razorpay integration and real-time order tracking.",
       videoLink: "https://youtu.be/zQN_Lr8fqik",
@@ -454,6 +494,7 @@ export const projects: Array<{
     },
     {
       domain: "Mobile Apps",
+      slug: "campus-food-ordering-system",
       title: "Smart Recipe Keeper",
       description: "Local database recipe management app built with Flutter and Hive.",
       videoLink: "https://youtu.be/VisWwu0mdQs",
@@ -461,6 +502,7 @@ export const projects: Array<{
     },
     {
       domain: "Mobile Apps",
+      slug: "smart-recipe-keeper",
       title: "Flutter Pocket Money Tracker",
       description: "Finance app with animated summaries and savings goals.",
       videoLink: "https://youtu.be/DOm5mSVYmqU",
@@ -468,6 +510,7 @@ export const projects: Array<{
     },
     {
       domain: "Mobile Apps",
+      slug: "flutter-pocket-money-tracker",
       title: "Home Services Project",
       description: "Platform for booking home maintenance and professional repair services.",
       videoLink: "https://youtu.be/6w3F473ZBXU",
@@ -475,6 +518,7 @@ export const projects: Array<{
     },
     {
       domain: "Mobile Apps",
+      slug: "home-services-project",
       title: "AI Vehicle Speed Detection",
       description: "Real-time traffic monitoring and license plate recognition system.",
       videoLink: "https://youtu.be/WR1XwiUVjxc",
@@ -482,6 +526,7 @@ export const projects: Array<{
     },
     {
       domain: "Mobile Apps",
+      slug: "ai-vehicle-speed-detection",
       title: "E-commerce Churn Prediction",
       description: "XGBoost-based web app predicting real-time customer retention risks.",
       videoLink: "https://youtu.be/jALHepMTjDg",
@@ -491,6 +536,7 @@ export const projects: Array<{
     // Blockchain & Web3 (5 projects)
     {
       domain: "Blockchain & Web3",
+      slug: "ecommerce-churn-prediction",
       title: "Blockchain Analytics Framework",
       description: "Flask-based middleware for verifying Ethereum transactions and recipient identity.",
       videoLink: "https://youtu.be/UNUlxghvuuE",
@@ -498,6 +544,7 @@ export const projects: Array<{
     },
     {
       domain: "Blockchain & Web3",
+      slug: "blockchain-analytics-framework",
       title: "AI-Powered UPI Fraud Shield",
       description: "Real-time fraud detection for UPI transactions with 99%+ accuracy.",
       videoLink: "https://youtu.be/pEVuOjBPcHg",
@@ -505,6 +552,7 @@ export const projects: Array<{
     },
     {
       domain: "Blockchain & Web3",
+      slug: "aipowered-upi-fraud-shield",
       title: "Fake Document & Image Detection",
       description: "CNN-based system to identify forged documents and AI-generated images.",
       videoLink: "https://youtu.be/xfyNj9TA64g",
@@ -512,6 +560,7 @@ export const projects: Array<{
     },
     {
       domain: "Blockchain & Web3",
+      slug: "fake-document-image-detection",
       title: "KeyDefender AI - Keylogger Detection",
       description: "Detects spyware in real-time through behavioral analysis and system monitoring.",
       videoLink: "https://youtu.be/5anYQs5bASg",
@@ -519,6 +568,7 @@ export const projects: Array<{
     },
     {
       domain: "Blockchain & Web3",
+      slug: "keydefender-ai-keylogger-detection",
       title: "AI Signature Verification",
       description: "CNN-based model for live webcam signature authentication.",
       videoLink: "https://youtu.be/biVJ_ALA65Q",
