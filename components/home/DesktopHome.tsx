@@ -372,7 +372,7 @@ export default function DesktopHome() {
                                 <h2 className="font-monument text-xl sm:text-2xl lg:text-3xl font-bold text-foreground mb-1 sm:mb-2">
                                     Founded by
                                     <br />
-                                    <span className={gradientText}>Sunhith Reddy</span>
+                                    <span className={gradientText}>Naveen Pujari</span>
                                 </h2>
                                 <p className="text-xs sm:text-xs text-foreground/60 uppercase tracking-widest">Founder & CEO</p>
                             </div>
