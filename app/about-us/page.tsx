@@ -72,7 +72,7 @@ export default function AboutUsPage() {
           </p>
 
           <p className="text-lg md:text-xl">
-            Founded by <span className="font-semibold">Sunhith Reddy</span>, Projxty was created to build digital
+            Founded by <span className="font-semibold">Naveen Pujari</span>, Projxty was created to build digital
             experiences that stand out. We combine creativity with clean, powerful code — turning concepts into sleek,
             high-performing websites and brand platforms.
           </p>
